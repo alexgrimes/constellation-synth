@@ -78,10 +78,10 @@ class App extends React.Component {
           <br></br>
           <Row>
             <Col>
-              <div><h3 className="text">LFO</h3></div>
+              {/* <div><h3 className="text">LFO</h3></div>
               <div className="row" ><LFOonButton/></div>
               <div className="row"><h2>Wave</h2></div>
-              <div className="row"><WaveformOSC3 /></div>
+              <div className="row"><WaveformOSC3 /></div> */}
               <br></br>
               <br></br>
               <div ></div>
@@ -89,7 +89,7 @@ class App extends React.Component {
             <Col><XYPad 
                 className="canvas 1" 
                 color="black" 
-                width="500" height="500"
+                width="700" height="700"
                 /></Col>
             <Col></Col>
           </Row>

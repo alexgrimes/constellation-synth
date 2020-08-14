@@ -31,11 +31,15 @@ class SynthEngine extends React.Component {
   	if (this.props.isSynthPlaying) {
 		if (!this.state.isStarted){
 		this.osc = new OscillatorNode(this.state.context);
+		// this.convolver = this.state.context.createConvolver;
 		// this.lfo = new OscillatorNode(this.state.context);
 		var oscGain = this.state.context.createGain();
+		// let convolverGain = this.state.context.createGain();
 		// var lfoGain = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
+
 		this.osc.connect(oscGain);
+		// this.convolver.connect(convolverGain)
 		// this.lfo.connect(lfoGain);
 		// lfoGain.connect(oscGain.gain);
 		oscGain.connect(masterGain);

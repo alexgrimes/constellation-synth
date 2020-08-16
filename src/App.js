@@ -2,6 +2,7 @@ import React from 'react';
 import PlaySynthButton from './components/PlaySynthButton';
 import WaveformLFO from './components/WaveformOSC2';
 import WaveformOSC from './components/WaveformOSC';
+
 import XYPad from './components/XYPad';
 import EffectsBoard from './components/EffectsBoard'
 import SynthEngine from './components/SynthEngine';
@@ -89,7 +90,7 @@ class App extends React.Component {
             <Col><XYPad 
                 className="canvas 1" 
                 color="black" 
-                width="700" height="700"
+                width="1000" height="700"
                 /></Col>
             <Col></Col>
           </Row>

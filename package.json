@@ -23,7 +23,9 @@
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5",
-    "tunajs": "^1.0.11"
+    "tone": "^14.7.39",
+    "tunajs": "^1.0.11",
+    "yarn": "^1.22.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,5 +47,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {},
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexgrimes/synth-builder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "http://localhost:3000/"
+  },
+  "homepage": "http://localhost:3000/"
 }

@@ -54,7 +54,7 @@ class OSC4 extends React.Component {
 		this.overdrive = new tuna.Overdrive(this.state.context);
 		// this.overdrive2 = new tuna.Overdrive(this.state.context);
 		// this.underdrive = new tuna.Overdrive(this.state.context);
-
+		this.wah = new tuna.WahWah(this.state.context)
 
 		//
 		var input = this.state.context.createGain();
@@ -65,35 +65,34 @@ class OSC4 extends React.Component {
 
 		// oscOutput.connect(this.osc)
 	
-		this.lfo.connect(output);
-		output.connect(this.osc.frequency)
-		this.osc.connect(output);
+		// this.lfo.connect(output);
+		// output.connect(this.osc.frequency)
+		// this.osc.connect(output);
 
 		this.osc.connect(this.chorus)
 		this.chorus.connect(this.filter)
 		// input.connect(this.filter);
-		this.filter.connect(this.tremolo);
+		this.filter.connect(this.filter2);
 		// input.connect(this.filter2);
+		this.filter2.connect(this.tremolo);
 		
-		this.tremolo.connect(this.bitcrusher);
+		this.tremolo.connect(this.reverb);
 
-		this.bitcrusher.connect(this.moogFilter);
+		// this.bitcrusher.connect(this.moogFilter);
 	
-		this.moogFilter.connect(this.moogFilter2);
+		// this.moogFilter.connect(this.moogFilter2);
 	
-		this.moogFilter2.connect(this.reverb);
+		// this.moogFilter2.connect(this.reverb);
 
-		this.reverb.connect(this.cabinet);
-	
-		this.cabinet.connect(this.panner);
+		this.reverb.connect(this.wah);
+
+		this.wah.connect(this.panner);
 
 		this.panner.connect(this.phaser);
 
 		this.phaser.connect(this.overdrive);
 
-		this.overdrive.connect(this.filter2);
-	
-		this.filter2.connect(output);
+		this.overdrive.connect(output)
 
 		output.connect(output.gain);
 		output.connect(masterGain);

@@ -51,7 +51,8 @@ class OSC2 extends React.Component {
 		this.phaser = new tuna.Phaser(this.state.context);
 		this.chorus = new tuna.Chorus(this.state.context);
 		this.overdrive = new tuna.Overdrive(this.state.context);
-		this.overdrive2 = new tuna.Overdrive(this.state.context);
+		this.compressor = new tuna.Compressor(this.state.context);
+		this.wah = new tuna.WahWah(this.state.context)
 		
 
 
@@ -63,33 +64,34 @@ class OSC2 extends React.Component {
 		//connecting
 
 		// oscOutput.connect(this.osc)
-	  this.osc.connect(output);
-		this.lfo.connect(output);
-		output.connect(this.osc.frequency)
-		this.osc.connect(output);
+	  // this.osc.connect(output);
+		// this.lfo.connect(output);
+		// output.connect(this.osc.frequency)
+		// this.osc.connect(output);
 
-		this.osc.connect(this.chorus)
-		this.chorus.connect(this.filter)
-		// input.connect(this.filter);
-		this.filter.connect(this.filter2);
-		// input.connect(this.filter2);
-		this.filter2.connect(this.tremolo);
+		this.osc.connect(this.filter)
+		// this.chorus.connect(this.filter)
+		// // input.connect(this.filter);
+		this.filter.connect(this.tremolo);
+		// // input.connect(this.filter2);
+		// this.filter2.connect(this.tremolo);
 		
-		this.tremolo.connect(this.bitcrusher);
+		// this.tremolo.connect(this.bitcrusher);
 
-		this.bitcrusher.connect(this.moogFilter);
+		this.tremolo.connect(this.chorus);
 	
-		this.moogFilter.connect(this.moogFilter2);
+		// this.moogFilter.connect(this.overdrive);
 	
-		this.moogFilter2.connect(this.reverb);
 
-		this.reverb.connect(this.cabinet);
-	
-		this.cabinet.connect(this.panner);
+		this.chorus.connect(this.reverb);
 
+		this.reverb.connect(this.panner);
+	
 		this.panner.connect(this.phaser);
 
-		this.phaser.connect(this.overdrive);
+		this.phaser.connect(this.wah);
+
+		this.wah.connect(this.overdrive)
 
 		this.overdrive.connect(output);
 	
@@ -149,6 +151,7 @@ class OSC2 extends React.Component {
 }
 
 function mapStateToProps(state){
+	
   return{
     isOSC2On: state.isOSC2On,
     osc2Freq: state.osc2Freq,

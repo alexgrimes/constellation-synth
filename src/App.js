@@ -4,11 +4,9 @@ import WaveformLFO from './components/WaveformOSC2';
 import WaveformOSC from './components/WaveformOSC';
 
 import XYPad from './components/XYPad';
-import EffectsBoard from './components/EffectsBoard'
 import SynthEngine from './components/SynthEngine';
 import './index.css';
 import store from "./components/store";
-import DelayOnButton from "./components/DelayOnButton"
 import LFOonButton from './components/LFOonButton'
 import OSC2onButton from './components/OSC2onButton'
 import OSC3onButton from './components/OSC3onButton'
@@ -86,7 +84,7 @@ class App extends React.Component {
               <br></br>
               <br></br>
               <div ></div>
-              <EffectsBoard /></Col>
+              </Col>
             <Col><XYPad 
                 className="canvas 1" 
                 color="black" 

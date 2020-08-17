@@ -56,7 +56,6 @@ class OSC3 extends React.Component {
 
 
 		//
-		var input = this.state.context.createGain();
 		var output = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
 
@@ -64,9 +63,9 @@ class OSC3 extends React.Component {
 
 		// oscOutput.connect(this.osc)
 	
-		this.lfo.connect(output);
-		output.connect(this.osc.frequency)
-		this.osc.connect(output);
+		// this.lfo.connect(output);
+		// output.connect(this.osc.frequency)
+		// this.osc.connect(output);
 
 		this.osc.connect(this.chorus)
 		this.chorus.connect(this.filter)
@@ -75,34 +74,28 @@ class OSC3 extends React.Component {
 		// input.connect(this.filter2);
 		this.filter2.connect(this.tremolo);
 		
-		this.tremolo.connect(this.bitcrusher);
+		this.tremolo.connect(this.reverb);
 
-		this.bitcrusher.connect(this.moogFilter);
+		// this.bitcrusher.connect(this.moogFilter);
 	
-		this.moogFilter.connect(this.moogFilter2);
+		// this.moogFilter.connect(this.moogFilter2);
 	
-		this.moogFilter2.connect(this.reverb);
+		// this.moogFilter2.connect(this.reverb);
 
-		this.reverb.connect(this.cabinet);
-	
-		this.cabinet.connect(this.panner);
+		this.reverb.connect(this.panner);
 
 		this.panner.connect(this.phaser);
 
-		this.phaser.connect(this.chorus);
+		this.phaser.connect(this.overdrive);
 
-		this.chorus.connect(this.overdrive);
-
-		this.overdrive.connect(this.underdrive);
-	
-		this.underdrive.connect(output);
+		this.overdrive.connect(output);
 	
 		
 
 		output.connect(output.gain);
 		output.connect(masterGain);
 
-		masterGain.gain.value = this.props.masterGainValue;
+				masterGain.gain.value = this.props.masterGainValue;
         masterGain.connect(this.state.context.destination)
         this.osc.start(0);
         this.state.isStarted = true;

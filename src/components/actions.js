@@ -577,12 +577,12 @@ export function changeOSC1filter2Depth(value){
   }  
 };
 
-export function changeOSC1filter2Rate(value){
-  return {	
-    type: 'CHANGE_OSC1FILTER2_RATE',
-    rate: value
-  }  
-};
+// export function changeOSC1filter2Rate(value){
+//   return {	
+//     type: 'CHANGE_OSC1FILTER2_RATE',
+//     rate: value
+//   }  
+// };
 
 
 
@@ -599,12 +599,12 @@ export function changeOSC2filter2Depth(value){
   }  
 };
 
-export function changeOSC2filter2Rate(value){
-  return {	
-    type: 'CHANGE_OSC2FILTER2_RATE',
-    rate: value
-  }  
-};
+// export function changeOSC2filter2Rate(value){
+//   return {	
+//     type: 'CHANGE_OSC2FILTER2_RATE',
+//     rate: value
+//   }  
+// };
 
 
 
@@ -621,12 +621,12 @@ export function changeOSC3filter2Depth(value){
   }  
 };
 
-export function changeOSC3filter2Rate(value){
-  return {	
-    type: 'CHANGE_OSC3FILTER2_RATE',
-    rate: value
-  }  
-};
+// export function changeOSC3filter2Rate(value){
+//   return {	
+//     type: 'CHANGE_OSC3FILTER2_RATE',
+//     rate: value
+//   }  
+// };
 
 
 export function toggleOSC4filter2Bypass(){
@@ -642,12 +642,12 @@ export function changeOSC4filter2Depth(value){
   }  
 };
 
-export function changeOSC4filter2Rate(value){
-  return {	
-    type: 'CHANGE_OSC4FILTER2_RATE',
-    rate: value
-  }  
-};
+// export function changeOSC4filter2Rate(value){
+//   return {	
+//     type: 'CHANGE_OSC4FILTER2_RATE',
+//     rate: value
+//   }  
+// };
 
 ///////TREMOLO/////////
 

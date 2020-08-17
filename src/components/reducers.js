@@ -283,19 +283,19 @@ const initialState = {
   osc4filterDepth: 0.5,
 
   osc1filter2Bypass: true,
-  osc1filter2Rate: 4,
+  // osc1filter2Rate: 4,
   osc1filter2Depth: 0.5,
 
   osc2filter2Bypass: true,
-  osc2filter2Rate: 4,
+  // osc2filter2Rate: 4,
   osc2filter2Depth: 0.5,
 
   osc3filter2Bypass: true,
-  osc3filter2Rate: 4,
+  // osc3filter2Rate: 4,
   osc3filter2Depth: 0.5,
 
   osc4filter2Bypass: true,
-  osc4filter2Rate: 4,
+  // osc4filter2Rate: 4,
   osc4filter2Depth: 0.5,
 
   osc1tremoloBypass: true,
@@ -672,10 +672,10 @@ function rootReducer(state = initialState, action){
   	  return Object.assign({}, state, {
         osc1filter2Bypass: !state.osc1filter2Bypass
       })
-    case CHANGE_OSC1FILTER2_RATE:
-      return Object.assign({}, state, {
-        osc1filter2Rate: action.rate
-      }) 
+    // case CHANGE_OSC1FILTER2_RATE:
+    //   return Object.assign({}, state, {
+    //     osc1filter2Rate: action.rate
+    //   }) 
     case CHANGE_OSC1FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc1filter2Depth: action.depth
@@ -686,10 +686,10 @@ function rootReducer(state = initialState, action){
   	  return Object.assign({}, state, {
         osc2filter2Bypass: !state.osc2filter2Bypass
       })
-    case CHANGE_OSC2FILTER2_RATE:
-      return Object.assign({}, state, {
-        osc2filter2Rate: action.rate
-      }) 
+    // case CHANGE_OSC2FILTER2_RATE:
+    //   return Object.assign({}, state, {
+    //     osc2filter2Rate: action.rate
+    //   }) 
     case CHANGE_OSC2FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc2filter2Depth: action.depth
@@ -701,10 +701,10 @@ function rootReducer(state = initialState, action){
   	  return Object.assign({}, state, {
         osc3filter2Bypass: !state.osc3filter2Bypass
       })
-    case CHANGE_OSC3FILTER2_RATE:
-      return Object.assign({}, state, {
-        osc3filter2Rate: action.rate
-      }) 
+    // case CHANGE_OSC3FILTER2_RATE:
+    //   return Object.assign({}, state, {
+    //     osc3filter2Rate: action.rate
+    //   }) 
     case CHANGE_OSC3FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc3filter2Depth: action.depth
@@ -716,10 +716,10 @@ function rootReducer(state = initialState, action){
   	  return Object.assign({}, state, {
         osc4filter2Bypass: !state.osc4filter2Bypass
       })
-    case CHANGE_OSC4FILTER2_RATE:
-      return Object.assign({}, state, {
-        osc4filter2Rate: action.rate
-      }) 
+    // case CHANGE_OSC4FILTER2_RATE:
+    //   return Object.assign({}, state, {
+    //     osc4filter2Rate: action.rate
+    //   }) 
     case CHANGE_OSC4FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc4filter2Depth: action.depth

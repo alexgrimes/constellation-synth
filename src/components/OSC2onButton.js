@@ -12,15 +12,13 @@ class OSC2onButton extends React.Component {
   }
 
   handleClick() {
-    console.log(this.props)
+   
     this.props.turnOnOSC2(this.props.isOSC2On)
-    console.log(this.props.isOSC2On)
   }
 
   render() {
-    console.log(this.props.isOSC2On)
   	return(
-  		<button class="customButton" onClick={this.handleClick}>
+  		<button class="customButton2" onClick={this.handleClick}>
   		  {this.props.isOSC2On ? 'ON' : 'OFF'}
   		</button>
   		);

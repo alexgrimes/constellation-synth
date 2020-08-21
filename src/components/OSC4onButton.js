@@ -17,7 +17,7 @@ class OSC4onButton extends React.Component {
 
   render() {
   	return(
-  		<button class="customButton" onClick={this.handleClick}>
+  		<button class="customButton4" onClick={this.handleClick}>
   		  {this.props.isOSC4On ? 'ON' : 'OFF'}
   		</button>
   		);

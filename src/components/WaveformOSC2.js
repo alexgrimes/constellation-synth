@@ -34,8 +34,8 @@ class WaveformOSC2 extends React.Component {
 
   render() {
     return (
-      <div className='btn-group'>
-        <button size="sm" onClick ={() => this.showMenu()} class="dropdownButton">
+      <div>
+        <button onClick ={() => this.showMenu()} class="dropdownButton">
           <img src={require('./images/'+this.props.osc2Type+'.png')} />
         </button>
 

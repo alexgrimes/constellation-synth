@@ -7,7 +7,7 @@ class OSC2 extends React.Component {
   constructor(props) {
   	super(props);
     this.state = {
-      context: [],
+      context: {},
       isStarted: false,
     };
   }
@@ -28,7 +28,7 @@ class OSC2 extends React.Component {
   }
 
   turnOnOSC2() {
-    console.log(this.props, this.state, this.state.context.destination)
+   
   	if (this.props.isOSC2On) {
 		if (!this.state.isStarted){
 
@@ -39,63 +39,39 @@ class OSC2 extends React.Component {
 		this.osc = new OscillatorNode(this.state.context);
 		this.chorus = new tuna.Chorus(this.state.context)
 		this.lfo = new OscillatorNode(this.state.context);
+		
 		this.filter = new tuna.Filter(this.state.context);
 		this.filter2 = new tuna.Filter(this.state.context);
 		this.tremolo = new tuna.Tremolo(this.state.context);
-		this.bitcrusher = new tuna.Bitcrusher(this.state.context);
-		this.moogFilter = new tuna.MoogFilter(this.state.context);
-		this.moogFilter2 = new tuna.MoogFilter(this.state.context);
 		this.reverb = new tuna.Convolver(this.state.context);
 		this.cabinet = new tuna.Cabinet(this.state.context);
 		this.panner = new tuna.Panner(this.state.context);
 		this.phaser = new tuna.Phaser(this.state.context);
-		this.chorus = new tuna.Chorus(this.state.context);
 		this.overdrive = new tuna.Overdrive(this.state.context);
-		this.compressor = new tuna.Compressor(this.state.context);
 		this.wah = new tuna.WahWah(this.state.context)
+		this.delay = new tuna.PingPongDelay(this.state.context)
 		
 
 
 		//
-		var input = this.state.context.createGain();
+
 		var output = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
 		
 		//connecting
 
-		// oscOutput.connect(this.osc)
-	  // this.osc.connect(output);
-		// this.lfo.connect(output);
-		// output.connect(this.osc.frequency)
-		// this.osc.connect(output);
-
 		this.osc.connect(this.filter)
-		// this.chorus.connect(this.filter)
-		// // input.connect(this.filter);
 		this.filter.connect(this.tremolo);
-		// // input.connect(this.filter2);
-		// this.filter2.connect(this.tremolo);
-		
-		// this.tremolo.connect(this.bitcrusher);
-
 		this.tremolo.connect(this.chorus);
-	
-		// this.moogFilter.connect(this.overdrive);
-	
-
 		this.chorus.connect(this.reverb);
-
 		this.reverb.connect(this.panner);
-	
-		this.panner.connect(this.phaser);
-
+		this.panner.connect(this.filter2);
+		this.filter2.connect(this.phaser)
 		this.phaser.connect(this.wah);
+		this.wah.connect(this.delay)
+		this.delay.connect(this.overdrive)
+		this.overdrive.connect(output)
 
-		this.wah.connect(this.overdrive)
-
-		this.overdrive.connect(output);
-	
-		
 		output.connect(output.gain);
 		output.connect(masterGain);
 
@@ -105,8 +81,9 @@ class OSC2 extends React.Component {
         this.osc.start(0);
         // this.lfo.start(0);
         this.state.isStarted = true;
+				this.setState({context: this.state.context})
       }
-      console.log(this.state.context, this.osc.frequency)
+      
     }
     else {
       if(typeof this.osc !== "undefined") {
@@ -120,14 +97,14 @@ class OSC2 extends React.Component {
   }
 
   OSC2TypeChanged(typeName) {
-    console.log(this.state.isStarted)
+   
 	if (typeof this.osc !== "undefined") {
 	  this.osc.type = typeName;
 	}
   }
 
   OSC2FrequencyChanged(value) {
-    console.log(value, this.state.context.currentTime, this.osc)
+   
     if (typeof this.osc !== "undefined") {
 	  this.osc.frequency.setValueAtTime(value, this.state.context.currentTime);
   }
@@ -135,30 +112,34 @@ class OSC2 extends React.Component {
   
 
   render() {
-    console.log(this.state.isStarted)
+    
   	if(typeof this.osc !== "undefined") {
   		this.osc.onended = function() {
-  			console.log("hey")
+  			
   		}
   	}
-    console.log(this.props.osc2Freq, this.osc)
     this.turnOnOSC2(this.props.isOSC2On);
     this.OSC2TypeChanged(this.props.osc2Type);
     this.OSC2FrequencyChanged(this.props.osc2Freq);
 
-    return (null)
+    return (
+		<div>
+			<h5>frequency: {this.props.osc2Freq}</h5>
+		</div>
+		)
   }
 }
 
 function mapStateToProps(state){
-	
+		
   return{
     isOSC2On: state.isOSC2On,
     osc2Freq: state.osc2Freq,
     osc2Type: state.osc2Type,
-
+		context: state.context,
     masterGainValue: state.masterGainValue,
   }
+	
 }
 
 export default connect(mapStateToProps)(OSC2);

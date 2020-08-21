@@ -48,107 +48,39 @@ export const CHANGE_OSC4CHORUS_RATE = 'CHANGE_OSC4CHORUS_DEPTH';
 
 export const TOGGLE_OSC1FILTER_BYPASS = 'TOGGLE_OSC1FILTER_BYPASS';
 export const CHANGE_OSC1FILTER_DEPTH = 'CHANGE_OSC1FILTER_DEPTH';
-export const CHANGE_OSC1FILTER_RATE = 'CHANGE_OSC1FILTER_DEPTH';
 
 export const TOGGLE_OSC2FILTER_BYPASS = 'TOGGLE_OSC2FILTER_BYPASS';
 export const CHANGE_OSC2FILTER_DEPTH = 'CHANGE_OSC2FILTER_DEPTH';
-export const CHANGE_OSC2FILTER_RATE = 'CHANGE_OSC2FILTER_DEPTH';
 
 export const TOGGLE_OSC3FILTER_BYPASS = 'TOGGLE_OSC3FILTER_BYPASS';
 export const CHANGE_OSC3FILTER_DEPTH = 'CHANGE_OSC3FILTER_DEPTH';
-export const CHANGE_OSC3FILTER_RATE = 'CHANGE_OSC3FILTER_DEPTH';
 
 export const TOGGLE_OSC4FILTER_BYPASS = 'TOGGLE_OSC4FILTER_BYPASS';
 export const CHANGE_OSC4FILTER_DEPTH = 'CHANGE_OSC4FILTER_DEPTH';
-export const CHANGE_OSC4FILTER_RATE = 'CHANGE_OSC4FILTER_DEPTH';
 
 export const TOGGLE_OSC1FILTER2_BYPASS = 'TOGGLE_OSC1FILTER2_BYPASS';
 export const CHANGE_OSC1FILTER2_DEPTH = 'CHANGE_OSC1FILTER2_DEPTH';
-export const CHANGE_OSC1FILTER2_RATE = 'CHANGE_OSC1FILTER2_DEPTH';
 
 export const TOGGLE_OSC2FILTER2_BYPASS = 'TOGGLE_OSC2FILTER2_BYPASS';
 export const CHANGE_OSC2FILTER2_DEPTH = 'CHANGE_OSC2FILTER2_DEPTH';
-export const CHANGE_OSC2FILTER2_RATE = 'CHANGE_OSC2FILTER2_DEPTH';
 
 export const TOGGLE_OSC3FILTER2_BYPASS = 'TOGGLE_OSC3FILTER2_BYPASS';
 export const CHANGE_OSC3FILTER2_DEPTH = 'CHANGE_OSC3FILTER2_DEPTH';
-export const CHANGE_OSC3FILTER2_RATE = 'CHANGE_OSC3FILTER2_DEPTH';
 
 export const TOGGLE_OSC4FILTER2_BYPASS = 'TOGGLE_OSC4FILTER2_BYPASS';
 export const CHANGE_OSC4FILTER2_DEPTH = 'CHANGE_OSC4FILTER2_DEPTH';
-export const CHANGE_OSC4FILTER2_RATE = 'CHANGE_OSC4FILTER2_DEPTH';
 
-export const TOGGLE_OSC1TREMOLO_BYPASS = 'TOGGLE_OSC1TREMOLO_BYPASS';
-export const CHANGE_OSC1TREMOLO_INTENSITY = 'CHANGE_OSC1TREMOLO_RATE';
+export const TOGGLE_OSC1TREMOLO_BYPASS = 'TOGGLE_OSC1TREMOLO_BYPASS'
 export const CHANGE_OSC1TREMOLO_RATE = 'CHANGE_OSC1TREMOLO_DEPTH';
 
 export const TOGGLE_OSC2TREMOLO_BYPASS = 'TOGGLE_OSC2TREMOLO_BYPASS';
-export const CHANGE_OSC2TREMOLO_INTENSITY = 'CHANGE_OSC2TREMOLO_RATE';
 export const CHANGE_OSC2TREMOLO_RATE = 'CHANGE_OSC2TREMOLO_DEPTH';
 
 export const TOGGLE_OSC3TREMOLO_BYPASS = 'TOGGLE_OSC3TREMOLO_BYPASS';
-export const CHANGE_OSC3TREMOLO_INTENSITY = 'CHANGE_OSC3TREMOLO_RATE';
 export const CHANGE_OSC3TREMOLO_RATE = 'CHANGE_OSC3TREMOLO_DEPTH';
 
 export const TOGGLE_OSC4TREMOLO_BYPASS = 'TOGGLE_OSC4TREMOLO_BYPASS';
-export const CHANGE_OSC4TREMOLO_INTENSITY = 'CHANGE_OSC4TREMOLO_RATE';
 export const CHANGE_OSC4TREMOLO_RATE = 'CHANGE_OSC4TREMOLO_DEPTH';
-
-export const TOGGLE_OSC1BITCRUSHER_BYPASS = 'TOGGLE_OSC1BITCRUSHER_BYPASS';
-export const CHANGE_OSC1BITCRUSHER_BITS = 'CHANGE_OSC1BITCRUSHER_BITS';
-export const CHANGE_OSC1BITCRUSHER_BUFFERSIZE = 'CHANGE_OSC1BITCRUSHER_BUFFERSIZE';
-
-export const TOGGLE_OSC2BITCRUSHER_BYPASS = 'TOGGLE_OSC2BITCRUSHER_BYPASS';
-export const CHANGE_OSC2BITCRUSHER_BITS = 'CHANGE_OSC2BITCRUSHER_BITS';
-export const CHANGE_OSC2BITCRUSHER_BUFFERSIZE = 'CHANGE_OSC2BITCRUSHER_BUFFERSIZE';
-
-export const TOGGLE_OSC3BITCRUSHER_BYPASS = 'TOGGLE_OSC3BITCRUSHER_BYPASS';
-export const CHANGE_OSC3BITCRUSHER_BITS = 'CHANGE_OSC3BITCRUSHER_BITS';
-export const CHANGE_OSC3BITCRUSHER_BUFFERSIZE = 'CHANGE_OSC3BITCRUSHER_BUFFERSIZE';
-
-export const TOGGLE_OSC4BITCRUSHER_BYPASS = 'TOGGLE_OSC4BITCRUSHER_BYPASS';
-export const CHANGE_OSC4BITCRUSHER_BITS = 'CHANGE_OSC4BITCRUSHER_BITS';
-export const CHANGE_OSC4BITCRUSHER_BUFFERSIZE = 'CHANGE_OSC4BITCRUSHER_BUFFERSIZE';
-
-export const TOGGLE_OSC1MOOGFILTER_BYPASS = 'TOGGLE_OSC1MOOGFILTER_BYPASS';
-export const CHANGE_OSC1MOOGFILTER_BUFFERSIZE = 'CHANGE_OSC1MOOGFILTER_BUFFERSIZE';
-export const CHANGE_OSC1MOOGFILTER_CUTOFF = 'CHANGE_OSC1MOOGFILTER_CUTOFF';
-export const CHANGE_OSC1MOOGFILTER_RESONANCE = 'CHANGE_OSC1MOOGFILTER_RESONANCE';
-
-export const TOGGLE_OSC2MOOGFILTER_BYPASS = 'TOGGLE_OSC2MOOGFILTER_BYPASS';
-export const CHANGE_OSC2MOOGFILTER_BUFFERSIZE = 'CHANGE_OSC2MOOGFILTER_BUFFERSIZE';
-export const CHANGE_OSC2MOOGFILTER_CUTOFF = 'CHANGE_OSC2MOOGFILTER_CUTOFF';
-export const CHANGE_OSC2MOOGFILTER_RESONANCE = 'CHANGE_OSC2MOOGFILTER_RESONANCE';
-
-export const TOGGLE_OSC3MOOGFILTER_BYPASS = 'TOGGLE_OSC3MOOGFILTER_BYPASS';
-export const CHANGE_OSC3MOOGFILTER_BUFFERSIZE = 'CHANGE_OSC3MOOGFILTER_BUFFERSIZE';
-export const CHANGE_OSC3MOOGFILTER_CUTOFF = 'CHANGE_OSC3MOOGFILTER_CUTOFF';
-export const CHANGE_OSC3MOOGFILTER_RESONANCE = 'CHANGE_OSC3MOOGFILTER_RESONANCE';
-
-export const TOGGLE_OSC4MOOGFILTER_BYPASS = 'TOGGLE_OSC4MOOGFILTER_BYPASS';
-export const CHANGE_OSC4MOOGFILTER_BUFFERSIZE = 'CHANGE_OSC4MOOGFILTER_BUFFERSIZE';
-export const CHANGE_OSC4MOOGFILTER_CUTOFF = 'CHANGE_OSC4MOOGFILTER_CUTOFF';
-export const CHANGE_OSC4MOOGFILTER_RESONANCE = 'CHANGE_OSC4MOOGFILTER_RESONANCE';
-
-export const TOGGLE_OSC1MOOGFILTER2_BYPASS = 'TOGGLE_OSC1MOOGFILTER2_BYPASS';
-export const CHANGE_OSC1MOOGFILTER2_BUFFERSIZE = 'CHANGE_OSC1MOOGFILTER2_BUFFERSIZE';
-export const CHANGE_OSC1MOOGFILTER2_CUTOFF = 'CHANGE_OSC1MOOGFILTER2_CUTOFF';
-export const CHANGE_OSC1MOOGFILTER2_RESONANCE = 'CHANGE_OSC1MOOGFILTER2_RESONANCE';
-
-export const TOGGLE_OSC2MOOGFILTER2_BYPASS = 'TOGGLE_OSC2MOOGFILTER2_BYPASS';
-export const CHANGE_OSC2MOOGFILTER2_BUFFERSIZE = 'CHANGE_OSC2MOOGFILTER2_BUFFERSIZE';
-export const CHANGE_OSC2MOOGFILTER2_CUTOFF = 'CHANGE_OSC2MOOGFILTER2_CUTOFF';
-export const CHANGE_OSC2MOOGFILTER2_RESONANCE = 'CHANGE_OSC2MOOGFILTER2_RESONANCE';
-
-export const TOGGLE_OSC3MOOGFILTER2_BYPASS = 'TOGGLE_OSC3MOOGFILTER2_BYPASS';
-export const CHANGE_OSC3MOOGFILTER2_BUFFERSIZE = 'CHANGE_OSC3MOOGFILTER2_BUFFERSIZE';
-export const CHANGE_OSC3MOOGFILTER2_CUTOFF = 'CHANGE_OSC3MOOGFILTER2_CUTOFF';
-export const CHANGE_OSC3MOOGFILTER2_RESONANCE = 'CHANGE_OSC3MOOGFILTER2_RESONANCE';
-
-export const TOGGLE_OSC4MOOGFILTER2_BYPASS = 'TOGGLE_OSC4MOOGFILTER2_BYPASS';
-export const CHANGE_OSC4MOOGFILTER2_BUFFERSIZE = 'CHANGE_OSC4MOOGFILTER2_BUFFERSIZE';
-export const CHANGE_OSC4MOOGFILTER2_CUTOFF = 'CHANGE_OSC4MOOGFILTER2_CUTOFF';
-export const CHANGE_OSC4MOOGFILTER2_RESONANCE = 'CHANGE_OSC4MOOGFILTER2_RESONANCE';
 
 export const TOGGLE_OSC1REVERB_BYPASS = 'TOGGLE_OSC1REVERB_BYPASS';
 export const CHANGE_OSC1REVERB_LEVEL = 'CHANGE_OSC1REVERB_LEVEL';
@@ -225,7 +157,7 @@ export function changeOSCType(wave){
 };
 
 export function changeOSCFreq(value){
-  console.log(value)
+  
   return {	  
     type: 'CHANGE_OSC_FREQ',
     freq: value
@@ -246,7 +178,7 @@ export function changeOSC2Type(wave){
 };
 
 export function changeOSC2Freq(value){
-  console.log(value)
+  
   return {	
     type: 'CHANGE_OSC2_FREQ',
     freq: value
@@ -267,7 +199,7 @@ export function changeOSC3Type(wave){
 };
 
 export function changeOSC3Freq(value){
-  console.log(value)
+  
   return {	
     type: 'CHANGE_OSC3_FREQ',
     freq: value
@@ -288,7 +220,7 @@ export function changeOSC4Type(wave){
 };
 
 export function changeOSC4Freq(value){
-  console.log(value)
+  
   return {	
     type: 'CHANGE_OSC4_FREQ',
     freq: value
@@ -298,7 +230,7 @@ export function changeOSC4Freq(value){
 
 
 export function turnOnLFO(){
-  console.log('lfo on action')
+ 
   return {	
     type: 'TURN_ON_LFO'
   }  
@@ -312,7 +244,7 @@ export function changeLFOType(wave){
 };
 
 export function changeLFOFreq(value){
-  console.log(value)
+  
   return {	
     type: 'CHANGE_LFO_FREQ',
     freq: value
@@ -321,7 +253,7 @@ export function changeLFOFreq(value){
 
 
 export function turnOnLFO2(){
-  console.log('lfo2 on action')
+  
   return {	
     type: 'TURN_ON_LFO2'
   }  
@@ -335,7 +267,7 @@ export function changeLFO2Type(wave){
 };
 
 export function changeLFO2Freq(value){
-  console.log(value)
+  
   return {	
     type: 'CHANGE_LFO2_FREQ',
     freq: value
@@ -344,7 +276,7 @@ export function changeLFO2Freq(value){
 
 
 export function turnOnLFO3(){
-  console.log('LFO3 on action')
+  
   return {	
     type: 'TURN_ON_LFO3'
   }  
@@ -358,7 +290,7 @@ export function changeLFO3Type(wave){
 };
 
 export function changeLFO3Freq(value){
-  console.log(value)
+  
   return {	
     type: 'CHANGE_LFO3_FREQ',
     freq: value
@@ -368,7 +300,7 @@ export function changeLFO3Freq(value){
 
 
 export function turnOnLFO4(){
-  console.log('LFO4 on action')
+  
   return {	
     type: 'TURN_ON_LFO4'
   }  
@@ -382,7 +314,7 @@ export function changeLFO4Type(wave){
 };
 
 export function changeLFO4Freq(value){
-  console.log(value)
+  
   return {	
     type: 'CHANGE_LFO4_FREQ',
     freq: value
@@ -489,13 +421,6 @@ export function changeOSC1filterDepth(value){
   }  
 };
 
-export function changeOSC1filterRate(value){
-  return {	
-    type: 'CHANGE_OSC1FILTER_RATE',
-    rate: value
-  }  
-};
-
 export function toggleOSC2filterBypass(){
   return {	
     type: 'TOGGLE_OSC2FILTER_BYPASS'
@@ -509,15 +434,6 @@ export function changeOSC2filterDepth(value){
   }  
 };
 
-export function changeOSC2filterRate(value){
-  return {	
-    type: 'CHANGE_OSC2FILTER_RATE',
-    rate: value
-  }  
-};
-
-
-
 export function toggleOSC3filterBypass(){
   return {	
     type: 'TOGGLE_OSC3FILTER_BYPASS'
@@ -528,13 +444,6 @@ export function changeOSC3filterDepth(value){
   return {	
     type: 'CHANGE_OSC3FILTER_DEPTH',
     depth: value
-  }  
-};
-
-export function changeOSC3filterRate(value){
-  return {	
-    type: 'CHANGE_OSC3FILTER_RATE',
-    rate: value
   }  
 };
 
@@ -550,13 +459,6 @@ export function changeOSC4filterDepth(value){
   return {	
     type: 'CHANGE_OSC4FILTER_DEPTH',
     depth: value
-  }  
-};
-
-export function changeOSC4filterRate(value){
-  return {	
-    type: 'CHANGE_OSC4FILTER_RATE',
-    rate: value
   }  
 };
 
@@ -577,15 +479,6 @@ export function changeOSC1filter2Depth(value){
   }  
 };
 
-// export function changeOSC1filter2Rate(value){
-//   return {	
-//     type: 'CHANGE_OSC1FILTER2_RATE',
-//     rate: value
-//   }  
-// };
-
-
-
 export function toggleOSC2filter2Bypass(){
   return {	
     type: 'TOGGLE_OSC2FILTER2_BYPASS'
@@ -599,15 +492,6 @@ export function changeOSC2filter2Depth(value){
   }  
 };
 
-// export function changeOSC2filter2Rate(value){
-//   return {	
-//     type: 'CHANGE_OSC2FILTER2_RATE',
-//     rate: value
-//   }  
-// };
-
-
-
 export function toggleOSC3filter2Bypass(){
   return {	
     type: 'TOGGLE_OSC3FILTER2_BYPASS'
@@ -620,13 +504,6 @@ export function changeOSC3filter2Depth(value){
     depth: value
   }  
 };
-
-// export function changeOSC3filter2Rate(value){
-//   return {	
-//     type: 'CHANGE_OSC3FILTER2_RATE',
-//     rate: value
-//   }  
-// };
 
 
 export function toggleOSC4filter2Bypass(){
@@ -642,25 +519,11 @@ export function changeOSC4filter2Depth(value){
   }  
 };
 
-// export function changeOSC4filter2Rate(value){
-//   return {	
-//     type: 'CHANGE_OSC4FILTER2_RATE',
-//     rate: value
-//   }  
-// };
-
 ///////TREMOLO/////////
 
 export function toggleOSC1tremoloBypass(){
   return {	
     type: 'TOGGLE_OSC1TREMOLO_BYPASS'
-  }  
-};
-
-export function changeOSC1tremoloIntensity(value){
-  return {	
-    type: 'CHANGE_OSC1TREMOLO_INTENSITY',
-    intensity: value
   }  
 };
 
@@ -679,12 +542,6 @@ export function toggleOSC2tremoloBypass(){
   }  
 };
 
-export function changeOSC2tremoloIntensity(value){
-  return {	
-    type: 'CHANGE_OSC2TREMOLO_INTENSITY',
-    intensity: value
-  }  
-};
 
 export function changeOSC2tremoloRate(value){
   return {	
@@ -702,13 +559,6 @@ export function toggleOSC3tremoloBypass(){
   }  
 };
 
-export function changeOSC3tremoloIntensity(value){
-  return {	
-    type: 'CHANGE_OSC3TREMOLO_INTENSITY',
-    intensity: value
-  }  
-};
-
 export function changeOSC3tremoloRate(value){
   return {	
     type: 'CHANGE_OSC3TREMOLO_RATE',
@@ -723,350 +573,12 @@ export function toggleOSC4tremoloBypass(){
   }  
 };
 
-export function changeOSC4tremoloIntensity(value){
-  return {	
-    type: 'CHANGE_OSC4TREMOLO_INTENSITY',
-    intensity: value
-  }  
-};
-
 export function changeOSC4tremoloRate(value){
   return {	
     type: 'CHANGE_OSC4TREMOLO_RATE',
     rate: value
   }  
 };
-
-
-
-////////////BITCRUSHER/////////
-
-
-export function toggleOSC1bitcrusherBypass(){
-  return {	
-    type: 'TOGGLE_OSC1BITCRUSHER_BYPASS'
-  }  
-};
-
-export function changeOSC1bitcrusherBits(value){
-  return {	
-    type: 'CHANGE_OSC1BITCRUSHER_BITS',
-    bits: value
-  }  
-};
-
-export function changeOSC1bitcrusherBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC1BITCRUSHER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function toggleOSC2bitcrusherBypass(){
-  return {	
-    type: 'TOGGLE_OSC2BITCRUSHER_BYPASS'
-  }  
-};
-
-export function changeOSC2bitcrusherBits(value){
-  return {	
-    type: 'CHANGE_OSC2BITCRUSHER_BITS',
-    bits: value
-  }  
-};
-
-export function changeOSC2bitcrusherBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC2BITCRUSHER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function toggleOSC3bitcrusherBypass(){
-  return {	
-    type: 'TOGGLE_OSC3BITCRUSHER_BYPASS'
-  }  
-};
-
-export function changeOSC3bitcrusherBits(value){
-  return {	
-    type: 'CHANGE_OSC3BITCRUSHER_BITS',
-    bits: value
-  }  
-};
-
-export function changeOSC3bitcrusherBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC3BITCRUSHER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-
-export function toggleOSC4bitcrusherBypass(){
-  return {	
-    type: 'TOGGLE_OSC4BITCRUSHER_BYPASS'
-  }  
-};
-
-export function changeOSC4bitcrusherBits(value){
-  return {	
-    type: 'CHANGE_OSC4BITCRUSHER_BITS',
-    bits: value
-  }  
-};
-
-export function changeOSC4bitcrusherBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC4BITCRUSHER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-//////////////MOOGFILTER////////
-
-export function toggleOSC1moogFilterBypass(){
-  return {	
-    type: 'TOGGLE_OSC1MOOGFILTER_BYPASS'
-  }  
-};
-
-export function changeOSC1moogFilterCutoff(value){
-  return {	
-    type: 'CHANGE_OSC1MOOGFILTER_CUTOFF',
-    cutoff: value
-  }  
-};
-
-export function changeOSC1moogFilterBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC1MOOGFILTER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC1moogFilterResonance(value){
-  return {	
-    type: 'CHANGE_OSC1MOOGFILTER_RESONANCE',
-    resonance: value
-  }  
-};
-
-
-export function toggleOSC2moogFilterBypass(){
-  return {	
-    type: 'OSC2MOOGFILTER_BYPASS'
-  }  
-};
-
-export function changeOSC2moogFilterCutoff(value){
-  return {	
-    type: 'CHANGE_OSC2MOOGFILTER_CUTOFF ',
-    cutoff: value
-  }  
-};
-
-export function changeOSC2moogFilterBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC2MOOGFILTER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC2moogFilterResonance(value){
-  return {	
-    type: 'CHANGE_OSC2MOOGFILTER_RESONANCE',
-    resonance: value
-  }  
-};
-
-
-export function toggleOSC3moogFilterBypass(){
-  return {	
-    type: 'TOGGLE_OSC3MOOGFILTER_BYPASS'
-  }  
-};
-
-export function changeOSC3moogFilterCutoff(value){
-  return {	
-    type: 'CHANGE_OSC3MOOGFILTER_CUTOFF',
-    cutoff: value
-  }  
-};
-
-export function changeOSC3moogFilterBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC3MOOGFILTER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC3moogFilterResonance(value){
-  return {	
-    type: 'CHANGE_OSC3MOOGFILTER_RESONANCE',
-    resonance: value
-  }  
-};
-
-
-
-export function toggleOSC4moogFilterBypass(){
-  return {	
-    type: 'TOGGLE_OSC4MOOGFILTER_BYPASS'
-  }  
-};
-
-export function changeOSC4moogFilterCutoff(value){
-  return {	
-    type: 'CHANGE_OSC4MOOGFILTER_CUTOFF',
-    cutoff: value
-  }  
-};
-
-export function changeOSC4moogFilterBufferSize(value){
-  return {	
-    type: 'CHANGE_OSC4MOOGFILTER_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC4moogFilterResonance(value){
-  return {	
-    type: 'CHANGE_OSC4MOOGFILTER_RESONANCE',
-    resonance: value
-  }  
-};
-
-
-
-
-//////////////MOOGFILTER2////////
-
-export function toggleOSC1moogFilter2Bypass(){
-  return {	
-    type: 'TOGGLE_OSC1MOOGFILTER2_BYPASS'
-  }  
-};
-
-export function changeOSC1moogFilter2Cutoff(value){
-  return {	
-    type: 'CHANGE_OSC1MOOGFILTER2_CUTOFF',
-    cutoff: value
-  }  
-};
-
-export function changeOSC1moogFilter2BufferSize(value){
-  return {	
-    type: 'CHANGE_OSC1MOOGFILTER2_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC1moogFilter2Resonance(value){
-  return {	
-    type: 'CHANGE_OSC1MOOGFILTER2_RESONANCE',
-    resonance: value
-  }  
-};
-
-
-export function toggleOSC2moogFilter2Bypass(){
-  return {	
-    type: 'OSC2MOOGFILTER2_BYPASS'
-  }  
-};
-
-export function changeOSC2moogFilter2Cutoff(value){
-  return {	
-    type: 'CHANGE_OSC2MOOGFILTER2_CUTOFF ',
-    cutoff: value
-  }  
-};
-
-export function changeOSC2moogFilter2BufferSize(value){
-  return {	
-    type: 'CHANGE_OSC2MOOGFILTER2_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC2moogFilter2Resonance(value){
-  return {	
-    type: 'CHANGE_OSC2MOOGFILTER2_RESONANCE',
-    resonance: value
-  }  
-};
-
-
-export function toggleOSC3moogFilter2Bypass(){
-  return {	
-    type: 'TOGGLE_OSC3MOOGFILTER2_BYPASS'
-  }  
-};
-
-export function changeOSC3moogFilter2Cutoff(value){
-  return {	
-    type: 'CHANGE_OSC3MOOGFILTER2_CUTOFF',
-    cutoff: value
-  }  
-};
-
-export function changeOSC3moogFilter2BufferSize(value){
-  return {	
-    type: 'CHANGE_OSC3MOOGFILTER2_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC3moogFilter2Resonance(value){
-  return {	
-    type: 'CHANGE_OSC3MOOGFILTER2_RESONANCE',
-    resonance: value
-  }  
-};
-
-
-
-export function toggleOSC4moogFilter2Bypass(){
-  return {	
-    type: 'TOGGLE_OSC4MOOGFILTER2_BYPASS'
-  }  
-};
-
-export function changeOSC4moogFilter2Cutoff(value){
-  return {	
-    type: 'CHANGE_OSC4MOOGFILTER2_CUTOFF',
-    cutoff: value
-  }  
-};
-
-export function changeOSC4moogFilter2BufferSize(value){
-  return {	
-    type: 'CHANGE_OSC4MOOGFILTER2_BUFFERSIZE',
-    buffersize: value
-  }  
-};
-
-
-export function changeOSC4moogFilter2Resonance(value){
-  return {	
-    type: 'CHANGE_OSC4MOOGFILTER2_RESONANCE',
-    resonance: value
-  }  
-};
-
-
 
 /////////////REVERB////////
 

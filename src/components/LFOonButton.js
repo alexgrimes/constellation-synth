@@ -12,13 +12,13 @@ class LFOonButton extends React.Component {
   }
 
   handleClick() {
-    console.log(this.props.isLFOOn)
+    
     this.props.turnOnLFO(this.props.isLFOOn)
-    console.log(this.props.isLFOOn)
+    
   }
 
   render() {
-    console.log(this.props.isLFOOn)
+    
   	return(
   		<button class="customButton" onClick={this.handleClick}>
   		  {this.props.isLFOOn ? 'ON' : 'OFF'}

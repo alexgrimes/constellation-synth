@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changeOSCType } from './actions';
-import '../index.css';
+// import '../index.css';
 
 class WaveformOSC extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class WaveformOSC extends React.Component {
     this.waveformClicked = this.waveformClicked.bind(this);
     this.state = {
       dropdownOpen: false,
-      isStarted: false
+      // isStarted: false
     };
   }
 
@@ -33,7 +33,6 @@ class WaveformOSC extends React.Component {
   }
 
   render() {
-    console.log("props", this.props)
     return (
       <div>
         <button onClick ={() => this.showMenu()} className="dropdownButton">
@@ -44,7 +43,7 @@ class WaveformOSC extends React.Component {
           this.state.dropdownOpen
             ? (
               <div className="menu" id="onTop">
-                <div><button onClick={() => this.waveformClicked('sine')} class="dropdownButtonItem" size="sm"><img src={require('./images/sine.png')} /></button>
+                <div><button onClick={() => this.waveformClicked('sine')} class="dropdownButtonItem" ><img src={require('./images/sine.png')} /></button>
                 <button onClick={() => this.waveformClicked('square')} class="dropdownButtonItem"><img src={require('./images/square.png')} /></button></div>
                 <div><button onClick={() => this.waveformClicked('triangle')} class="dropdownButtonItem"><img src={require('./images/triangle.png')} /></button>
                 <button onClick={() => this.waveformClicked('sawtooth')} class="dropdownButtonItem"><img src={require('./images/sawtooth.png')} /></button></div>
@@ -54,6 +53,7 @@ class WaveformOSC extends React.Component {
               null
             )
         }
+      
 
       </div>
     );

@@ -36,7 +36,7 @@ class LFO extends React.Component {
         masterGain.connect(this.state.context.destination)
         this.lfo.start(0);
         this.state.isStarted = true;
-        console.log(this.state, this.props)
+       
       }
     }
     else {
@@ -46,32 +46,31 @@ class LFO extends React.Component {
           this.state.isStarted = false;
         }
       }
-      console.log(this.state.isStarted)
+      
     }
   }
 
   LFOTypeChanged(typeName) {
-    console.log(this.state.isStarted)
+    
 	if (typeof this.lfo !== "undefined") {
 	  this.lfo.type = typeName;
 	}
   }
 
   LFOFrequencyChanged(value) {
-    console.log(value, this.state.context.currentTime, this.lfo)
+    
     if (typeof this.lfo !== "undefined") {
 	  this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
     }
   }
 
   render() {
-    console.log(this.state.isStarted)
+    
   	if(typeof this.lfo !== "undefined") {
   		this.lfo.onended = function() {
-  			console.log("hey")
   		}
   	}
-    console.log(this.state.isStarted, this.props.isLFOOn)
+    
     this.turnOnLFO(this.props.isLFOOn);
     this.LFOTypeChanged(this.props.lfoType);
     this.LFOFrequencyChanged(this.props.lfoFreq);
@@ -80,7 +79,7 @@ class LFO extends React.Component {
   }
 }
 function mapStateToProps(state){
-  console.log(state)
+  
   return{
     isLFOOn: state.isLFOOn,
     lfoFreq: state.lfoFreq,

@@ -1,4 +1,5 @@
 import { 
+
   PLAY_SYNTH, 
   CHANGE_OSC_TYPE,
   CHANGE_OSC_FREQ, 
@@ -51,107 +52,39 @@ import {
 
   TOGGLE_OSC1FILTER_BYPASS,
   CHANGE_OSC1FILTER_DEPTH,
-  CHANGE_OSC1FILTER_RATE,
 
   TOGGLE_OSC2FILTER_BYPASS,
   CHANGE_OSC2FILTER_DEPTH,
-  CHANGE_OSC2FILTER_RATE,
 
   TOGGLE_OSC3FILTER_BYPASS,
   CHANGE_OSC3FILTER_DEPTH,
-  CHANGE_OSC3FILTER_RATE,
 
   TOGGLE_OSC4FILTER_BYPASS,
   CHANGE_OSC4FILTER_DEPTH,
-  CHANGE_OSC4FILTER_RATE,
 
   TOGGLE_OSC1FILTER2_BYPASS,
   CHANGE_OSC1FILTER2_DEPTH,
-  CHANGE_OSC1FILTER2_RATE,
 
   TOGGLE_OSC2FILTER2_BYPASS,
   CHANGE_OSC2FILTER2_DEPTH,
-  CHANGE_OSC2FILTER2_RATE,
 
   TOGGLE_OSC3FILTER2_BYPASS,
   CHANGE_OSC3FILTER2_DEPTH,
-  CHANGE_OSC3FILTER2_RATE,
 
   TOGGLE_OSC4FILTER2_BYPASS,
   CHANGE_OSC4FILTER2_DEPTH,
-  CHANGE_OSC4FILTER2_RATE,
 
   TOGGLE_OSC1TREMOLO_BYPASS,
-  CHANGE_OSC1TREMOLO_INTENSITY,
   CHANGE_OSC1TREMOLO_RATE,
 
   TOGGLE_OSC2TREMOLO_BYPASS,
-  CHANGE_OSC2TREMOLO_INTENSITY,
   CHANGE_OSC2TREMOLO_RATE,
 
   TOGGLE_OSC3TREMOLO_BYPASS,
-  CHANGE_OSC3TREMOLO_INTENSITY,
   CHANGE_OSC3TREMOLO_RATE,
 
   TOGGLE_OSC4TREMOLO_BYPASS,
-  CHANGE_OSC4TREMOLO_INTENSITY,
   CHANGE_OSC4TREMOLO_RATE,
-
-  TOGGLE_OSC1BITCRUSHER_BYPASS,
-  CHANGE_OSC1BITCRUSHER_BITS,
-  CHANGE_OSC1BITCRUSHER_BUFFERSIZE,
-
-  TOGGLE_OSC2BITCRUSHER_BYPASS,
-  CHANGE_OSC2BITCRUSHER_BITS,
-  CHANGE_OSC2BITCRUSHER_BUFFERSIZE,
-
-  TOGGLE_OSC3BITCRUSHER_BYPASS,
-  CHANGE_OSC3BITCRUSHER_BITS,
-  CHANGE_OSC3BITCRUSHER_BUFFERSIZE,
-
-  TOGGLE_OSC4BITCRUSHER_BYPASS,
-  CHANGE_OSC4BITCRUSHER_BITS,
-  CHANGE_OSC4BITCRUSHER_BUFFERSIZE,
-
-  TOGGLE_OSC1MOOGFILTER_BYPASS,
-  CHANGE_OSC1MOOGFILTER_BUFFERSIZE,
-  CHANGE_OSC1MOOGFILTER_CUTOFF,
-  CHANGE_OSC1MOOGFILTER_RESONANCE,
-
-  TOGGLE_OSC2MOOGFILTER_BYPASS,
-  CHANGE_OSC2MOOGFILTER_BUFFERSIZE,
-  CHANGE_OSC2MOOGFILTER_CUTOFF,
-  CHANGE_OSC2MOOGFILTER_RESONANCE,
-
-  TOGGLE_OSC3MOOGFILTER_BYPASS,
-  CHANGE_OSC3MOOGFILTER_BUFFERSIZE,
-  CHANGE_OSC3MOOGFILTER_CUTOFF,
-  CHANGE_OSC3MOOGFILTER_RESONANCE,
-
-  TOGGLE_OSC4MOOGFILTER_BYPASS,
-  CHANGE_OSC4MOOGFILTER_BUFFERSIZE,
-  CHANGE_OSC4MOOGFILTER_CUTOFF,
-  CHANGE_OSC4MOOGFILTER_RESONANCE,
-
-  TOGGLE_OSC1MOOGFILTER2_BYPASS,
-  CHANGE_OSC1MOOGFILTER2_BUFFERSIZE,
-  CHANGE_OSC1MOOGFILTER2_CUTOFF,
-  CHANGE_OSC1MOOGFILTER2_RESONANCE,
-
-  TOGGLE_OSC2MOOGFILTER2_BYPASS,
-  CHANGE_OSC2MOOGFILTER2_BUFFERSIZE,
-  CHANGE_OSC2MOOGFILTER2_CUTOFF,
-  CHANGE_OSC2MOOGFILTER2_RESONANCE,
-
-  TOGGLE_OSC3MOOGFILTER2_BYPASS,
-  CHANGE_OSC3MOOGFILTER2_BUFFERSIZE,
-  CHANGE_OSC3MOOGFILTER2_CUTOFF,
-  CHANGE_OSC3MOOGFILTER2_RESONANCE,
-
-  TOGGLE_OSC4MOOGFILTER2_BYPASS,
-  CHANGE_OSC4MOOGFILTER2_BUFFERSIZE,
-  CHANGE_OSC4MOOGFILTER2_CUTOFF,
-  CHANGE_OSC4MOOGFILTER2_RESONANCE,
 
   TOGGLE_OSC1REVERB_BYPASS,
   CHANGE_OSC1REVERB_LEVEL,
@@ -299,7 +232,6 @@ const initialState = {
   osc4filter2Depth: 0.5,
 
   osc1tremoloBypass: true,
-  osc1tremoloIntensity: 0.5,
   osc1tremoloRate: 1,
 
   osc2tremoloBypass: true,
@@ -313,62 +245,6 @@ const initialState = {
   osc4tremoloBypass: true,
   osc4tremoloIntensity: 0.5,
   osc4tremoloRate: 1,
-
-  osc1bitcrusherBypass: true,
-  osc1bitcrusherBits: 8,
-  osc1bitcrusherBufferSize: 256,
-
-  osc2bitcrusherBypass: true,
-  osc2bitcrusherBits: 8,
-  osc2bitcrusherBufferSize: 256,
-
-  osc3bitcrusherBypass: true,
-  osc3bitcrusherBits: 8,
-  osc3bitcrusherBufferSize: 256,
-
-  osc4bitcrusherBypass: true,
-  osc4bitcrusherBits: 8,
-  osc4bitcrusherBufferSize: 5000,
-
-  osc1moogFilterBypass: true,
-  osc1moogFilterBufferSize: 5000,
-  osc1moogFilterCutoff: 0.5,
-  osc1moogFilterResonance: 2,
-
-  osc2moogFilterBypass: true,
-  osc2moogFilterBufferSize: 5000,
-  osc2moogFilterCutoff: 0.5,
-  osc2moogFilterResonance: 2,
-
-  osc3moogFilterBypass: true,
-  osc3moogFilterBufferSize: 5000,
-  osc3moogFilterCutoff: 0.5,
-  osc3moogFilterResonance: 2,
-
-  osc4moogFilterBypass: true,
-  osc4moogFilterBufferSize: 5000,
-  osc4moogFilterCutoff: 0.5,
-  osc4moogFilterResonance: 2,
-
-  osc1moogFilter2Bypass: true,
-  osc1moogFilter2BufferSize: 5000,
-  osc1moogFilter2Cutoff: 0.5,
-  osc1moogFilter2Resonance: 2,
-
-  osc2moogFilter2Bypass: true,
-  osc2moogFilter2BufferSize: 5000,
-  osc2moogFilter2Cutoff: 0.5,
-  osc2moogFilter2Resonance: 2,
-
-  osc3moogFilter2Bypass: true,
-  osc3moogFilter2BufferSize: 5000,
-  osc3moogFilter2Cutoff: 0.5,
-  osc3moogFilter2Resonance: 2,
-
-  osc4moogFilter2Bypass: true,
-  osc4moogFilter2BufferSize: 5000,
-  osc4moogFilter2Cutoff: 0.5,
-  osc4moogFilter2Resonance: 2,
 
   osc1reverbBypass: true,
   osc1reverbLevel: 0.5,
@@ -435,6 +311,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action){
   switch(action.type){
+
   	case PLAY_SYNTH:
   	  return Object.assign({}, state, {
         isSynthPlaying: !state.isSynthPlaying
@@ -453,18 +330,18 @@ function rootReducer(state = initialState, action){
         osc2Freq: action.freq
       })        
     case CHANGE_OSC_FREQ:
-      console.log(state, action.freq)
+      
       return Object.assign({}, state, {
         oscFreq: action.freq
       })  
     case TURN_ON_OSC2:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         isOSC2On: !state.isOSC2On
       })
 
     case TURN_ON_OSC3:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         isOSC3On: !state.isOSC3On
       })
@@ -478,7 +355,7 @@ function rootReducer(state = initialState, action){
       })
 
     case TURN_ON_OSC4:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         isOSC4On: !state.isOSC4On
       })
@@ -492,7 +369,7 @@ function rootReducer(state = initialState, action){
       })
 
     case TURN_ON_LFO:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         isLFOOn: !state.isLFOOn
       })
@@ -506,7 +383,7 @@ function rootReducer(state = initialState, action){
       })
 
     case TURN_ON_LFO2:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         isLFO2On: !state.isLFO2On
       })
@@ -520,7 +397,7 @@ function rootReducer(state = initialState, action){
       })
 
     case TURN_ON_LFO3:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         isLFO3On: !state.isLFO3On
       })
@@ -534,7 +411,7 @@ function rootReducer(state = initialState, action){
       })
 
     case TURN_ON_LFO4:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         isLFO4On: !state.isLFO4On
       })
@@ -548,7 +425,7 @@ function rootReducer(state = initialState, action){
       })
 
     case TOGGLE_OSC1CHORUS_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1chorusBypass: !state.osc1chorusBypass
       })
@@ -563,7 +440,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC2CHORUS_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2chorusBypass: !state.osc2chorusBypass
       })
@@ -578,7 +455,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC3CHORUS_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc3chorusBypass: !state.osc3chorusBypass
       })
@@ -593,7 +470,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC4CHORUS_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc4chorusBypass: !state.osc4chorusBypass
       })
@@ -608,14 +485,10 @@ function rootReducer(state = initialState, action){
 
     
     case TOGGLE_OSC1FILTER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1filterBypass: !state.osc1filterBypass
       })
-    case CHANGE_OSC1FILTER_RATE:
-      return Object.assign({}, state, {
-        osc1filterRate: action.rate
-      }) 
     case CHANGE_OSC1FILTER_DEPTH:
       return Object.assign({}, state, {
         osc1filterDepth: action.depth
@@ -623,14 +496,10 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC2FILTER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2filterBypass: !state.osc2filterBypass
       })
-    case CHANGE_OSC2FILTER_RATE:
-      return Object.assign({}, state, {
-        osc2filterRate: action.rate
-      }) 
     case CHANGE_OSC2FILTER_DEPTH:
       return Object.assign({}, state, {
         osc2filterDepth: action.depth
@@ -638,14 +507,9 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC3FILTER_BYPASS:
-      console.log(state)
   	  return Object.assign({}, state, {
         osc3filterBypass: !state.osc3filterBypass
       })
-    case CHANGE_OSC3FILTER_RATE:
-      return Object.assign({}, state, {
-        osc3filterRate: action.rate
-      }) 
     case CHANGE_OSC3FILTER_DEPTH:
       return Object.assign({}, state, {
         osc3filterDepth: action.depth
@@ -653,14 +517,9 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC4FILTER_BYPASS:
-      console.log(state)
   	  return Object.assign({}, state, {
         osc4filterBypass: !state.osc4filterBypass
       })
-    case CHANGE_OSC4FILTER_RATE:
-      return Object.assign({}, state, {
-        osc4filterRate: action.rate
-      }) 
     case CHANGE_OSC4FILTER_DEPTH:
       return Object.assign({}, state, {
         osc4filterDepth: action.depth
@@ -668,28 +527,20 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC1FILTER2_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1filter2Bypass: !state.osc1filter2Bypass
-      })
-    // case CHANGE_OSC1FILTER2_RATE:
-    //   return Object.assign({}, state, {
-    //     osc1filter2Rate: action.rate
-    //   }) 
+      }) 
     case CHANGE_OSC1FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc1filter2Depth: action.depth
       })
 
     case TOGGLE_OSC2FILTER2_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2filter2Bypass: !state.osc2filter2Bypass
       })
-    // case CHANGE_OSC2FILTER2_RATE:
-    //   return Object.assign({}, state, {
-    //     osc2filter2Rate: action.rate
-    //   }) 
     case CHANGE_OSC2FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc2filter2Depth: action.depth
@@ -697,14 +548,10 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC3FILTER2_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc3filter2Bypass: !state.osc3filter2Bypass
-      })
-    // case CHANGE_OSC3FILTER2_RATE:
-    //   return Object.assign({}, state, {
-    //     osc3filter2Rate: action.rate
-    //   }) 
+      }) 
     case CHANGE_OSC3FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc3filter2Depth: action.depth
@@ -712,14 +559,10 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC4FILTER2_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc4filter2Bypass: !state.osc4filter2Bypass
       })
-    // case CHANGE_OSC4FILTER2_RATE:
-    //   return Object.assign({}, state, {
-    //     osc4filter2Rate: action.rate
-    //   }) 
     case CHANGE_OSC4FILTER2_DEPTH:
       return Object.assign({}, state, {
         osc4filter2Depth: action.depth
@@ -727,14 +570,10 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC1TREMOLO_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1tremoloBypass: !state.osc1tremoloBypass
       })
-    case CHANGE_OSC1TREMOLO_INTENSITY:
-      return Object.assign({}, state, {
-        osc1tremoloIntensity: action.intensity
-      }) 
     case CHANGE_OSC1TREMOLO_RATE:
       return Object.assign({}, state, {
         osc1tremoloRate: action.rate
@@ -742,14 +581,10 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC2TREMOLO_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2tremoloBypass: !state.osc2tremoloBypass
       })
-    case CHANGE_OSC2TREMOLO_INTENSITY:
-      return Object.assign({}, state, {
-        osc2tremoloIntensity: action.intensity
-      }) 
     case CHANGE_OSC2TREMOLO_RATE:
       return Object.assign({}, state, {
         osc2tremoloRate: action.rate
@@ -757,14 +592,10 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC3TREMOLO_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc3tremoloBypass: !state.osc3tremoloBypass
       })
-    case CHANGE_OSC3TREMOLO_INTENSITY:
-      return Object.assign({}, state, {
-        osc3tremoloIntensity: action.intensity
-      }) 
     case CHANGE_OSC3TREMOLO_RATE:
       return Object.assign({}, state, {
         osc3tremoloRate: action.rate
@@ -773,236 +604,17 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC4TREMOLO_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc4tremoloBypass: !state.osc4tremoloBypass
       })
-    case CHANGE_OSC4TREMOLO_INTENSITY:
-      return Object.assign({}, state, {
-        osc4tremoloIntensity: action.intensity
-      }) 
     case CHANGE_OSC4TREMOLO_RATE:
       return Object.assign({}, state, {
         osc4tremoloRate: action.rate
       })
 
-
-
-    case TOGGLE_OSC1BITCRUSHER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc1bitcrusherBypass: !state.osc1bitcrusherBypass
-      })
-    case CHANGE_OSC1BITCRUSHER_BITS:
-      return Object.assign({}, state, {
-        osc1bitcrusherBits: action.bits
-      }) 
-    case CHANGE_OSC1BITCRUSHER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc1bitcrusherBufferSize: action.bufferSize
-      })
-      
-
-    case TOGGLE_OSC2BITCRUSHER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc2bitcrusherBypass: !state.osc2bitcrusherBypass
-      })
-    case CHANGE_OSC2BITCRUSHER_BITS:
-      return Object.assign({}, state, {
-        osc2bitcrusherBits: action.bits
-      }) 
-    case CHANGE_OSC2BITCRUSHER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc2bitcrusherBufferSize: action.bufferSize
-      })
-
-
-    case TOGGLE_OSC3BITCRUSHER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc3bitcrusherBypass: !state.osc3bitcrusherBypass
-      })
-    case CHANGE_OSC3BITCRUSHER_BITS:
-      return Object.assign({}, state, {
-        osc3bitcrusherBits: action.bits
-      }) 
-    case CHANGE_OSC3BITCRUSHER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc3bitcrusherBufferSize: action.bufferSize
-      })
-
-
-    case TOGGLE_OSC4BITCRUSHER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc4bitcrusherBypass: !state.osc4bitcrusherBypass
-      })
-    case CHANGE_OSC4BITCRUSHER_BITS:
-      return Object.assign({}, state, {
-        osc4bitcrusherBits: action.bits
-      }) 
-    case CHANGE_OSC4BITCRUSHER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc4bitcrusherBufferSize: action.bufferSize
-      })
-
-
-
-    case TOGGLE_OSC1MOOGFILTER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc1moogFilterBypass: !state.osc1moogFilterBypass
-      })
-    case CHANGE_OSC1MOOGFILTER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc1moogFilterBufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC1MOOGFILTER_CUTOFF:
-      return Object.assign({}, state, {
-        osc1moogFilterCutoff: action.cutoff
-      })
-    case CHANGE_OSC1MOOGFILTER_RESONANCE:
-      return Object.assign({}, state, {
-        osc1moogFilterResonance: action.resonance
-      })
-
-
-    case TOGGLE_OSC2MOOGFILTER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc2moogFilterBypass: !state.osc2moogFilterBypass
-      })
-    case CHANGE_OSC2MOOGFILTER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc2moogFilterBufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC2MOOGFILTER_CUTOFF:
-      return Object.assign({}, state, {
-        osc2moogFilterCutoff: action.cutoff
-      })
-    case CHANGE_OSC2MOOGFILTER_RESONANCE:
-      return Object.assign({}, state, {
-        osc1moogFilterResonance: action.resonance
-      })
-
-    case TOGGLE_OSC3MOOGFILTER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc3moogFilterBypass: !state.osc3moogFilterBypass
-      })
-    case CHANGE_OSC3MOOGFILTER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc3moogFilterBufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC3MOOGFILTER_CUTOFF:
-      return Object.assign({}, state, {
-        osc3moogFilterCutoff: action.cutoff
-      })
-    case CHANGE_OSC3MOOGFILTER_RESONANCE:
-      return Object.assign({}, state, {
-        osc3moogFilterResonance: action.resonance
-      })
-
-
-    case TOGGLE_OSC4MOOGFILTER_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc4moogFilterBypass: !state.osc4moogFilterBypass
-      })
-    case CHANGE_OSC4MOOGFILTER_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc4moogFilterBufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC4MOOGFILTER_CUTOFF:
-      return Object.assign({}, state, {
-        osc4moogFilterCutoff: action.cutoff
-      })
-    case CHANGE_OSC4MOOGFILTER_RESONANCE:
-      return Object.assign({}, state, {
-        osc4moogFilterResonance: action.resonance
-      })
-
-
-
-      case TOGGLE_OSC1MOOGFILTER2_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc1moogFilter2Bypass: !state.osc1moogFilter2Bypass
-      })
-    case CHANGE_OSC1MOOGFILTER2_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc1moogFilter2BufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC1MOOGFILTER2_CUTOFF:
-      return Object.assign({}, state, {
-        osc1moogFilter2Cutoff: action.cutoff
-      })
-    case CHANGE_OSC1MOOGFILTER2_RESONANCE:
-      return Object.assign({}, state, {
-        osc1moogFilter2Resonance: action.resonance
-      })
-
-
-    case TOGGLE_OSC2MOOGFILTER2_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc2moogFilter2Bypass: !state.osc2moogFilter2Bypass
-      })
-    case CHANGE_OSC2MOOGFILTER2_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc2moogFilter2BufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC2MOOGFILTER2_CUTOFF:
-      return Object.assign({}, state, {
-        osc2moogFilter2Cutoff: action.cutoff
-      })
-    case CHANGE_OSC2MOOGFILTER2_RESONANCE:
-      return Object.assign({}, state, {
-        osc1moogFilter2Resonance: action.resonance
-      })
-
-    case TOGGLE_OSC3MOOGFILTER2_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc3moogFilter2Bypass: !state.osc3moogFilter2Bypass
-      })
-    case CHANGE_OSC3MOOGFILTER2_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc3moogFilter2BufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC3MOOGFILTER2_CUTOFF:
-      return Object.assign({}, state, {
-        osc3moogFilter2Cutoff: action.cutoff
-      })
-    case CHANGE_OSC3MOOGFILTER2_RESONANCE:
-      return Object.assign({}, state, {
-        osc3moogFilter2Resonance: action.resonance
-      })
-
-
-    case TOGGLE_OSC4MOOGFILTER2_BYPASS:
-      console.log(state)
-  	  return Object.assign({}, state, {
-        osc4moogFilter2Bypass: !state.osc4moogFilter2Bypass
-      })
-    case CHANGE_OSC4MOOGFILTER2_BUFFERSIZE:
-      return Object.assign({}, state, {
-        osc4moogFilter2BufferSize: action.bufferSize
-      }) 
-    case CHANGE_OSC4MOOGFILTER2_CUTOFF:
-      return Object.assign({}, state, {
-        osc4moogFilter2Cutoff: action.cutoff
-      })
-    case CHANGE_OSC4MOOGFILTER2_RESONANCE:
-      return Object.assign({}, state, {
-        osc4moogFilter2Resonance: action.resonance
-      })
-
-
-
     case TOGGLE_OSC1REVERB_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1reverbBypass: !state.osc1reverbBypass
       })
@@ -1013,7 +625,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC2REVERB_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2reverbBypass: !state.osc2reverbBypass
       })
@@ -1024,7 +636,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC3REVERB_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc3reverbBypass: !state.osc3reverbBypass
       })
@@ -1035,7 +647,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC4REVERB_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc4reverbBypass: !state.osc4reverbBypass
       })
@@ -1048,7 +660,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC1PANNER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1pannerBypass: !state.osc1pannerBypass
       })
@@ -1059,7 +671,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC2PANNER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2pannerBypass: !state.osc2pannerBypass
       })
@@ -1070,7 +682,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC3PANNER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc3pannerBypass: !state.osc3pannerBypass
       })
@@ -1081,7 +693,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC4PANNER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc4pannerBypass: !state.osc4pannerBypass
       })
@@ -1093,7 +705,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC1PHASER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1phaserBypass: !state.osc1phaserBypass
       })
@@ -1114,7 +726,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC2PHASER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2phaserBypass: !state.osc2phaserBypass
       })
@@ -1135,7 +747,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC3PHASER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc3phaserBypass: !state.osc3phaserBypass
       })
@@ -1157,7 +769,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC4PHASER_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc4phaserBypass: !state.osc4phaserBypass
       })
@@ -1178,7 +790,7 @@ function rootReducer(state = initialState, action){
 
 
     case TOGGLE_OSC1OVERDRIVE_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc1overdriveBypass: !state.osc1overdriveBypass
       })
@@ -1193,7 +805,7 @@ function rootReducer(state = initialState, action){
       })
 
       case TOGGLE_OSC2OVERDRIVE_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc2overdriveBypass: !state.osc2overdriveBypass
       })
@@ -1208,7 +820,7 @@ function rootReducer(state = initialState, action){
       })
 
       case TOGGLE_OSC3OVERDRIVE_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc3overdriveBypass: !state.osc3overdriveBypass
       })
@@ -1223,7 +835,7 @@ function rootReducer(state = initialState, action){
       })
 
     case TOGGLE_OSC4OVERDRIVE_BYPASS:
-      console.log(state)
+      
   	  return Object.assign({}, state, {
         osc4overdriveBypass: !state.osc4overdriveBypass
       })

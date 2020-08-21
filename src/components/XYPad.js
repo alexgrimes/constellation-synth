@@ -15,29 +15,12 @@ import {
 
   toggleOSC1filterBypass,
   changeOSC1filterDepth,
-  // changeOSC1filterRate,
 
   toggleOSC1filter2Bypass,
   changeOSC1filter2Depth,
-  // changeOSC1filter2Rate,
 
   toggleOSC1tremoloBypass,
-  // changeOSC1tremoloIntensity,
   changeOSC1tremoloRate,
-
-  toggleOSC1bitcrusherBypass,
-  changeOSC1bitcrusherBits,
-  // changeOSC1bitcrusherBufferSize,
-
-  toggleOSC1moogFilterBypass,
-  changeOSC1moogFilterCutoff,
-  // changeOSC1moogFilterBufferSize,
-  changeOSC1moogFilterResonance,
-
-  toggleOSC1moogFilter2Bypass,
-  changeOSC1moogFilter2Cutoff,
-  // changeOSC1moogFilter2BufferSize,
-  changeOSC1moogFilter2Resonance,
 
   toggleOSC1reverbBypass,
   changeOSC1reverbLevel,
@@ -67,29 +50,12 @@ import {
 
   toggleOSC2filterBypass,
   changeOSC2filterDepth,
-  // changeOSC2filterRate,
 
   toggleOSC2filter2Bypass,
   changeOSC2filter2Depth,
-  // changeOSC2filter2Rate,
 
   toggleOSC2tremoloBypass,
-  // changeOSC2tremoloIntensity,
   changeOSC2tremoloRate,
-
-  toggleOSC2bitcrusherBypass,
-  changeOSC2bitcrusherBits,
-  // changeOSC2bitcrusherBufferSize,
-
-  toggleOSC2moogFilterBypass,
-  changeOSC2moogFilterCutoff,
-  // changeOSC2moogFilterBufferSize,
-  changeOSC2moogFilterResonance,
-
-  toggleOSC2moogFilter2Bypass,
-  changeOSC2moogFilter2Cutoff,
-  // changeOSC2moogFilter2BufferSize,
-  changeOSC2moogFilter2Resonance,
 
   toggleOSC2reverbBypass,
   changeOSC2reverbLevel,
@@ -120,29 +86,12 @@ import {
 
   toggleOSC3filterBypass,
   changeOSC3filterDepth,
-  // changeOSC3filterRate,
 
   toggleOSC3filter2Bypass,
   changeOSC3filter2Depth,
-  // changeOSC3filter2Rate,
 
   toggleOSC3tremoloBypass,
-  // changeOSC3tremoloIntensity,
   changeOSC3tremoloRate,
-
-  toggleOSC3bitcrusherBypass,
-  changeOSC3bitcrusherBits,
-  // changeOSC3bitcrusherBufferSize,
-
-  toggleOSC3moogFilterBypass,
-  changeOSC3moogFilterCutoff,
-  // changeOSC3moogFilterBufferSize,
-  changeOSC3moogFilterResonance,
-
-  toggleOSC3moogFilter2Bypass,
-  changeOSC3moogFilter2Cutoff,
-  // changeOSC3moogFilter2BufferSize,
-  changeOSC3moogFilter2Resonance,
 
   toggleOSC3reverbBypass,
   changeOSC3reverbLevel,
@@ -173,29 +122,12 @@ import {
 
   toggleOSC4filterBypass,
   changeOSC4filterDepth,
-  // changeOSC4filterRate,
 
   toggleOSC4filter2Bypass,
   changeOSC4filter2Depth,
-  // changeOSC4filter2Rate,
 
   toggleOSC4tremoloBypass,
-  // changeOSC4tremoloIntensity,
   changeOSC4tremoloRate,
-
-  toggleOSC4bitcrusherBypass,
-  changeOSC4bitcrusherBits,
-  // changeOSC4bitcrusherBufferSize,
-
-  toggleOSC4moogFilterBypass,
-  changeOSC4moogFilterCutoff,
-  // changeOSC4moogFilterBufferSize,
-  changeOSC4moogFilterResonance,
-
-  toggleOSC4moogFilter2Bypass,
-  changeOSC4moogFilter2Cutoff,
-  // changeOSC4moogFilter2BufferSize,
-  changeOSC4moogFilter2Resonance,
 
   toggleOSC4reverbBypass,
   changeOSC4reverbLevel,
@@ -216,31 +148,28 @@ import {
 } from './actions';
 
 
+
 class XYPad extends React.Component {
   constructor(props) {
   	super(props);
-    console.log(this.props.width)
+  
 
-    let circlePos1 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let circlePos2 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let circlePos3 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let circlePos4 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos1 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos2 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos3 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos4 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos5 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos6 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos7 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos8 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos9 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos10 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos11 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos12 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos13 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos14 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos15 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
-    let squarePos16 = [Math.floor(Math.random() * (this.props.width) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height) - 1 + 1) + 10];
+    let circlePos1 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let circlePos2 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let circlePos3 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let circlePos4 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos1 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos2 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos3 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos4 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos5 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos6 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos7 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos8 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos9 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos10 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos11 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
+    let squarePos12 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
 
     let square1distanceFromOsc1 = Math.sqrt(((circlePos1[0] - squarePos1[0]) * (circlePos1[0] - squarePos1[0])) + ((circlePos1[1] - squarePos1[1]) * (circlePos1[1] - squarePos1[1])))
     let square1distanceFromOsc2 = Math.sqrt(((circlePos2[0] - squarePos1[0]) * (circlePos2[0] - squarePos1[0])) + ((circlePos2[1] - squarePos1[1]) * (circlePos2[1] - squarePos1[1])))
@@ -301,33 +230,13 @@ class XYPad extends React.Component {
     let square12distanceFromOsc2 = Math.sqrt(((circlePos2[0] - squarePos12[0]) * (circlePos2[0] - squarePos12[0])) + ((circlePos2[1] - squarePos12[1]) * (circlePos2[1] - squarePos12[1])))
     let square12distanceFromOsc3 = Math.sqrt(((circlePos3[0] - squarePos12[0]) * (circlePos3[0] - squarePos12[0])) + ((circlePos3[1] - squarePos12[1]) * (circlePos3[1] - squarePos12[1])))
     let square12distanceFromOsc4 = Math.sqrt(((circlePos4[0] - squarePos12[0]) * (circlePos4[0] - squarePos12[0])) + ((circlePos4[1] - squarePos12[1]) * (circlePos4[1] - squarePos12[1])))
-
-    let square13distanceFromOsc1 = Math.sqrt(((circlePos1[0] - squarePos13[0]) * (circlePos1[0] - squarePos13[0])) + ((circlePos1[1] - squarePos13[1]) * (circlePos1[1] - squarePos14[1])))
-    let square13distanceFromOsc2 = Math.sqrt(((circlePos2[0] - squarePos13[0]) * (circlePos2[0] - squarePos13[0])) + ((circlePos2[1] - squarePos13[1]) * (circlePos2[1] - squarePos14[1])))
-    let square13distanceFromOsc3 = Math.sqrt(((circlePos3[0] - squarePos13[0]) * (circlePos3[0] - squarePos13[0])) + ((circlePos3[1] - squarePos13[1]) * (circlePos3[1] - squarePos14[1])))
-    let square13distanceFromOsc4 = Math.sqrt(((circlePos4[0] - squarePos13[0]) * (circlePos4[0] - squarePos13[0])) + ((circlePos4[1] - squarePos13[1]) * (circlePos4[1] - squarePos14[1])))
-
-    let square14distanceFromOsc1 = Math.sqrt(((circlePos1[0] - squarePos14[0]) * (circlePos1[0] - squarePos14[0])) + ((circlePos1[1] - squarePos14[1]) * (circlePos1[1] - squarePos14[1])))
-    let square14distanceFromOsc2 = Math.sqrt(((circlePos2[0] - squarePos14[0]) * (circlePos2[0] - squarePos14[0])) + ((circlePos2[1] - squarePos14[1]) * (circlePos2[1] - squarePos14[1])))
-    let square14distanceFromOsc3 = Math.sqrt(((circlePos3[0] - squarePos14[0]) * (circlePos3[0] - squarePos14[0])) + ((circlePos3[1] - squarePos14[1]) * (circlePos3[1] - squarePos14[1])))
-    let square14distanceFromOsc4 = Math.sqrt(((circlePos4[0] - squarePos14[0]) * (circlePos4[0] - squarePos14[0])) + ((circlePos4[1] - squarePos14[1]) * (circlePos4[1] - squarePos14[1])))
-
-    let square15distanceFromOsc1 = Math.sqrt(((circlePos1[0] - squarePos15[0]) * (circlePos1[0] - squarePos15[0])) + ((circlePos1[1] - squarePos15[1]) * (circlePos1[1] - squarePos15[1])))
-    let square15distanceFromOsc2 = Math.sqrt(((circlePos2[0] - squarePos15[0]) * (circlePos2[0] - squarePos15[0])) + ((circlePos2[1] - squarePos15[1]) * (circlePos2[1] - squarePos15[1])))
-    let square15distanceFromOsc3 = Math.sqrt(((circlePos3[0] - squarePos15[0]) * (circlePos3[0] - squarePos15[0])) + ((circlePos3[1] - squarePos15[1]) * (circlePos3[1] - squarePos15[1])))
-    let square15distanceFromOsc4 = Math.sqrt(((circlePos4[0] - squarePos15[0]) * (circlePos4[0] - squarePos15[0])) + ((circlePos4[1] - squarePos15[1]) * (circlePos4[1] - squarePos15[1])))
-
-    let square16distanceFromOsc1 = Math.sqrt(((circlePos1[0] - squarePos16[0]) * (circlePos1[0] - squarePos16[0])) + ((circlePos1[1] - squarePos16[1]) * (circlePos1[1] - squarePos16[1])))
-    let square16distanceFromOsc2 = Math.sqrt(((circlePos2[0] - squarePos16[0]) * (circlePos2[0] - squarePos16[0])) + ((circlePos2[1] - squarePos16[1]) * (circlePos2[1] - squarePos16[1])))
-    let square16distanceFromOsc3 = Math.sqrt(((circlePos3[0] - squarePos16[0]) * (circlePos3[0] - squarePos16[0])) + ((circlePos3[1] - squarePos16[1]) * (circlePos3[1] - squarePos16[1])))
-    let square16distanceFromOsc4 = Math.sqrt(((circlePos4[0] - squarePos16[0]) * (circlePos4[0] - squarePos16[0])) + ((circlePos4[1] - squarePos16[1]) * (circlePos4[1] - squarePos16[1])))
     
 
   let lfoWaveTypes = ['sine', 'square', 'triangle', 'sawtooth']
   let randomType = Math.floor(Math.random()*lfoWaveTypes.length)
 
 /////OSC 1 SETTINGS/////////////////////
-    let oscFreq = circlePos1[1] * Math.floor(Math.random() * (7) - 1 + 1) + 20
+    let oscFreq = circlePos1[1] * Math.floor(Math.random() * (7) - 1 + 1) + 1
 
     let lfoFreq = Math.floor((square1distanceFromOsc1 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
     let lfoType = lfoWaveTypes[randomType]
@@ -337,31 +246,17 @@ class XYPad extends React.Component {
     let osc1chorusRate = Math.floor(square2distanceFromOsc1 * .008)
     
     let osc1filterDepth = (1000 - square3distanceFromOsc1) * .001
-    // let osc1filterRate = Math.floor(square3distanceFromOsc1 * .008)
-
-    // let osc1filter2Rate = square4distanceFromOsc1 * .001
+  
     let osc1filter2Depth = Math.floor((1000 - square4distanceFromOsc1) * .008)
 
-    // let osc1tremoloIntensity = (1000 - square5distanceFromOsc1) * .001
     let osc1tremoloRate = square5distanceFromOsc1 * .011
-
-    let osc1bitcrusherBits = Math.floor((1000 - square6distanceFromOsc1) * .016)
-    // let osc1bitcrusherBufferSize = square6distanceFromOsc1 * Math.floor(Math.random() * (16) -1 + 1) + 256
-
-    // let osc1moogFilterBufferSize = square7distanceFromOsc1 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc1moogFilterCutoff = (1000 - square7distanceFromOsc1) * .001
-    let osc1moogFilterResonance = Math.floor(square7distanceFromOsc1 * .004)
-
-    // let osc1moogFilter2BufferSize = square8distanceFromOsc1 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc1moogFilter2Cutoff = square8distanceFromOsc1 * .001
-    let osc1moogFilter2Resonance = Math.floor((1000 - square8distanceFromOsc1) * .004)
 
     let osc1reverbLevel = (1000 - square9distanceFromOsc1) * .001
 
     let osc1pannerPan = 1 - ((1000 - square10distanceFromOsc1) * .002)
 
     let osc1phaserDepth = (1000 - square11distanceFromOsc1) * .001
-    let osc1phaserRate = Math.floor(square11distanceFromOsc1 * .008)
+    let osc1phaserRate = Math.floor(square11distanceFromOsc1 * .008) + 1
     let osc1phaserFeedback = square11distanceFromOsc1 * .001
 
     let osc1overdriveDrive = (1000 - square12distanceFromOsc1) * .001
@@ -376,43 +271,20 @@ class XYPad extends React.Component {
 
 
 /////OSC 2 SETTINGS/////////////////////
-    let osc2Freq = circlePos2[1] * Math.floor(Math.random() * (7.5) - 1 + 1) + 20
+    let osc2Freq = circlePos2[1] * Math.floor(Math.random() * (7.5) - 1 + 1) + 1
 
     let lfo2Freq = Math.floor((square1distanceFromOsc2 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
     let lfo2Type = lfoWaveTypes[randomType]
-  
-    
     let osc2chorusDepth = (1000 - square2distanceFromOsc2) * .001
     let osc2chorusRate = Math.floor(square2distanceFromOsc2 * .008)
-    
     let osc2filterDepth = (1000 - square3distanceFromOsc2) * .001
-    // let osc2filterRate = Math.floor(square3distanceFromOsc2 * .008)
-
-    // let osc2filter2Rate = square4distanceFromOsc2 * .001
     let osc2filter2Depth = Math.floor((1000 - square4distanceFromOsc2) * .008)
-
-    // let osc2tremoloIntensity = (1000 - square5distanceFromOsc2) * .001
     let osc2tremoloRate = square5distanceFromOsc2 * .011
-
-    let osc2bitcrusherBits = Math.floor((1000 - square6distanceFromOsc2) * .016)
-    // let osc2bitcrusherBufferSize = square6distanceFromOsc2 * Math.floor(Math.random() * (16) -1 + 1) + 256
-
-    // let osc2moogFilterBufferSize = square7distanceFromOsc2 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc2moogFilterCutoff = (1000 - square7distanceFromOsc2) * .001
-    let osc2moogFilterResonance = Math.floor(square7distanceFromOsc2 * .004)
-
-    // let osc2moogFilter2BufferSize = square8distanceFromOsc2 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc2moogFilter2Cutoff = square8distanceFromOsc2 * .001
-    let osc2moogFilter2Resonance = Math.floor((1000 - square8distanceFromOsc2) * .004)
-
     let osc2reverbLevel = (1000 - square9distanceFromOsc2) * .001
-
     let osc2pannerPan = 1 - ((1000 - square10distanceFromOsc2) * .002)
-
     let osc2phaserDepth = (1000 - square11distanceFromOsc2) * .001
     let osc2phaserRate = Math.floor(square11distanceFromOsc2 * .008)
     let osc2phaserFeedback = square11distanceFromOsc2 * .001
-
     let osc2overdriveDrive = (1000 - square12distanceFromOsc2) * .001
     let osc2overdriveGain = Math.floor(46 - ((1000 - square12distanceFromOsc2) * .046)) * -1
     
@@ -420,51 +292,24 @@ class XYPad extends React.Component {
 
 
 /////OSC 3 SETTINGS/////////////////////
-    let osc3Freq = circlePos3[1] * Math.floor(Math.random() * (8) - 1 + 1) + 20
-
+    let osc3Freq = circlePos3[1] * Math.floor(Math.random() * (8) - 1 + 1) + 1
     let lfo3Freq = Math.floor((square1distanceFromOsc3 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
-    let lfo3Type = lfoWaveTypes[randomType]
-  
-    
+    let lfo3Type = lfoWaveTypes[randomType]  
     let osc3chorusDepth = (1000 - square2distanceFromOsc3) * .001
-    let osc3chorusRate = Math.floor(square2distanceFromOsc3 * .008)
-    
+    let osc3chorusRate = Math.floor(square2distanceFromOsc3 * .008)   
     let osc3filterDepth = (1000 - square3distanceFromOsc3) * .001
-    // let osc3filterRate = Math.floor(square3distanceFromOsc3 * .008)
-
-    // let osc3filter2Rate = square4distanceFromOsc3 * .001
     let osc3filter2Depth = Math.floor((1000 - square4distanceFromOsc3) * .008)
-
-    // let osc3tremoloIntensity = (1000 - square5distanceFromOsc3) * .001
     let osc3tremoloRate = square5distanceFromOsc3 * .011
-
-    let osc3bitcrusherBits = Math.floor((1000 - square6distanceFromOsc3) * .016)
-    // let osc3bitcrusherBufferSize = square6distanceFromOsc3 * Math.floor(Math.random() * (16) -1 + 1) + 256
-
-    // let osc3moogFilterBufferSize = square7distanceFromOsc3 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc3moogFilterCutoff = (1000 - square7distanceFromOsc3) * .001
-    let osc3moogFilterResonance = Math.floor(square7distanceFromOsc3 * .004)
-
-    // let osc3moogFilter2BufferSize = square8distanceFromOsc3 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc3moogFilter2Cutoff = square8distanceFromOsc3 * .001
-    let osc3moogFilter2Resonance = Math.floor((1000 - square8distanceFromOsc3) * .004)
-
     let osc3reverbLevel = (1000 - square9distanceFromOsc3) * .001
-
     let osc3pannerPan = 1 - ((1000 - square10distanceFromOsc3) * .002)
-
     let osc3phaserDepth = (1000 - square11distanceFromOsc3) * .001
     let osc3phaserRate = Math.floor(square11distanceFromOsc3 * .008)
     let osc3phaserFeedback = square11distanceFromOsc3 * .001
-
     let osc3overdriveDrive = (1000 - square12distanceFromOsc3) * .001
     let osc3overdriveGain = Math.floor(46 - ((1000 - square12distanceFromOsc3) * .046)) * -1
-    
-
-
 
 /////OSC 4 SETTINGS/////////////////////
-    let osc4Freq = circlePos4[1] * Math.floor(Math.random() * (9.5) - 1 + 1) + 20
+    let osc4Freq = circlePos4[1] * Math.floor(Math.random() * (9.5) - 1 + 1) + 1
     
     let lfo4Freq = Math.floor((square1distanceFromOsc4 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
     let lfo4Type = lfoWaveTypes[randomType]
@@ -474,39 +319,20 @@ class XYPad extends React.Component {
     let osc4chorusRate = Math.floor(square2distanceFromOsc4 * .008)
     
     let osc4filterDepth = (1000 - square3distanceFromOsc4) * .001
-    // let osc4filterRate = Math.floor(square3distanceFromOsc4 * .008)
-
-    // let osc4filter2Rate = square4distanceFromOsc4 * .001
     let osc4filter2Depth = Math.floor((1000 - square4distanceFromOsc4) * .008)
-
-    // let osc4tremoloIntensity = (1000 - square5distanceFromOsc4) * .001
-    let osc4tremoloRate = square5distanceFromOsc4 * .011
-
-    let osc4bitcrusherBits = Math.floor((1000 - square6distanceFromOsc4) * .016)
-    // let osc4bitcrusherBufferSize = square6distanceFromOsc4 * Math.floor(Math.random() * (16) -1 + 1) + 256
-
-    // let osc4moogFilterBufferSize = square7distanceFromOsc4 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc4moogFilterCutoff = (1000 - square7distanceFromOsc4) * .001
-    let osc4moogFilterResonance = Math.floor(square7distanceFromOsc4 * .004)
-
-    // let osc4moogFilter2BufferSize = square8distanceFromOsc4 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    let osc4moogFilter2Cutoff = square8distanceFromOsc4 * .001
-    let osc4moogFilter2Resonance = Math.floor((1000 - square8distanceFromOsc4) * .004)
+    let osc4tremoloRate = (square5distanceFromOsc4 * .011)
 
     let osc4reverbLevel = (1000 - square9distanceFromOsc4) * .001
 
     let osc4pannerPan = 1 - ((1000 - square10distanceFromOsc4) * .002)
 
     let osc4phaserDepth = (1000 - square11distanceFromOsc4) * .001
-    let osc4phaserRate = Math.floor(square11distanceFromOsc4 * .008)
+    let osc4phaserRate = Math.floor(square11distanceFromOsc4 * .008) + 1
     let osc4phaserFeedback = square11distanceFromOsc4 * .001
 
     let osc4overdriveDrive = (1000 - square12distanceFromOsc4) * .001
     let osc4overdriveGain = Math.floor(46 - ((1000 - square12distanceFromOsc4) * .046)) * -1
     
-
-
-
 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -608,19 +434,15 @@ class XYPad extends React.Component {
 
       isOSC1filterStarted: false,
       osc1filterDepth: osc1filterDepth,
-      // osc1filterRate: osc1filterRate,
 
       isOSC2filterStarted: false,
       osc2filterDepth: osc2filterDepth,
-      // osc2filterRate: osc2filterRate,
 
       isOSC3filterStarted: false,
       osc3filterDepth: osc3filterDepth,
-      // osc3filterRate: osc3filterRate,
 
       isOSC4filterStarted: false,
       osc4filterDepth: osc4filterDepth,
-      // osc4filterRate: osc4filterRate,
 
 
 /////EFFECT NODE 4////////////////////// 
@@ -634,19 +456,15 @@ class XYPad extends React.Component {
 
       isOSC1filter2Started: false,
       osc1filter2Depth: osc1filter2Depth,
-      // osc1filter2Rate: osc1filter2Rate,
 
       isOSC2filter2Started: false,
       osc2filter2Depth: osc2filter2Depth,
-      // osc2filter2Rate: osc2filter2Rate,
 
       isOSC3filter2Started: false,
       osc3filter2Depth: osc3filter2Depth,
-      // osc3filter2Rate: osc3filter2Rate,
 
       isOSC4filter2Started: false,
       osc4filter2Depth: osc4filter2Depth,
-      // osc4filter2Rate: osc4filter2Rate,
 
 
 /////EFFECT NODE 5////////////////////// 
@@ -660,19 +478,15 @@ class XYPad extends React.Component {
 
 
       isOSC1tremoloStarted: false,
-      // osc1tremoloIntensity: osc1tremoloIntensity,
       osc1tremoloRate: osc1tremoloRate,
 
       isOSC2tremoloStarted: false,
-      // osc2tremoloIntensity: osc2tremoloIntensity,
       osc2tremoloRate: osc2tremoloRate,
 
       isOSC3tremoloStarted: false,
-      // osc3tremoloIntensity: osc3tremoloIntensity,
       osc3tremoloRate:  osc3tremoloRate,
 
       isOSC4tremoloStarted: false,
-      // osc4tremoloIntensity: osc4tremoloIntensity,
       osc4tremoloRate: osc4tremoloRate,
 
 
@@ -685,22 +499,6 @@ class XYPad extends React.Component {
       square6distanceFromOsc3: square6distanceFromOsc3,
       square6distanceFromOsc4: square6distanceFromOsc4,
 
-      isOSC1bitcrusherStarted: false,
-      osc1bitcrusherBits: osc1bitcrusherBits,
-      // // osc1bitcrusherBufferSize: osc1bitcrusherBufferSize,
-
-      isOSC2bitcrusherStarted: false,
-      osc2bitcrusherBits: osc2bitcrusherBits,
-      // // osc2bitcrusherBufferSize: osc2bitcrusherBufferSize,
-
-      isOSC3bitcrusherStarted: false,
-      osc3bitcrusherBits: osc3bitcrusherBits,
-      // // osc3bitcrusherBufferSize: osc3bitcrusherBufferSize,
-
-      isOSC4bitcrusherStarted: false,
-      osc4bitcrusherBits: osc4bitcrusherBits,
-      // // osc4bitcrusherBufferSize: osc4bitcrusherBufferSize,
-
 
 /////EFFECT NODE 7////////////////////// 
       square7Pos: squarePos7,
@@ -711,26 +509,6 @@ class XYPad extends React.Component {
       square7distanceFromOsc3: square7distanceFromOsc3,
       square7distanceFromOsc4: square7distanceFromOsc4,
 
-      isOSC1moogFilterStarted: false,
-      // osc1moogFilterBufferSize: osc1moogFilterBufferSize,
-      osc1moogFilterCutoff: osc1moogFilterCutoff,
-      osc1moogFilterResonance: osc1moogFilterResonance,
-
-      isOSC2moogFilterStarted: false,
-      // osc2moogFilterBufferSize: osc2moogFilterBufferSize,
-      osc2moogFilterCutoff: osc2moogFilterCutoff,
-      osc2moogFilterResonance: osc2moogFilterResonance,
-
-      isOSC3moogFilterStarted: false,
-      // osc3moogFilterBufferSize: osc3moogFilterBufferSize,
-      osc3moogFilterCutoff: osc3moogFilterCutoff,
-      osc3moogFilterResonance: osc3moogFilterResonance,
-
-      isOSC4moogFilterStarted: false,
-      // osc4moogFilterBufferSize: osc4moogFilterBufferSize,
-      osc4moogFilterCutoff: osc4moogFilterCutoff,
-      osc4moogFilterResonance: osc4moogFilterResonance,
-
 
 /////EFFECT NODE 8////////////////////// 
       square8Pos: squarePos8,
@@ -740,28 +518,6 @@ class XYPad extends React.Component {
       square8distanceFromOsc2: square8distanceFromOsc2,
       square8distanceFromOsc3: square8distanceFromOsc3,
       square8distanceFromOsc4: square8distanceFromOsc4,
-
-
-      isOSC1moogFilter2Started: false,
-      // osc1moogFilter2BufferSize: osc1moogFilter2BufferSize,
-      osc1moogFilter2Cutoff: osc1moogFilter2Cutoff,
-      osc1moogFilter2Resonance: osc1moogFilter2Resonance,
-
-      isOSC2moogFilter2Started: false,
-      // osc2moogFilter2BufferSize: osc2moogFilter2BufferSize,
-      osc2moogFilter2Cutoff: osc2moogFilter2Cutoff,
-      osc2moogFilter2Resonance: osc2moogFilter2Resonance,
-
-      isOSC3moogFilter2Started: false,
-      // osc3moogFilter2BufferSize: osc3moogFilter2BufferSize,
-      osc3moogFilter2Cutoff: osc3moogFilter2Cutoff,
-      osc3moogFilter2Resonance: osc3moogFilter2Resonance,
-
-      isOSC4moogFilter2Started: false,
-      // osc4moogFilter2BufferSize: osc4moogFilter2BufferSize,
-      osc4moogFilter2Cutoff: osc4moogFilter2Cutoff,
-      osc4moogFilter2Resonance: osc4moogFilter2Resonance,
-
 
 /////EFFECT NODE 9////////////////////// 
       square9Pos: squarePos9,
@@ -783,7 +539,6 @@ class XYPad extends React.Component {
 
       isOSC4reverbStarted: false,
       osc4reverbLevel: osc4reverbLevel,
-
 
 /////EFFECT NODE 10////////////////////// 
       square10Pos: squarePos10,
@@ -864,49 +619,8 @@ class XYPad extends React.Component {
       osc4overdriveDrive: osc4overdriveDrive,
       osc4overdriveGain: osc4overdriveGain,
 
-
-/////EFFECT NODE 13////////////////////// 
-      square13Pos: squarePos13,
-      prevSquare13Pos: squarePos13,
-      start17Move: false,
-      square13distanceFromOsc1: square13distanceFromOsc1,
-      square13distanceFromOsc2: square13distanceFromOsc2,
-      square13distanceFromOsc3: square13distanceFromOsc3,
-      square13distanceFromOsc4: square13distanceFromOsc4,
-
-
-/////EFFECT NODE 14////////////////////// 
-      square14Pos: squarePos14,
-      prevSquare14Pos: squarePos14,
-      start18Move: false,
-      square14distanceFromOsc1: square14distanceFromOsc1,
-      square14distanceFromOsc2: square14distanceFromOsc2,
-      square14distanceFromOsc3: square14distanceFromOsc3,
-      square14distanceFromOsc4: square14distanceFromOsc4,
-
-
-/////EFFECT NODE 15////////////////////// 
-      square15Pos: squarePos15,
-      prevSquare15Pos: squarePos15,
-      start19Move: false,
-      square15distanceFromOsc1: square15distanceFromOsc1,
-      square15distanceFromOsc2: square15distanceFromOsc2,
-      square15distanceFromOsc3: square15distanceFromOsc3,
-      square15distanceFromOsc4: square15distanceFromOsc4,
-
-
-/////EFFECT NODE 16////////////////////// 
-      square16Pos: squarePos16,
-      prevSquare16Pos: squarePos16,
-      start20Move: false,
-      square16distanceFromOsc1: square16distanceFromOsc1,
-      square16distanceFromOsc2: square16distanceFromOsc2,
-      square16distanceFromOsc3: square16distanceFromOsc3,
-      square16distanceFromOsc4: square16distanceFromOsc4,
-      
     };
    
-    
     
     this.handleMouseEvent = this.handleMouseEvent.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
@@ -917,40 +631,26 @@ class XYPad extends React.Component {
         document.addEventListener('mousedown', this.handleMouseDown, false);
         document.addEventListener('mouseup', this.handleMouseUp, false);
         document.addEventListener('mousemove', this.handleMouseEvent, false);
+       
         var rect = this.refs.canvas.getBoundingClientRect();
         this.canvasPos = [rect.left, rect.top];
         this.ctx = this.refs.canvas.getContext('2d');
         
         this.ctx.fillStyle = this.props.color;
+        
         this.ctx.beginPath();
         this.ctx.fillRect(0,0, this.props.width, this.props.height);
         
-        
-        // this.updateFrequencyOSC();
-        // this.updateFrequencyOSC2();
-        // this.updateFrequencyOSC3();
-        // this.updateFrequencyOSC4();
-        this.drawLabel();
+        this.updateFrequencyOSC(this.props.oscFreq);
+        this.updateFrequencyOSC2(this.props.osc2Freq);
+        this.updateFrequencyOSC3(this.props.osc3Freq);
+        this.updateFrequencyOSC4(this.props.osc4Freq);
         
         this.updateCanvas();
     }
 
-    drawLabel() {
-        this.ctx.font = '10px consolas';
-        this.ctx.textAlign = 'center';
-        this.ctx.fillStyle = '#CC0720';
-        this.ctx.fillText('OSCILLATOR FREQUENCY', Math.round(this.props.width/2), 10 + 5);
-        this.ctx.beginPath();
-        this.ctx.rotate(1.5708);
-        this.ctx.fillText(
-          'LFO FREQUENCY', 
-          Math.round(this.props.width / 2), 
-          -this.props.width + 10 + 5);
-        this.ctx.rotate(-1.5708);
-    }
-
     updateCanvas() {
-      console.log(this.state)
+     
       this.ctx.beginPath();
       this.ctx.arc(this.state.prevCircle1Pos[0], this.state.prevCircle1Pos[1], 7, false, Math.PI * 2, false);
       this.ctx.arc(this.state.prevCircle2Pos[0], this.state.prevCircle2Pos[1], 7, false, Math.PI * 2, false);
@@ -958,11 +658,7 @@ class XYPad extends React.Component {
       this.ctx.arc(this.state.prevCircle4Pos[0], this.state.prevCircle4Pos[1], 7, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = this.props.color;
-      
-
-      this.drawLabel();
-
-      
+    
       let points = [
         this.state.circle1Pos, 
         this.state.circle2Pos, 
@@ -980,10 +676,6 @@ class XYPad extends React.Component {
         this.state.square10Pos,
         this.state.square11Pos,
         this.state.square12Pos,
-        this.state.square13Pos,
-        this.state.square14Pos,
-        this.state.square15Pos,
-        this.state.square16Pos,
       ]
 
       // console.log(points)
@@ -995,13 +687,15 @@ class XYPad extends React.Component {
       this.ctx.beginPath();
       delaunay.render(this.ctx);
       this.ctx.strokeStyle = "#C0392B";
+      this.ctx.lineWidth = 1.25
       this.ctx.stroke();
       this.ctx.closePath();
       // console.log(voronoi.neighbors(), delaunay.neighbors())
       this.ctx.beginPath();
       voronoi.render(this.ctx);
       voronoi.renderBounds(this.ctx);
-      this.ctx.strokeStyle = "#C0C0C0";
+      this.ctx.strokeStyle = "#ABABAB";
+      this.ctx.lineWidth = 1.7
       this.ctx.stroke();
       this.ctx.closePath();
       this.ctx.beginPath();
@@ -1038,18 +732,6 @@ class XYPad extends React.Component {
         this.setState({isOSC1tremoloStarted: true})
         this.updateOSC1tremoloBypass();
       }   
-      if (this.state.osc1Neighbors.includes(10)) {
-        this.setState({isOSC1bitcrusherStarted: true})
-        this.updateOSC1bitcrusherBypass();
-      }
-      if (this.state.osc1Neighbors.includes(11)) {
-        this.setState({isOSC1moogFilterStarted: true})
-        this.updateOSC1moogFilterBypass();
-      }
-      if (this.state.osc1Neighbors.includes(12)) {
-        this.setState({isOSC1moogFilter2Started: true})
-        this.updateOSC1moogFilter2Bypass();
-      }  
       if (this.state.osc1Neighbors.includes(13)) {
         this.setState({isOSC1reverbStarted: true})
         this.updateOSC1reverbBypass();
@@ -1073,9 +755,6 @@ class XYPad extends React.Component {
           isOSC1filterStarted: false,
           isOSC1filter2Started: false,
           isOSC1tremoloStarted: false,
-          isOSC1bitcrusherStarted: false,
-          isOSC1moogFilterStarted: false,
-          isOSC1moogFilter2Started: false,
           isOSC1reverbStarted: false,
           isOSC1pannerStarted: false,
           isOSC1phaserStarted: false,
@@ -1103,18 +782,6 @@ class XYPad extends React.Component {
         this.setState({isOSC2tremoloStarted: true})
         this.updateOSC2tremoloBypass();
       }   
-      if (this.state.osc2Neighbors.includes(10)) {
-        this.setState({isOSC2bitcrusherStarted: true})
-        this.updateOSC2bitcrusherBypass();
-      }
-      if (this.state.osc2Neighbors.includes(11)) {
-        this.setState({isOSC2moogFilterStarted: true})
-        this.updateOSC2moogFilterBypass();
-      }
-      if (this.state.osc2Neighbors.includes(12)) {
-        this.setState({isOSC2moogFilter2Started: true})
-        this.updateOSC2moogFilter2Bypass();
-      }  
       if (this.state.osc2Neighbors.includes(13)) {
         this.setState({isOSC2reverbStarted: true})
         this.updateOSC2reverbBypass();
@@ -1138,9 +805,6 @@ class XYPad extends React.Component {
           isOSC2filterStarted: false,
           isOSC2filter2Started: false,
           isOSC2tremoloStarted: false,
-          isOSC2bitcrusherStarted: false,
-          isOSC2moogFilterStarted: false,
-          isOSC2moogFilter2Started: false,
           isOSC2reverbStarted: false,
           isOSC2pannerStarted: false,
           isOSC2phaserStarted: false,
@@ -1167,19 +831,7 @@ class XYPad extends React.Component {
       if (this.state.osc3Neighbors.includes(9)) {
         this.setState({isOSC3tremoloStarted: true})
         this.updateOSC3tremoloBypass();
-      }   
-      if (this.state.osc3Neighbors.includes(10)) {
-        this.setState({isOSC3bitcrusherStarted: true})
-        this.updateOSC3bitcrusherBypass();
       }
-      if (this.state.osc3Neighbors.includes(11)) {
-        this.setState({isOSC3moogFilterStarted: true})
-        this.updateOSC3moogFilterBypass();
-      }
-      if (this.state.osc3Neighbors.includes(12)) {
-        this.setState({isOSC3moogFilter2Started: true})
-        this.updateOSC3moogFilter2Bypass();
-      }  
       if (this.state.osc3Neighbors.includes(13)) {
         this.setState({isOSC3reverbStarted: true})
         this.updateOSC3reverbBypass();
@@ -1203,9 +855,6 @@ class XYPad extends React.Component {
           isOSC3filterStarted: false,
           isOSC3filter2Started: false,
           isOSC3tremoloStarted: false,
-          isOSC3bitcrusherStarted: false,
-          isOSC3moogFilterStarted: false,
-          isOSC3moogFilter2Started: false,
           isOSC3reverbStarted: false,
           isOSC3pannerStarted: false,
           isOSC3phaserStarted: false,
@@ -1233,18 +882,6 @@ class XYPad extends React.Component {
         this.setState({isOSC4tremoloStarted: true})
         this.updateOSC4tremoloBypass();
       }   
-      if (this.state.osc4Neighbors.includes(10)) {
-        this.setState({isOSC4bitcrusherStarted: true})
-        this.updateOSC4bitcrusherBypass();
-      }
-      if (this.state.osc4Neighbors.includes(11)) {
-        this.setState({isOSC4moogFilterStarted: true})
-        this.updateOSC4moogFilterBypass();
-      }
-      if (this.state.osc4Neighbors.includes(12)) {
-        this.setState({isOSC4moogFilter2Started: true})
-        this.updateOSC4moogFilter2Bypass();
-      }  
       if (this.state.osc4Neighbors.includes(13)) {
         this.setState({isOSC4reverbStarted: true})
         this.updateOSC4reverbBypass();
@@ -1268,158 +905,103 @@ class XYPad extends React.Component {
           isOSC4filterStarted: false,
           isOSC4filter2Started: false,
           isOSC4tremoloStarted: false,
-          isOSC4bitcrusherStarted: false,
-          isOSC4moogFilterStarted: false,
-          isOSC4moogFilter2Started: false,
           isOSC4reverbStarted: false,
           isOSC4pannerStarted: false,
           isOSC4phaserStarted: false,
           isOSC4overdriveStarted: false
         })
       }
-
       
-
-
-
-      console.log(this.state)
-      // console.log(osc2Neighbors)
-
-
-      // distance function: 
-      // if osc1Neighbors.includes(5) {}
-      
-
       this.ctx.beginPath();
       
-      this.ctx.arc(this.state.circle1Pos[0], this.state.circle1Pos[1], 7.5, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.circle1Pos[0], this.state.circle1Pos[1], 9, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = 'rgba(204, 7, 33, 0.897)';
       this.ctx.fill();
 
 
       this.ctx.beginPath();
       
-      this.ctx.arc(this.state.circle2Pos[0], this.state.circle2Pos[1], 7.5, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.circle2Pos[0], this.state.circle2Pos[1], 9, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = 'rgba(7, 204, 7, 0.897)';
+      this.ctx.fill();
+
+      this.ctx.beginPath();
+      this.ctx.arc(this.state.circle3Pos[0], this.state.circle3Pos[1], 9, false, Math.PI * 2, false);
+      this.ctx.closePath();
+      this.ctx.fillStyle = 'rgba(197, 7, 204, 0.897)';
       this.ctx.fill();
 
       this.ctx.beginPath();
       
-      this.ctx.arc(this.state.circle3Pos[0], this.state.circle3Pos[1], 7.5, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.circle4Pos[0], this.state.circle4Pos[1], 9, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
-      this.ctx.fill();
-
-      this.ctx.beginPath();
-      
-      this.ctx.arc(this.state.circle4Pos[0], this.state.circle4Pos[1], 7.5, false, Math.PI * 2, false);
-      this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = 'rgba(94, 66, 255, 0.897)';
       this.ctx.fill();
 
 
       //square 1
       this.ctx.beginPath();
-      this.ctx.arc(this.state.square1Pos[0], this.state.square1Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square1Pos[0], this.state.square1Pos[1], 3.33, false, Math.PI * 2, false);
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square2Pos[0], this.state.square2Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square2Pos[0], this.state.square2Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square3Pos[0], this.state.square3Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square3Pos[0], this.state.square3Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square4Pos[0], this.state.square4Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square4Pos[0], this.state.square4Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square5Pos[0], this.state.square5Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square5Pos[0], this.state.square5Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square6Pos[0], this.state.square6Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square6Pos[0], this.state.square6Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square7Pos[0], this.state.square7Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square7Pos[0], this.state.square7Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square8Pos[0], this.state.square8Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square8Pos[0], this.state.square8Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square9Pos[0], this.state.square9Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square9Pos[0], this.state.square9Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square10Pos[0], this.state.square10Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square10Pos[0], this.state.square10Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square11Pos[0], this.state.square11Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square11Pos[0], this.state.square11Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
-      this.ctx.arc(this.state.square12Pos[0], this.state.square12Pos[1], 4, false, Math.PI * 2, false);
+      this.ctx.arc(this.state.square12Pos[0], this.state.square12Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
-      this.ctx.fill();
-
-      this.ctx.arc(this.state.square13Pos[0], this.state.square13Pos[1], 4, false, Math.PI * 2, false);
-      this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
-      this.ctx.fill();
-
-      this.ctx.arc(this.state.square14Pos[0], this.state.square14Pos[1], 4, false, Math.PI * 2, false);
-      this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
-      this.ctx.fill();
-
-      this.ctx.arc(this.state.square15Pos[0], this.state.square15Pos[1], 4, false, Math.PI * 2, false);
-      this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
-      this.ctx.fill();
-
-      this.ctx.arc(this.state.square16Pos[0], this.state.square16Pos[1], 4, false, Math.PI * 2, false);
-      this.ctx.closePath();
-      this.ctx.fillStyle = "#808080";
-      // this.ctx.stroke();
+      this.ctx.fillStyle = "#ffffff";
       this.ctx.fill();
 
     }
@@ -1529,23 +1111,6 @@ class XYPad extends React.Component {
       let topRange16y = this.state.square12Pos[1] + 5
       let bottomRange16y = this.state.square12Pos[1] - 5
 
-      let topRange17x = this.state.square13Pos[0] + 5
-      let bottomRange17x = this.state.square13Pos[0] - 5
-      let topRange17y = this.state.square13Pos[1] + 5
-      let bottomRange17y = this.state.square13Pos[1] - 5
-      let topRange18x = this.state.square14Pos[0] + 5
-      let bottomRange18x = this.state.square14Pos[0] - 5
-      let topRange18y = this.state.square14Pos[1] + 5
-      let bottomRange18y = this.state.square14Pos[1] - 5
-      let topRange19x = this.state.square15Pos[0] + 5
-      let bottomRange19x = this.state.square15Pos[0] - 5
-      let topRange19y = this.state.square15Pos[1] + 5
-      let bottomRange19y = this.state.square15Pos[1] - 5
-      let topRange20x = this.state.square16Pos[0] + 5
-      let bottomRange20x = this.state.square16Pos[0] - 5
-      let topRange20y = this.state.square16Pos[1] + 5
-      let bottomRange20y = this.state.square16Pos[1] - 5
-
       if (event.layerX >= bottomRange1x && event.layerX <= topRange1x && event.layerY >= bottomRange1y && event.layerY <= topRange1y) { 
         this.setState({start1Move: true})
       } 
@@ -1594,18 +1159,6 @@ class XYPad extends React.Component {
       else if  (event.layerX >= bottomRange16x && event.layerX <= topRange16x && event.layerY >= bottomRange16y && event.layerY <= topRange16y) {
         this.setState({start16Move: true}) 
       }
-      else if  (event.layerX >= bottomRange17x && event.layerX <= topRange17x && event.layerY >= bottomRange17y && event.layerY <= topRange17y) {
-        this.setState({start17Move: true}) 
-      }
-      else if  (event.layerX >= bottomRange18x && event.layerX <= topRange18x && event.layerY >= bottomRange18y && event.layerY <= topRange18y) {
-        this.setState({start18Move: true}) 
-      }
-      else if  (event.layerX >= bottomRange19x && event.layerX <= topRange19x && event.layerY >= bottomRange19y && event.layerY <= topRange19y) {
-        this.setState({start19Move: true}) 
-      }
-      else if  (event.layerX >= bottomRange20x && event.layerX <= topRange20x && event.layerY >= bottomRange20y && event.layerY <= topRange20y) {
-        this.setState({start20Move: true}) 
-      }
       else {
         this.setState({
           start1Move: false,
@@ -1634,16 +1187,6 @@ class XYPad extends React.Component {
       this.updateCanvas();
       this.handleMouseEvent(event);
     }
-   
-    //   points.find(point => { if (event.layerX && event.layerY === point + -5 || point + 5) {
-    //     console.log(point)
-    //     //  points.filter(clickedPoint => { if (clickedPoint[0] === point[0] + -5 || point[0] + 5) {
-    //       this.setState({
-    //         startMove: true,
-    //       })
-    //     })
-    //   }
-    
 
     handleMouseEvent(event) {
       let points = [this.state.circle1Pos, this.state.circle2Pos, this.state.circle3Pos, this.state.circle4Pos]
@@ -1654,7 +1197,7 @@ class XYPad extends React.Component {
       }
 
       if (this.state.start1Move) {
-        console.log(this.state)
+       
         this.state.prevCircle1Pos = this.state.circle1Pos;
         let square1distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square1Pos[0]) * (this.state.circle1Pos[0] - this.state.square1Pos[0])) + ((this.state.circle1Pos[1] - this.state.square1Pos[1]) * (this.state.circle1Pos[1] - this.state.square1Pos[1])))
         let square2distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square2Pos[0]) * (this.state.circle1Pos[0] - this.state.square2Pos[0])) + ((this.state.circle1Pos[1] - this.state.square2Pos[1]) * (this.state.circle1Pos[1] - this.state.square2Pos[1])))
@@ -1668,11 +1211,7 @@ class XYPad extends React.Component {
         let square10distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square10Pos[0]) * (this.state.circle1Pos[0] - this.state.square10Pos[0])) + ((this.state.circle1Pos[1] - this.state.square10Pos[1]) * (this.state.circle1Pos[1] - this.state.square10Pos[1])))
         let square11distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square11Pos[0]) * (this.state.circle1Pos[0] - this.state.square11Pos[0])) + ((this.state.circle1Pos[1] - this.state.square11Pos[1]) * (this.state.circle1Pos[1] - this.state.square11Pos[1])))
         let square12distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square12Pos[0]) * (this.state.circle1Pos[0] - this.state.square12Pos[0])) + ((this.state.circle1Pos[1] - this.state.square12Pos[1]) * (this.state.circle1Pos[1] - this.state.square12Pos[1])))
-        let square13distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square13Pos[0]) * (this.state.circle1Pos[0] - this.state.square13Pos[0])) + ((this.state.circle1Pos[1] - this.state.square13Pos[1]) * (this.state.circle1Pos[1] - this.state.square13Pos[1])))
-        let square14distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square14Pos[0]) * (this.state.circle1Pos[0] - this.state.square14Pos[0])) + ((this.state.circle1Pos[1] - this.state.square14Pos[1]) * (this.state.circle1Pos[1] - this.state.square14Pos[1])))
-        let square15distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square15Pos[0]) * (this.state.circle1Pos[0] - this.state.square15Pos[0])) + ((this.state.circle1Pos[1] - this.state.square15Pos[1]) * (this.state.circle1Pos[1] - this.state.square15Pos[1])))
-        let square16distance1FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square15Pos[0]) * (this.state.circle1Pos[0] - this.state.square16Pos[0])) + ((this.state.circle1Pos[1] - this.state.square16Pos[1]) * (this.state.circle1Pos[1] - this.state.square16Pos[1])))
-        
+    
         var posX = event.layerX;
         var posY = event.layerY;
          if (posX < 0) {
@@ -1705,55 +1244,23 @@ class XYPad extends React.Component {
           square10distanceFromOsc1: square10distance1FromOsc1,
           square11distanceFromOsc1: square11distance1FromOsc1,
           square12distanceFromOsc1: square12distance1FromOsc1,
-          square13distanceFromOsc1: square13distance1FromOsc1,
-          square14distanceFromOsc1: square14distance1FromOsc1,
-          square15distanceFromOsc1: square15distance1FromOsc1,
-          square16distanceFromOsc1: square16distance1FromOsc1,
         });
         
         this.updateCanvas();
         this.updateFrequencyOSC(posY)
-
         this.updateLFOType();
         this.updateLFOFreq(square1distance1FromOsc1);
-
         this.updateOSC1chorusDepth(square2distance1FromOsc1);
-        // this.updateOCS1chorusRate(square2distance1FromOsc1);
-
         this.updateOSC1filterDepth(square3distance1FromOsc1);
-        // this.updateOSC1filterRate(square3distance1FromOsc1);
-
         this.updateOSC1filter2Depth(square4distance1FromOsc1);
-        // this.updateOSC1filter2Rate(square4distance1FromOsc1);
-
-        // this.updateOSC1tremoloIntensity(square5distance1FromOsc1)
         this.updateOSC1tremoloRate(square5distance1FromOsc1)
-
-        this.updateOSC1bitcrusherBits(square6distance1FromOsc1)
-        // this.updateOSC1bitcrusherBufferSize(square6distance1FromOsc1)
-
-        this.updateOSC1moogFilterCutoff(square7distance1FromOsc1)
-        // this.updateOSC1moogFilterBufferSize(square7distance1FromOsc1)
-        this.updateOSC1moogFilterResonance(square7distance1FromOsc1)
-
-        this.updateOSC1moogFilter2Cutoff(square8distance1FromOsc1)
-        // this.updateOSC1moogFilter2BufferSize(square8distance1FromOsc1)
-        this.updateOSC1moogFilter2Resonance(square8distance1FromOsc1)
-
         this.updateOSC1reverbLevel(square9distance1FromOsc1)
-
         this.updateOSC1pannerPan(square10distance1FromOsc1)
-
         this.updateOSC1phaserDepth(square11distance1FromOsc1)
         this.updateOSC1phaserRate(square11distance1FromOsc1)
         this.updateOSC1phaserFeedback(square11distance1FromOsc1)
-
         this.updateOSC1overdriveDrive(square12distance1FromOsc1)
         this.updateOSC1overdriveGain(square12distance1FromOsc1)
-        
-
-        
-        
       }
 
       if (this.state.start2Move) {
@@ -1771,10 +1278,6 @@ class XYPad extends React.Component {
         let square10distance2FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square10Pos[0]) * (this.state.circle2Pos[0] - this.state.square10Pos[0])) + ((this.state.circle2Pos[1] - this.state.square10Pos[1]) * (this.state.circle2Pos[1] - this.state.square10Pos[1])))
         let square11distance2FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square11Pos[0]) * (this.state.circle2Pos[0] - this.state.square11Pos[0])) + ((this.state.circle2Pos[1] - this.state.square11Pos[1]) * (this.state.circle2Pos[1] - this.state.square11Pos[1])))
         let square12distance2FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square12Pos[0]) * (this.state.circle2Pos[0] - this.state.square12Pos[0])) + ((this.state.circle2Pos[1] - this.state.square12Pos[1]) * (this.state.circle2Pos[1] - this.state.square12Pos[1])))
-        let square13distance2FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square13Pos[0]) * (this.state.circle2Pos[0] - this.state.square13Pos[0])) + ((this.state.circle2Pos[1] - this.state.square13Pos[1]) * (this.state.circle2Pos[1] - this.state.square13Pos[1])))
-        let square14distance2FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square14Pos[0]) * (this.state.circle2Pos[0] - this.state.square14Pos[0])) + ((this.state.circle2Pos[1] - this.state.square14Pos[1]) * (this.state.circle2Pos[1] - this.state.square14Pos[1])))
-        let square15distance2FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square15Pos[0]) * (this.state.circle2Pos[0] - this.state.square15Pos[0])) + ((this.state.circle2Pos[1] - this.state.square15Pos[1]) * (this.state.circle2Pos[1] - this.state.square15Pos[1])))
-        let square16distance2FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square15Pos[0]) * (this.state.circle2Pos[0] - this.state.square16Pos[0])) + ((this.state.circle2Pos[1] - this.state.square16Pos[1]) * (this.state.circle2Pos[1] - this.state.square16Pos[1])))
         
         var posX = event.layerX;
         var posY = event.layerY;
@@ -1808,50 +1311,22 @@ class XYPad extends React.Component {
           square10distanceFromOsc2: square10distance2FromOsc2,
           square11distanceFromOsc2: square11distance2FromOsc2,
           square12distanceFromOsc2: square12distance2FromOsc2,
-          square13distanceFromOsc2: square13distance2FromOsc2,
-          square14distanceFromOsc2: square14distance2FromOsc2,
-          square15distanceFromOsc2: square15distance2FromOsc2,
-          square16distanceFromOsc2: square16distance2FromOsc2,
-
         });
         
         this.updateCanvas();
         this.updateFrequencyOSC2(posY)
-
         this.updateLFO2Type();
         this.updateLFO2Freq(square1distance2FromOsc2);
-
         this.updateOSC2chorusDepth(square2distance2FromOsc2);
         this.updateOSC2chorusRate(square2distance2FromOsc2);
-
         this.updateOSC2filterDepth(square3distance2FromOsc2);
-        // this.updateOSC2filterRate(square3distance2FromOsc2);
-
         this.updateOSC2filter2Depth(square4distance2FromOsc2);
-        // this.updateOSC2filter2Rate(square4distance2FromOsc2);
-
-        // this.updateOSC2tremoloIntensity(square5distance2FromOsc2)
         this.updateOSC2tremoloRate(square5distance2FromOsc2)
-
-        this.updateOSC2bitcrusherBits(square6distance2FromOsc2)
-        // this.updateOSC2bitcrusherBufferSize(square6distance2FromOsc2)
-
-        this.updateOSC2moogFilterCutoff(square7distance2FromOsc2)
-        // this.updateOSC2moogFilterBufferSize(square7distance2FromOsc2)
-        this.updateOSC2moogFilterResonance(square7distance2FromOsc2)
-
-        this.updateOSC2moogFilter2Cutoff(square8distance2FromOsc2)
-        // this.updateOSC2moogFilter2BufferSize(square8distance2FromOsc2)
-        this.updateOSC2moogFilter2Resonance(square8distance2FromOsc2)
-
         this.updateOSC2reverbLevel(square9distance2FromOsc2)
-
         this.updateOSC2pannerPan(square10distance2FromOsc2)
-
         this.updateOSC2phaserDepth(square11distance2FromOsc2)
         this.updateOSC2phaserRate(square11distance2FromOsc2)
         this.updateOSC2phaserFeedback(square11distance2FromOsc2)
-
         this.updateOSC2overdriveDrive(square12distance2FromOsc2)
         this.updateOSC2overdriveGain(square12distance2FromOsc2)
       }
@@ -1870,10 +1345,7 @@ class XYPad extends React.Component {
         let square10distance3FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square10Pos[0]) * (this.state.circle3Pos[0] - this.state.square10Pos[0])) + ((this.state.circle3Pos[1] - this.state.square10Pos[1]) * (this.state.circle3Pos[1] - this.state.square10Pos[1])))
         let square11distance3FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square11Pos[0]) * (this.state.circle3Pos[0] - this.state.square11Pos[0])) + ((this.state.circle3Pos[1] - this.state.square11Pos[1]) * (this.state.circle3Pos[1] - this.state.square11Pos[1])))
         let square12distance3FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square12Pos[0]) * (this.state.circle3Pos[0] - this.state.square12Pos[0])) + ((this.state.circle3Pos[1] - this.state.square12Pos[1]) * (this.state.circle3Pos[1] - this.state.square12Pos[1])))
-        let square13distance3FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square13Pos[0]) * (this.state.circle3Pos[0] - this.state.square13Pos[0])) + ((this.state.circle3Pos[1] - this.state.square13Pos[1]) * (this.state.circle3Pos[1] - this.state.square13Pos[1])))
-        let square14distance3FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square14Pos[0]) * (this.state.circle3Pos[0] - this.state.square14Pos[0])) + ((this.state.circle3Pos[1] - this.state.square14Pos[1]) * (this.state.circle3Pos[1] - this.state.square14Pos[1])))
-        let square15distance3FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square15Pos[0]) * (this.state.circle3Pos[0] - this.state.square15Pos[0])) + ((this.state.circle3Pos[1] - this.state.square15Pos[1]) * (this.state.circle3Pos[1] - this.state.square15Pos[1])))
-        let square16distance3FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square15Pos[0]) * (this.state.circle3Pos[0] - this.state.square16Pos[0])) + ((this.state.circle3Pos[1] - this.state.square16Pos[1]) * (this.state.circle3Pos[1] - this.state.square16Pos[1])))
+      
         var posX = event.layerX;
         var posY = event.layerY;
          if (posX < 0) {
@@ -1906,10 +1378,6 @@ class XYPad extends React.Component {
           square10distanceFromOsc3: square10distance3FromOsc3,
           square11distanceFromOsc3: square11distance3FromOsc3,
           square12distanceFromOsc3: square12distance3FromOsc3,
-          square13distanceFromOsc3: square13distance3FromOsc3,
-          square14distanceFromOsc3: square14distance3FromOsc3,
-          square15distanceFromOsc3: square15distance3FromOsc3,
-          square16distanceFromOsc3: square16distance3FromOsc3,
 
         });
         
@@ -1927,24 +1395,8 @@ class XYPad extends React.Component {
         this.updateOSC3chorusRate(square2distance3FromOsc3);
 
         this.updateOSC3filterDepth(square3distance3FromOsc3);
-        // this.updateOSC3filterRate(square3distance3FromOsc3);
-
         this.updateOSC3filter2Depth(square4distance3FromOsc3);
-        // this.updateOSC3filter2Rate(square4distance3FromOsc3);
-
-        // this.updateOSC3tremoloIntensity(square5distance3FromOsc3)
         this.updateOSC3tremoloRate(square5distance3FromOsc3)
-
-        this.updateOSC3bitcrusherBits(square6distance3FromOsc3)
-        // this.updateOSC3bitcrusherBufferSize(square6distance3FromOsc3)
-
-        this.updateOSC3moogFilterCutoff(square7distance3FromOsc3)
-        // this.updateOSC3moogFilterBufferSize(square7distance3FromOsc3)
-        this.updateOSC3moogFilterResonance(square7distance3FromOsc3)
-
-        this.updateOSC3moogFilter2Cutoff(square8distance3FromOsc3)
-        // this.updateOSC3moogFilter2BufferSize(square8distance3FromOsc3)
-        this.updateOSC3moogFilter2Resonance(square8distance3FromOsc3)
 
         this.updateOSC3reverbLevel(square9distance3FromOsc3)
 
@@ -1973,10 +1425,7 @@ class XYPad extends React.Component {
         let square10distance4FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square10Pos[0]) * (this.state.circle4Pos[0] - this.state.square10Pos[0])) + ((this.state.circle4Pos[1] - this.state.square10Pos[1]) * (this.state.circle4Pos[1] - this.state.square10Pos[1])))
         let square11distance4FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square11Pos[0]) * (this.state.circle4Pos[0] - this.state.square11Pos[0])) + ((this.state.circle4Pos[1] - this.state.square11Pos[1]) * (this.state.circle4Pos[1] - this.state.square11Pos[1])))
         let square12distance4FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square12Pos[0]) * (this.state.circle4Pos[0] - this.state.square12Pos[0])) + ((this.state.circle4Pos[1] - this.state.square12Pos[1]) * (this.state.circle4Pos[1] - this.state.square12Pos[1])))
-        let square13distance4FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square13Pos[0]) * (this.state.circle4Pos[0] - this.state.square13Pos[0])) + ((this.state.circle4Pos[1] - this.state.square13Pos[1]) * (this.state.circle4Pos[1] - this.state.square13Pos[1])))
-        let square14distance4FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square14Pos[0]) * (this.state.circle4Pos[0] - this.state.square14Pos[0])) + ((this.state.circle4Pos[1] - this.state.square14Pos[1]) * (this.state.circle4Pos[1] - this.state.square14Pos[1])))
-        let square15distance4FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square15Pos[0]) * (this.state.circle4Pos[0] - this.state.square15Pos[0])) + ((this.state.circle4Pos[1] - this.state.square15Pos[1]) * (this.state.circle4Pos[1] - this.state.square15Pos[1])))
-        let square16distance4FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square15Pos[0]) * (this.state.circle4Pos[0] - this.state.square16Pos[0])) + ((this.state.circle4Pos[1] - this.state.square16Pos[1]) * (this.state.circle4Pos[1] - this.state.square16Pos[1])))
+        
         var posX = event.layerX;
         var posY = event.layerY;
          if (posX < 0) {
@@ -2009,10 +1458,6 @@ class XYPad extends React.Component {
           square10distanceFromOsc4: square10distance4FromOsc4,
           square11distanceFromOsc4: square11distance4FromOsc4,
           square12distanceFromOsc4: square12distance4FromOsc4,
-          square13distanceFromOsc4: square13distance4FromOsc4,
-          square14distanceFromOsc4: square14distance4FromOsc4,
-          square15distanceFromOsc4: square15distance4FromOsc4,
-          square16distanceFromOsc4: square16distance4FromOsc4,
         });
         
         this.updateCanvas();
@@ -2025,24 +1470,11 @@ class XYPad extends React.Component {
         this.updateOSC4chorusRate(square2distance4FromOsc4);
 
         this.updateOSC4filterDepth(square3distance4FromOsc4);
-        // this.updateOSC4filterRate(square3distance4FromOsc4);
+   
 
         this.updateOSC4filter2Depth(square4distance4FromOsc4);
-        // this.updateOSC4filter2Rate(square4distance4FromOsc4);
-
-        // this.updateOSC4tremoloIntensity(square5distance4FromOsc4)
+  
         this.updateOSC4tremoloRate(square5distance4FromOsc4)
-
-        this.updateOSC4bitcrusherBits(square6distance4FromOsc4)
-        // this.updateOSC4bitcrusherBufferSize(square6distance4FromOsc4)
-
-        this.updateOSC4moogFilterCutoff(square7distance4FromOsc4)
-        // this.updateOSC4moogFilterBufferSize(square7distance4FromOsc4)
-        this.updateOSC4moogFilterResonance(square7distance4FromOsc4)
-
-        this.updateOSC4moogFilter2Cutoff(square8distance4FromOsc4)
-        // this.updateOSC4moogFilter2BufferSize(square8distance4FromOsc4)
-        this.updateOSC4moogFilter2Resonance(square8distance4FromOsc4)
 
         this.updateOSC4reverbLevel(square9distance4FromOsc4)
 
@@ -2089,16 +1521,7 @@ class XYPad extends React.Component {
           square1distanceFromOsc3: square1distance5FromOsc3,
           square1distanceFromOsc4: square1distance5FromOsc4,
         });
-   
-        // this.updateCanvas();
-        // this.updateLFOType();
-        // this.updateLFOFreq(square1distance5FromOsc1);
-        // this.updateLFO2Type();
-        // this.updateLFO2Freq(square1distance5FromOsc2);
-        // this.updateLFO3Type();
-        // this.updateLFO3Freq(square1distance5FromOsc3);
-        // this.updateLFO4Type();
-        // this.updateLFO4Freq(square1distance5FromOsc4);
+ 
       }
 
       if (this.state.start6Move) {
@@ -2133,17 +1556,6 @@ class XYPad extends React.Component {
           square2distanceFromOsc3: square2distance6FromOsc3,
           square2distanceFromOsc4: square2distance6FromOsc4,
         });
-
-        
-        
-        // this.updateOSC1chorusDepth(square2distance6FromOsc1);
-        // this.updateOCS1chorusRate(square2distance6FromOsc1);
-        // this.updateOSC2chorusDepth(square2distance6FromOsc2);
-        // this.updateOCS2chorusRate(square2distance6FromOsc2);
-        // this.updateOSC3chorusDepth(square2distance6FromOsc3);
-        // this.updateOCS3chorusRate(square2distance6FromOsc3);
-        // this.updateOSC4chorusDepth(square2distance6FromOsc4);
-        // this.updateOCS4chorusRate(square2distance6FromOsc4);
         this.updateCanvas();
       }
 
@@ -2179,18 +1591,6 @@ class XYPad extends React.Component {
           square3distanceFromOsc3: square3distance7FromOsc3,
           square3distanceFromOsc4: square3distance7FromOsc4,
         });
-
-        
-
-        // this.updateOSC1filterDepth(square3distance7FromOsc1);
-        // this.updateOSC1filterRate(square3distance7FromOsc1);
-        // this.updateOSC2filterDepth(square3distance7FromOsc2);
-        // this.updateOSC2filterRate(square3distance7FromOsc2);
-        // this.updateOSC3filterDepth(square3distance7FromOsc3);
-        // this.updateOSC3filterRate(square3distance7FromOsc3);
-        // this.updateOSC4filterDepth(square3distance7FromOsc4);
-        // this.updateOSC4filterRate(square3distance7FromOsc4);
-
         this.updateCanvas();
       }  
 
@@ -2227,18 +1627,6 @@ class XYPad extends React.Component {
           square4distanceFromOsc4: square4distance8FromOsc4,
         });
 
-        
-
-        // this.updateOSC1filter2Depth(square4distance8FromOsc1);
-        // this.updateOSC1filter2Rate(square4distance8FromOsc1);
-        // this.updateOSC2filter2Depth(square4distance8FromOsc2);
-        // this.updateOSC2filter2Rate(square4distance8FromOsc2);
-        // this.updateOSC3filter2Depth(square4distance8FromOsc3);
-        // this.updateOSC3filter2Rate(square4distance8FromOsc3);
-        // this.updateOSC4filter2Depth(square4distance8FromOsc4);
-        // this.updateOSC4filter2Rate(square4distance8FromOsc4);
-        
-        
         this.updateCanvas();
       }
 
@@ -2275,15 +1663,6 @@ class XYPad extends React.Component {
         });
         
         this.updateCanvas();
-
-        // this.updateOSC1tremoloIntensity(square5distance9FromOsc1)
-        // this.updateOSC1tremoloRate(square5distance9FromOsc1)
-        // this.updateOSC2tremoloIntensity(square5distance9FromOsc2)
-        // this.updateOSC2tremoloRate(square5distance9FromOsc2)
-        // this.updateOSC3tremoloIntensity(square5distance9FromOsc3)
-        // this.updateOSC3tremoloRate(square5distance9FromOsc3)
-        // this.updateOSC4tremoloIntensity(square5distance9FromOsc4)
-        // this.updateOSC4tremoloRate(square5distance9FromOsc4)
       }
 
       if (this.state.start10Move) {
@@ -2317,15 +1696,6 @@ class XYPad extends React.Component {
           square6distanceFromOsc3: square6distance10FromOsc3,
           square6distanceFromOsc4: square6distance10FromOsc4,
         });
-        // this.updateOSC1bitcrusherBits(square6distance10FromOsc1)
-        // this.updateOSC1bitcrusherBufferSize(square6distance10FromOsc1)
-        // this.updateOSC2bitcrusherBits(square6distance10FromOsc2)
-        // this.updateOSC2bitcrusherBufferSize(square6distance10FromOsc2)
-        // this.updateOSC3bitcrusherBits(square6distance10FromOsc3)
-        // this.updateOSC3bitcrusherBufferSize(square6distance10FromOsc3)
-        // this.updateOSC4bitcrusherBits(square6distance10FromOsc4)
-        // this.updateOSC4bitcrusherBufferSize(square6distance10FromOsc4)
-        // this.updateCanvas();
       }
 
       if (this.state.start11Move) {
@@ -2362,21 +1732,6 @@ class XYPad extends React.Component {
 
         this.updateCanvas();
 
-        // this.updateOSC1moogFilterCutoff(square7distance11FromOsc1)
-        // this.updateOSC1moogFilterBufferSize(square7distance11FromOsc1)
-        // this.updateOSC1moogFilterResonance(square7distance11FromOsc1)
-
-        // this.updateOSC2moogFilterCutoff(square7distance11FromOsc2)
-        // this.updateOSC2moogFilterBufferSize(square7distance11FromOsc2)
-        // this.updateOSC2moogFilterResonance(square7distance11FromOsc2)
-
-        // this.updateOSC3moogFilterCutoff(square7distance11FromOsc3)
-        // this.updateOSC3moogFilterBufferSize(square7distance11FromOsc3)
-        // this.updateOSC3moogFilterResonance(square7distance11FromOsc3)
-
-        // this.updateOSC4moogFilterCutoff(square7distance11FromOsc4)
-        // this.updateOSC4moogFilterBufferSize(square7distance11FromOsc4)
-        // this.updateOSC4moogFilterResonance(square7distance11FromOsc4)
       }
 
       if (this.state.start12Move) {
@@ -2410,22 +1765,6 @@ class XYPad extends React.Component {
           square8distanceFromOsc3: square8distance12FromOsc3,
           square8distanceFromOsc4: square8distance12FromOsc4,
         });
-        // this.updateOSC1moogFilter2Cutoff(square8distance12FromOsc1)
-        // this.updateOSC1moogFilter2BufferSize(square8distance12FromOsc1)
-        // this.updateOSC1moogFilter2Resonance(square8distance12FromOsc1)
-
-        // this.updateOSC2moogFilter2Cutoff(square8distance12FromOsc2)
-        // this.updateOSC2moogFilter2BufferSize(square8distance12FromOsc2)
-        // this.updateOSC2moogFilter2Resonance(square8distance12FromOsc2)
-
-        // this.updateOSC3moogFilter2Cutoff(square8distance12FromOsc3)
-        // this.updateOSC3moogFilter2BufferSize(square8distance12FromOsc3)
-        // this.updateOSC3moogFilter2Resonance(square8distance12FromOsc3)
-
-        // this.updateOSC4moogFilter2Cutoff(square8distance12FromOsc4)
-        // this.updateOSC4moogFilter2BufferSize(square8distance12FromOsc4)
-        // this.updateOSC4moogFilter2Resonance(square8distance12FromOsc4)
-        // this.updateCanvas();
       }
 
       if (this.state.start13Move) {
@@ -2459,10 +1798,6 @@ class XYPad extends React.Component {
           square9distanceFromOsc3: square9distance13FromOsc3,
           square9distanceFromOsc4: square9distance13FromOsc4,
         });
-        // this.updateOSC1reverbLevel(square9distance13FromOsc1);
-        // this.updateOSC2reverbLevel(square9distance13FromOsc2);
-        // this.updateOSC3reverbLevel(square9distance13FromOsc3);
-        // this.updateOSC4reverbLevel(square9distance13FromOsc4);
         this.updateCanvas();
       }
 
@@ -2498,10 +1833,6 @@ class XYPad extends React.Component {
           square10distanceFromOsc3: square10distance14FromOsc3,
           square10distanceFromOsc4: square10distance14FromOsc4,
         });
-        // this.updateOSC1pannerPan(square10distance14FromOsc1)
-        // this.updateOSC2pannerPan(square10distance14FromOsc2)
-        // this.updateOSC3pannerPan(square10distance14FromOsc3)
-        // this.updateOSC4pannerPan(square10distance14FromOsc4)
         this.updateCanvas();
       }
 
@@ -2536,21 +1867,6 @@ class XYPad extends React.Component {
           square11distanceFromOsc3: square11distance15FromOsc3,
           square11distanceFromOsc4: square11distance15FromOsc4,
         });
-        // this.updateOSC1phaserDepth(square11distance15FromOsc1)
-        // this.updateOSC1phaserRate(square11distance15FromOsc1)
-        // this.updateOSC1phaserFeedback(square11distance15FromOsc1)
-
-        // this.updateOSC2phaserDepth(square11distance15FromOsc2)
-        // this.updateOSC2phaserRate(square11distance15FromOsc2)
-        // this.updateOSC2phaserFeedback(square11distance15FromOsc2)
-
-        // this.updateOSC3phaserDepth(square11distance15FromOsc3)
-        // this.updateOSC3phaserRate(square11distance15FromOsc3)
-        // this.updateOSC3phaserFeedback(square11distance15FromOsc3)
-
-        // this.updateOSC4phaserDepth(square11distance15FromOsc4)
-        // this.updateOSC4phaserRate(square11distance15FromOsc4)
-        // this.updateOSC4phaserFeedback(square11distance15FromOsc4)
 
         this.updateCanvas();
       }
@@ -2596,151 +1912,7 @@ class XYPad extends React.Component {
         // this.updateOSC4overdriveGain(square12distance16FromOsc4)
         this.updateCanvas();
       }
-
-      if (this.state.start17Move) {
-        this.state.prevSquare13Pos = this.state.square13Pos;
-        let square13distance17FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square13Pos[0]) * (this.state.circle1Pos[0] - this.state.square13Pos[0])) + ((this.state.circle1Pos[1] - this.state.square13Pos[1]) * (this.state.circle1Pos[1] - this.state.square13Pos[1])))
-        let square13distance17FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square13Pos[0]) * (this.state.circle2Pos[0] - this.state.square13Pos[0])) + ((this.state.circle2Pos[1] - this.state.square13Pos[1]) * (this.state.circle2Pos[1] - this.state.square13Pos[1])))
-        let square13distance17FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square13Pos[0]) * (this.state.circle3Pos[0] - this.state.square13Pos[0])) + ((this.state.circle3Pos[1] - this.state.square13Pos[1]) * (this.state.circle3Pos[1] - this.state.square13Pos[1])))
-        let square13distance17FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square13Pos[0]) * (this.state.circle4Pos[0] - this.state.square13Pos[0])) + ((this.state.circle4Pos[1] - this.state.square13Pos[1]) * (this.state.circle4Pos[1] - this.state.square13Pos[1])))
-        
-        var posX = event.layerX;
-        var posY = event.layerY;
-         if (posX < 0) {
-          posX = 0;
-        }
-
-        if (posY < 0) {
-          posY = 0;
-        }
-
-        if (posX > this.props.width) {
-          posX = this.props.width;
-        }
-
-        if (posY > this.props.height) {
-          posY = this.props.height;
-        }
-
-        this.setState({
-          square13Pos: [posX, posY],
-          square13distanceFromOsc1: square13distance17FromOsc1,
-          square13distanceFromOsc2: square13distance17FromOsc2,
-          square13distanceFromOsc3: square13distance17FromOsc3,
-          square13distanceFromOsc4: square13distance17FromOsc4,
-        });
-
-        this.updateCanvas();
-      }
-
-      if (this.state.start18Move) {
-        this.state.prevSquare14Pos = this.state.square14Pos;
-        let square14distance18FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square14Pos[0]) * (this.state.circle1Pos[0] - this.state.square14Pos[0])) + ((this.state.circle1Pos[1] - this.state.square14Pos[1]) * (this.state.circle1Pos[1] - this.state.square14Pos[1])))
-        let square14distance18FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square14Pos[0]) * (this.state.circle2Pos[0] - this.state.square14Pos[0])) + ((this.state.circle2Pos[1] - this.state.square14Pos[1]) * (this.state.circle2Pos[1] - this.state.square14Pos[1])))
-        let square14distance18FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square14Pos[0]) * (this.state.circle3Pos[0] - this.state.square14Pos[0])) + ((this.state.circle3Pos[1] - this.state.square14Pos[1]) * (this.state.circle3Pos[1] - this.state.square14Pos[1])))
-        let square14distance18FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square14Pos[0]) * (this.state.circle4Pos[0] - this.state.square14Pos[0])) + ((this.state.circle4Pos[1] - this.state.square14Pos[1]) * (this.state.circle4Pos[1] - this.state.square14Pos[1])))
-        var posX = event.layerX;
-        var posY = event.layerY;
-         if (posX < 0) {
-          posX = 0;
-        }
-
-        if (posY < 0) {
-          posY = 0;
-        }
-
-        if (posX > this.props.width) {
-          posX = this.props.width;
-        }
-
-        if (posY > this.props.height) {
-          posY = this.props.height;
-        }
-
-        this.setState({
-          square14Pos: [posX, posY],
-          square14distanceFromOsc1: square14distance18FromOsc1,
-          square14distanceFromOsc2: square14distance18FromOsc2,
-          square14distanceFromOsc3: square14distance18FromOsc3,
-          square14distanceFromOsc4: square14distance18FromOsc4,
-        });
-
-        this.updateCanvas();
-      }
-
-      if (this.state.start19Move) {
-        this.state.prevSquare15Pos = this.state.square15Pos;
-        let square15distance19FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square15Pos[0]) * (this.state.circle1Pos[0] - this.state.square15Pos[0])) + ((this.state.circle1Pos[1] - this.state.square15Pos[1]) * (this.state.circle1Pos[1] - this.state.square15Pos[1])))
-        let square15distance19FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square15Pos[0]) * (this.state.circle2Pos[0] - this.state.square15Pos[0])) + ((this.state.circle2Pos[1] - this.state.square15Pos[1]) * (this.state.circle2Pos[1] - this.state.square15Pos[1])))
-        let square15distance19FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square15Pos[0]) * (this.state.circle3Pos[0] - this.state.square15Pos[0])) + ((this.state.circle3Pos[1] - this.state.square15Pos[1]) * (this.state.circle3Pos[1] - this.state.square15Pos[1])))
-        let square15distance19FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square15Pos[0]) * (this.state.circle4Pos[0] - this.state.square15Pos[0])) + ((this.state.circle4Pos[1] - this.state.square15Pos[1]) * (this.state.circle4Pos[1] - this.state.square15Pos[1])))
-        var posX = event.layerX;
-        var posY = event.layerY;
-         if (posX < 0) {
-          posX = 0;
-        }
-
-        if (posY < 0) {
-          posY = 0;
-        }
-
-        if (posX > this.props.width) {
-          posX = this.props.width;
-        }
-
-        if (posY > this.props.height) {
-          posY = this.props.height;
-        }
-
-        this.setState({
-          square15Pos: [posX, posY],
-          square15distanceFromOsc1: square15distance19FromOsc1,
-          square15distanceFromOsc2: square15distance19FromOsc2,
-          square15distanceFromOsc3: square15distance19FromOsc3,
-          square15distanceFromOsc4: square15distance19FromOsc4,
-        });
-
-        this.updateCanvas();
-      }
-
-      if (this.state.start20Move) {
-        this.state.prevSquare15Pos = this.state.square15Pos;
-        let square16distance20FromOsc1 = Math.sqrt(((this.state.circle1Pos[0] - this.state.square16Pos[0]) * (this.state.circle1Pos[0] - this.state.square16Pos[0])) + ((this.state.circle1Pos[1] - this.state.square16Pos[1]) * (this.state.circle1Pos[1] - this.state.square16Pos[1])))
-        let square16distance20FromOsc2 = Math.sqrt(((this.state.circle2Pos[0] - this.state.square16Pos[0]) * (this.state.circle2Pos[0] - this.state.square16Pos[0])) + ((this.state.circle2Pos[1] - this.state.square16Pos[1]) * (this.state.circle2Pos[1] - this.state.square16Pos[1])))
-        let square16distance20FromOsc3 = Math.sqrt(((this.state.circle3Pos[0] - this.state.square16Pos[0]) * (this.state.circle3Pos[0] - this.state.square16Pos[0])) + ((this.state.circle3Pos[1] - this.state.square16Pos[1]) * (this.state.circle3Pos[1] - this.state.square16Pos[1])))
-        let square16distance20FromOsc4 = Math.sqrt(((this.state.circle4Pos[0] - this.state.square16Pos[0]) * (this.state.circle4Pos[0] - this.state.square16Pos[0])) + ((this.state.circle4Pos[1] - this.state.square16Pos[1]) * (this.state.circle4Pos[1] - this.state.square16Pos[1])))
-        var posX = event.layerX;
-        var posY = event.layerY;
-         if (posX < 0) {
-          posX = 0;
-        }
-
-        if (posY < 0) {
-          posY = 0;
-        }
-
-        if (posX > this.props.width) {
-          posX = this.props.width;
-        }
-
-        if (posY > this.props.height) {
-          posY = this.props.height;
-        }
-
-        this.setState({
-          square16Pos: [posX, posY],
-          square16distanceFromOsc1: square16distance20FromOsc1,
-          square16distanceFromOsc2: square16distance20FromOsc2,
-          square16distanceFromOsc3: square16distance20FromOsc3,
-          square16distanceFromOsc4: square16distance20FromOsc4,
-        });
-
-        this.updateCanvas();
-      }
-
-      this.updateCanvas();
     }
-
     //////GET DISTANCE FUNCTION/////////
    
 
@@ -2748,10 +1920,10 @@ class XYPad extends React.Component {
 /////////OSC1 FUNCTIONS///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
     updateFrequencyOSC(posY) {
-      let oscFreq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let oscFreq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.setState({oscFreq: oscFreq})
       this.props.changeOSCFreq(oscFreq);
-      console.log(oscFreq)
+     
     }
 
     turnOnLFO() {
@@ -2765,7 +1937,7 @@ class XYPad extends React.Component {
       let lfoType = (lfoWaveTypes[randomType])
       this.setState({lfoType: lfoType})
       this.props.changeLFOType(lfoType)
-      console.log(lfoType)
+     
     }
 
     updateLFOFreq(square1distance1FromOsc1) {
@@ -2775,9 +1947,9 @@ class XYPad extends React.Component {
     }
 
     updateOSC1chorusBypass(){
-      console.log(this.state)
+      
       this.props.toggleOSC1chorusBypass(!this.props.osc1chorusBypass)
-      console.log(this.props.osc1chorusBypass)
+   
     }
 
     updateOSC1chorusDepth(square2distance1FromOsc1) {
@@ -2787,16 +1959,9 @@ class XYPad extends React.Component {
   
     }
 
-    // updateOSC1chorusRate(square2distance1FromOsc1) {
-    // let osc1chorusRate = Math.floor(square2distance1FromOsc1 * .008)
-    //   this.setState({osc1chorusRate: osc1chorusRate})
-    //   this.props.changeOSC1chorusRate(osc1chorusRate)
-      
-    // }
-
     updateOSC1filterBypass() {
       this.props.toggleOSC1filterBypass(!this.props.osc1filterBypass)
-      console.log(this.props.osc1filterBypass)
+     
     }
 
     updateOSC1filterDepth(square3distance1FromOsc1) {
@@ -2805,15 +1970,10 @@ class XYPad extends React.Component {
       this.props.changeOSC1filterDepth(osc1filterDepth)
     }
 
-    // updateOSC1filterRate(square3distance1FromOsc1) {
-    //   let osc1filterRate = Math.floor(square3distance1FromOsc1 * .008)
-    //   this.setState({osc1filterRate: osc1filterRate})
-    //   this.props.changeOSC1filterRate(osc1filterRate)
-    // }
 
     updateOSC1filter2Bypass() {
       this.props.toggleOSC1filter2Bypass(!this.props.osc1filter2Bypass)
-      console.log(this.props.osc1filter2Bypass)
+     
     }
 
     updateOSC1filter2Depth(square4distance1FromOsc1) {
@@ -2822,90 +1982,15 @@ class XYPad extends React.Component {
       this.props.changeOSC1filter2Depth(osc1filter2Depth)
     }
 
-    // updateOSC1filter2Rate(square4distance1FromOsc1) {
-    //   let osc1filter2Rate = square4distance1FromOsc1 * .001
-    //   this.setState({osc1filter2Rate: osc1filter2Rate})
-    //   this.props.changeOSC1filter2Rate(osc1filter2Rate) 
-    // }
-
     updateOSC1tremoloBypass() {
       this.props.toggleOSC1tremoloBypass(!this.props.osc1tremoloBypass)
-      console.log(this.props.osc1tremoloBypass)
+     
     }
-
-    // updateOSC1tremoloIntensity(square5distance1FromOsc1) {
-    //   let osc1tremoloIntensity = (1000 - square5distance1FromOsc1) * .001
-    //   this.setState({osc1tremoloIntensity: osc1tremoloIntensity})
-    //   this.props.changeOSC1tremoloIntensity(osc1tremoloIntensity)
-    // }
 
     updateOSC1tremoloRate(square5distance1FromOsc1) {
        let osc1tremoloRate = square5distance1FromOsc1 * .011
       this.setState({osc1tremoloRate: osc1tremoloRate})
       this.props.changeOSC1tremoloRate(osc1tremoloRate)
-    }
-
-    updateOSC1bitcrusherBypass() {
-      this.props.toggleOSC1bitcrusherBypass(!this.props.osc1bitcrusherBypass)
-      
-    }
-
-    updateOSC1bitcrusherBits(square6distance1FromOsc1) {
-       let osc1bitcrusherBits = Math.floor((1000 - square6distance1FromOsc1) * .016)
-      this.setState({osc1bitcrusherBits: osc1bitcrusherBits})
-      this.props.changeOSC1bitcrusherBits(osc1bitcrusherBits)
-    }
-
-    // updateOSC1bitcrusherBufferSize(square6distance1FromOsc1) {
-    //   let osc1bitcrusherBufferSize = square6distance1FromOsc1 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc1bitcrusherBufferSize: osc1bitcrusherBufferSize})
-    //   this.props.changeOSC1bitcrusherBufferSize(osc1bitcrusherBufferSize)
-    // }
-
-    updateOSC1moogFilterBypass() {
-      this.props.toggleOSC1moogFilterBypass(!this.props.osc1moogFilterBypass)
-      
-    }
-
-    updateOSC1moogFilterCutoff(square7distance1FromOsc1) {
-      let osc1moogFilterCutoff = (1000 - square7distance1FromOsc1) * .001
-      this.setState({osc1moogFilterCutoff: osc1moogFilterCutoff})
-      this.props.changeOSC1moogFilterCutoff(osc1moogFilterCutoff)
-    }
-
-    // updateOSC1moogFilterBufferSize(square7distance1FromOsc1) {
-    //   let osc1moogFilterBufferSize = square7distance1FromOsc1 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc1moogFilterBufferSize: osc1moogFilterBufferSize})
-    //   this.props.changeOSC1moogFilterBufferSize(osc1moogFilterBufferSize)
-    // }
-
-    updateOSC1moogFilterResonance(square7distance1FromOsc1) {
-      let osc1moogFilterResonance = Math.floor(square7distance1FromOsc1 * .004)
-      this.setState({osc1moogFilterResonance: osc1moogFilterResonance})
-      this.props.changeOSC1moogFilterResonance(osc1moogFilterResonance)
-    }
-
-    updateOSC1moogFilter2Bypass() {
-      this.props.toggleOSC1moogFilter2Bypass(!this.props.osc1moogFilter2Bypass)
-      
-    }
-
-    updateOSC1moogFilter2Cutoff(square8distance1FromOsc1) {
-      let osc1moogFilter2Cutoff = (1000 - square8distance1FromOsc1) * .001
-      this.setState({osc1moogFilter2Cutoff: osc1moogFilter2Cutoff})
-      this.props.changeOSC1moogFilter2Cutoff(osc1moogFilter2Cutoff)
-    }
-
-    // updateOSC1moogFilter2BufferSize(square8distance1FromOsc1) {
-    //   let osc1moogFilter2BufferSize = square8distance1FromOsc1 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc1moogFilter2BufferSize: osc1moogFilter2BufferSize})
-    //   this.props.changeOSC1moogFilter2BufferSize(osc1moogFilter2BufferSize)
-    // }
-
-    updateOSC1moogFilter2Resonance(square8distance1FromOsc1) {
-      let osc1moogFilter2Resonance = Math.floor(square8distance1FromOsc1 * .004)
-      this.setState({osc1moogFilter2Resonance: osc1moogFilter2Resonance})
-      this.props.changeOSC1moogFilter2Resonance(osc1moogFilter2Resonance)
     }
 
     updateOSC1reverbBypass() {
@@ -2932,11 +2017,11 @@ class XYPad extends React.Component {
 
     updateOSC1phaserBypass() {
       this.props.toggleOSC1phaserBypass(!this.props.osc1phaserBypass)
-      console.log(this.props.osc1phaserBypass)
+      
     }
 
     updateOSC1phaserRate(square11distance1FromOsc1) {
-      let osc1phaserRate = Math.floor(square11distance1FromOsc1 * .008)
+      let osc1phaserRate = Math.floor(square11distance1FromOsc1 * .008) + 1
       this.setState({osc1phaserRate: osc1phaserRate})
       this.props.changeOSC1phaserRate(osc1phaserRate)
     }
@@ -2955,7 +2040,7 @@ class XYPad extends React.Component {
 
     updateOSC1overdriveBypass() {
       this.props.toggleOSC1overdriveBypass(!this.props.osc1overdriveBypass)
-      console.log(this.props.osc1overdriveBypass)
+      
     }
 
     updateOSC1overdriveDrive(square12distance1FromOsc1) {
@@ -2972,10 +2057,10 @@ class XYPad extends React.Component {
 
 /////////OSC2 FUNCTIONS/////////////
     updateFrequencyOSC2(posY) {
-      let osc2Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let osc2Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.setState({osc2Freq: osc2Freq})
       this.props.changeOSC2Freq(osc2Freq);
-      console.log(osc2Freq)
+      
     }
     
 
@@ -3029,13 +2114,6 @@ class XYPad extends React.Component {
       this.props.changeOSC2filterDepth(osc2filterDepth)
     }
 
-    // updateOSC2filterRate(square3distance2FromOsc2) {
-    //   let osc2filterRate = Math.floor(square3distance2FromOsc2 * .008)
-    //   this.setState({osc2filterRate: osc2filterRate})
-    //   this.props.changeOSC2filterRate(osc2filterRate)
-      
-    // }
-
     updateOSC2filter2Bypass() {
       
       this.props.toggleOSC2filter2Bypass(!this.props.osc2filter2Bypass)
@@ -3050,101 +2128,17 @@ class XYPad extends React.Component {
      
     }
 
-    // updateOSC2filter2Rate(square4distance2FromOsc2) {
-    //   let osc2filter2Rate = square4distance2FromOsc2 * .001
-    //   this.setState({osc2filter2Rate: osc2filter2Rate})
-    //   this.props.changeOSC2filter2Rate(osc2filter2Rate) 
-      
-    // }
-
     updateOSC2tremoloBypass() {
      
       this.props.toggleOSC2tremoloBypass(!this.props.osc2tremoloBypass)
      
     }
 
-    // updateOSC2tremoloIntensity(square5distance2FromOsc2) {
-    //   let osc2tremoloIntensity = (1000 - square5distance2FromOsc2) * .001
-    //   this.setState({osc2tremoloIntensity: osc2tremoloIntensity})
-    //   this.props.changeOSC2tremoloIntensity(osc2tremoloIntensity)
-      
-    // }
-
     updateOSC2tremoloRate(square5distance2FromOsc2) {
       let osc2tremoloRate = square5distance2FromOsc2 * .011
       this.setState({osc2tremoloRate: osc2tremoloRate})
-      this.props.changeOSC2tremoloRate(osc2tremoloRate)
-      
+      this.props.changeOSC2tremoloRate(osc2tremoloRate) 
     }
-
-    updateOSC2bitcrusherBypass() {
-      
-      this.props.toggleOSC2bitcrusherBypass(!this.props.osc2bitcrusherBypass)
-      
-    }
-
-    updateOSC2bitcrusherBits(square6distance2FromOsc2) {
-      let osc2bitcrusherBits = Math.floor((1000 - square6distance2FromOsc2) * .016)
-      this.setState({osc2bitcrusherBits: osc2bitcrusherBits})
-      this.props.changeOSC2bitcrusherBits(osc2bitcrusherBits)
-      
-    }
-
-    // updateOSC2bitcrusherBufferSize(square6distance2FromOsc2) {
-    //   let osc2bitcrusherBufferSize = square6distance2FromOsc2 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc2bitcrusherBufferSize: osc2bitcrusherBufferSize})
-    //   this.props.changeOSC2bitcrusherBufferSize(osc2bitcrusherBufferSize)
-      
-    // }
-
-    updateOSC2moogFilterBypass() {
-      
-      this.props.toggleOSC2moogFilterBypass(!this.props.osc2moogFilterBypass)
-      
-    }
-
-    updateOSC2moogFilterCutoff(square7distance2FromOsc2) {
-      let osc2moogFilterCutoff = (1000 - square7distance2FromOsc2) * .001
-      this.setState({osc2moogFilterCutoff: osc2moogFilterCutoff})
-      this.props.changeOSC2moogFilterCutoff(osc2moogFilterCutoff)
-    }
-
-    // updateOSC2moogFilterBufferSize(square7distance2FromOsc2) {
-    //   let osc2moogFilterBufferSize = square7distance2FromOsc2 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc2moogFilterBufferSize: osc2moogFilterBufferSize})
-    //   this.props.changeOSC2moogFilterBufferSize(osc2moogFilterBufferSize)
-    // }
-
-    updateOSC2moogFilterResonance(square7distance2FromOsc2) {
-      let osc2moogFilterResonance = Math.floor(square7distance2FromOsc2 * .004)
-      this.setState({osc2moogFilterResonance: osc2moogFilterResonance})
-      this.props.changeOSC2moogFilterResonance(osc2moogFilterResonance)
-    }
-
-    updateOSC2moogFilter2Bypass() {
-   
-      this.props.toggleOSC2moogFilter2Bypass(!this.props.osc2moogFilter2Bypass)
-   
-    }
-
-    updateOSC2moogFilter2Cutoff(square8distance2FromOsc2) {
-      let osc2moogFilter2Cutoff = (1000 - square8distance2FromOsc2) * .001
-      this.setState({osc2moogFilter2Cutoff: osc2moogFilter2Cutoff})
-      this.props.changeOSC2moogFilter2Cutoff(osc2moogFilter2Cutoff)
-    }
-
-    // updateOSC2moogFilter2BufferSize(square8distance2FromOsc2) {
-    //   let osc2moogFilter2BufferSize = square8distance2FromOsc2 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc2moogFilter2BufferSize: osc2moogFilter2BufferSize})
-    //   this.props.changeOSC2moogFilter2BufferSize(osc2moogFilter2BufferSize)
-    // }
-
-    updateOSC2moogFilter2Resonance(square8distance2FromOsc2) {
-      let osc2moogFilter2Resonance = Math.floor(square8distance2FromOsc2 * .004)
-      this.setState({osc2moogFilter2Resonance: osc2moogFilter2Resonance})
-      this.props.changeOSC2moogFilter2Resonance(osc2moogFilter2Resonance)
-    }
-
     updateOSC2reverbBypass() {
       this.props.toggleOSC2reverbBypass(!this.props.osc2reverbBypass)
     }
@@ -3157,7 +2151,7 @@ class XYPad extends React.Component {
 
     updateOSC2pannerBypass() {
       this.props.toggleOSC2pannerBypass(!this.props.osc2pannerBypass)
-      console.log(this.props.osc2pannerBypass)
+     
     }
 
     updateOSC2pannerPan(square10distance2FromOsc2) {
@@ -3209,7 +2203,7 @@ class XYPad extends React.Component {
 
 /////////OSC3 FUNCTIONS///////////////////////////
     updateFrequencyOSC3(posY) {
-      let osc3Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let osc3Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.setState({osc3Freq: osc3Freq})
       this.props.changeOSC3Freq(osc3Freq);
     }
@@ -3230,7 +2224,7 @@ class XYPad extends React.Component {
     updateLFO3Freq(square1distance3FromOsc3) {
       let lfo3Freq = Math.floor((square1distance3FromOsc3 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
       this.props.changeLFO3Freq(lfo3Freq)
-      console.log(lfo3Freq)
+      
     }
 
     updateOSC3chorusBypass(){
@@ -3245,7 +2239,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC3chorusRate(square2distance3FromOsc3) {
-      console.log(square2distance3FromOsc3)
+      
       let osc3chorusRate = Math.floor(square2distance3FromOsc3 * .008)
       this.setState({osc3chorusRate: osc3chorusRate})
       this.props.changeOSC3chorusRate(osc3chorusRate)
@@ -3262,16 +2256,9 @@ class XYPad extends React.Component {
       this.props.changeOSC3filterDepth(osc3filterDepth)
       
     }
-
-    // updateOSC3filterRate(square3distance3FromOsc3) {
-    //   let osc3filterRate = Math.floor(square3distance3FromOsc3 * .008)
-    //   this.setState({osc3filterRate: osc3filterRate})
-    //   this.props.changeOSC3filterRate(osc3filterRate)
-    // }
-
     updateOSC3filter2Bypass() {
       this.props.toggleOSC3filter2Bypass(!this.props.osc3filter2Bypass)
-      console.log(this.props.osc3filter2Bypass)
+      
     }
 
     updateOSC3filter2Depth(square4distance3FromOsc3) {
@@ -3280,23 +2267,10 @@ class XYPad extends React.Component {
       this.props.changeOSC3filter2Depth(osc3filter2Depth)
     }
 
-    // updateOSC3filter2Rate(square4distance3FromOsc3) {
-    //   let osc3filter2Rate = square4distance3FromOsc3 * .001
-    //   this.setState({osc3filter2Rate: osc3filter2Rate})
-    //   this.props.changeOSC3filter2Rate(osc3filter2Rate)  
-    // }
-
     updateOSC3tremoloBypass() {
       this.props.toggleOSC3tremoloBypass(!this.props.osc3tremoloBypass)
   
     }
-
-    // updateOSC3tremoloIntensity(square5distance3FromOsc3) {
-    //   let osc3tremoloIntensity = (1000 - square5distance3FromOsc3) * .001
-    //   this.setState({osc3tremoloIntensity: osc3tremoloIntensity})
-    //   this.props.changeOSC3tremoloIntensity(osc3tremoloIntensity)
-      
-    // }
 
     updateOSC3tremoloRate(square5distance3FromOsc3) {
       let osc3tremoloRate = square5distance3FromOsc3 * .011
@@ -3304,71 +2278,9 @@ class XYPad extends React.Component {
       this.props.changeOSC3tremoloRate(osc3tremoloRate)
     }
 
-    updateOSC3bitcrusherBypass() {
-      this.props.toggleOSC3bitcrusherBypass(!this.props.osc3bitcrusherBypass)
-    }
-
-    updateOSC3bitcrusherBits(square6distance3FromOsc3) {
-      let osc3bitcrusherBits = Math.floor((1000 - square6distance3FromOsc3) * .016)
-      this.setState({osc3bitcrusherBits: osc3bitcrusherBits})
-      this.props.changeOSC3bitcrusherBits(osc3bitcrusherBits)
-    }
-
-    // updateOSC3bitcrusherBufferSize(square6distance3FromOsc3) {
-    //   let osc3bitcrusherBufferSize = square6distance3FromOsc3 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc3bitcrusherBufferSize: osc3bitcrusherBufferSize})
-    //   this.props.changeOSC3bitcrusherBufferSize(osc3bitcrusherBufferSize)
-    // }
-
-    updateOSC3moogFilterBypass() {
-      this.props.toggleOSC3moogFilterBypass(!this.props.osc3moogFilterBypass)
-      console.log(this.props.osc3moogFilterBypass)
-    }
-
-    updateOSC3moogFilterCutoff(square7distance3FromOsc3) {
-      let osc3moogFilterCutoff = (1000 - square7distance3FromOsc3) * .001
-      this.setState({osc3moogFilterCutoff: osc3moogFilterCutoff})
-      this.props.changeOSC3moogFilterCutoff(osc3moogFilterCutoff)
-    }
-
-    // updateOSC3moogFilterBufferSize(square7distance3FromOsc3) {
-    //   let osc3moogFilterBufferSize = square7distance3FromOsc3 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc3moogFilterBufferSize: osc3moogFilterBufferSize})
-    //   this.props.changeOSC3moogFilterBufferSize(osc3moogFilterBufferSize)
-    // }
-
-    updateOSC3moogFilterResonance(square7distance3FromOsc3) {
-      let osc3moogFilterResonance = Math.floor(square7distance3FromOsc3 * .004)
-      this.setState({osc3moogFilterResonance: osc3moogFilterResonance})
-      this.props.changeOSC3moogFilterResonance(osc3moogFilterResonance)
-    }
-
-    updateOSC3moogFilter2Bypass() {
-      this.props.toggleOSC3moogFilter2Bypass(!this.props.osc3moogFilter2Bypass)
-      console.log(this.props.osc3moogFilter2Bypass)
-    }
-
-    updateOSC3moogFilter2Cutoff(square8distance3FromOsc3) {
-      let osc3moogFilter2Cutoff = (1000 - square8distance3FromOsc3) * .001
-      this.setState({osc3moogFilter2Cutoff: osc3moogFilter2Cutoff})
-      this.props.changeOSC3moogFilter2Cutoff(osc3moogFilter2Cutoff)
-    }
-
-    // updateOSC3moogFilter2BufferSize(square8distance3FromOsc3) {
-    //   let osc3moogFilter2BufferSize = square8distance3FromOsc3 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc3moogFilter2BufferSize: osc3moogFilter2BufferSize})
-    //   this.props.changeOSC3moogFilter2BufferSize(osc3moogFilter2BufferSize)
-    // }
-
-    updateOSC3moogFilter2Resonance(square8distance3FromOsc3) {
-      let osc3moogFilter2Resonance = Math.floor(square8distance3FromOsc3 * .004)
-      this.setState({osc3moogFilter2Resonance: osc3moogFilter2Resonance})
-      this.props.changeOSC3moogFilter2Resonance(osc3moogFilter2Resonance)
-    }
-
     updateOSC3reverbBypass() {
       this.props.toggleOSC3reverbBypass(!this.props.osc3reverbBypass)
-      console.log(this.props.osc3reverbBypass)
+      
     }
 
     updateOSC3reverbLevel(square9distance3FromOsc3) {
@@ -3379,7 +2291,7 @@ class XYPad extends React.Component {
 
     updateOSC3pannerBypass() {
       this.props.toggleOSC3pannerBypass(!this.props.osc3pannerBypass)
-      console.log(this.props.osc3pannerBypass)
+      
     }
 
     updateOSC3pannerPan(square10distance3FromOsc3) {
@@ -3390,7 +2302,7 @@ class XYPad extends React.Component {
 
     updateOSC3phaserBypass() {
       this.props.toggleOSC3phaserBypass(!this.props.osc3phaserBypass)
-      console.log(this.props.osc3phaserBypass)
+      
     }
 
     updateOSC3phaserRate(square11distance3FromOsc3) {
@@ -3413,7 +2325,7 @@ class XYPad extends React.Component {
 
     updateOSC3overdriveBypass() {
       this.props.toggleOSC3overdriveBypass(!this.props.osc3overdriveBypass)
-      console.log(this.props.osc3overdriveBypass)
+     
     }
 
     updateOSC3overdriveDrive(square12distance3FromOsc3) {
@@ -3432,7 +2344,7 @@ class XYPad extends React.Component {
 /////////OSC4 FUNCTIONS/////////////
     updateFrequencyOSC4(posY) {
     
-      let osc4Freq = this.state.circle4Pos[1] * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let osc4Freq = this.state.circle4Pos[1] * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.props.changeOSC4Freq(osc4Freq);
     }
 
@@ -3468,7 +2380,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC4chorusRate(square2distance4FromOsc4) {
-      console.log(square2distance4FromOsc4)
+      
       let osc4chorusRate = Math.floor(square2distance4FromOsc4 * .008)
       this.setState({osc4chorusRate: osc4chorusRate})
       this.props.changeOSC4chorusRate(osc4chorusRate)
@@ -3484,13 +2396,6 @@ class XYPad extends React.Component {
       this.setState({osc4filterDepth: osc4filterDepth})
       this.props.changeOSC4filterDepth(osc4filterDepth)
     }
-
-    // updateOSC4filterRate(square3distance4FromOsc4) {
-    //   let osc4filterRate = Math.floor(square3distance4FromOsc4 * .008)
-    //   this.setState({osc4filterRate: osc4filterRate})
-    //   this.props.changeOSC4filterRate(osc4filterRate)
-    // }
-
     updateOSC4filter2Bypass() {
       this.props.toggleOSC4filter2Bypass(!this.props.osc4filter2Bypass)
       
@@ -3502,93 +2407,16 @@ class XYPad extends React.Component {
       this.props.changeOSC4filter2Depth(osc4filter2Depth)
       
     }
-
-    // updateOSC4filter2Rate(square4distance4FromOsc4) {
-    //   let osc4filter2Rate = square4distance4FromOsc4 * .001
-    //   this.setState({osc4filter2Rate: osc4filter2Rate})
-    //   this.props.changeOSC4filter2Rate(osc4filter2Rate)  
-    // }
-
     updateOSC4tremoloBypass() {
-      console.log(this.props.osc4tremoloBypass)
+    
       this.props.toggleOSC4tremoloBypass(!this.props.osc4tremoloBypass)
       
     }
-
-    // updateOSC4tremoloIntensity(square5distance4FromOsc4) {
-    //   let osc4tremoloIntensity = (1000 - square5distance4FromOsc4) * .001
-    //   this.setState({osc4tremoloIntensity: osc4tremoloIntensity})
-    //   this.props.changeOSC4tremoloIntensity(osc4tremoloIntensity)
-      
-    // }
 
     updateOSC4tremoloRate(square5distance4FromOsc4) {
       let osc4tremoloRate = square5distance4FromOsc4 * .011
       this.setState({osc4tremoloRate: osc4tremoloRate})
       this.props.changeOSC4tremoloRate(osc4tremoloRate)
-    }
-
-    updateOSC4bitcrusherBypass() {
-      this.props.toggleOSC4bitcrusherBypass(!this.props.osc4bitcrusherBypass)
-   
-    }
-
-    updateOSC4bitcrusherBits(square6distance4FromOsc4) {
-      let osc4bitcrusherBits = Math.floor((1000 - square6distance4FromOsc4) * .016)
-      this.setState({osc4bitcrusherBits: osc4bitcrusherBits})
-      this.props.changeOSC4bitcrusherBits(osc4bitcrusherBits)
-    }
-
-    // updateOSC4bitcrusherBufferSize(square6distance4FromOsc4) {
-    //    let osc4bitcrusherBufferSize = square6distance4FromOsc4 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc4bitcrusherBufferSize: osc4bitcrusherBufferSize})
-    //   this.props.changeOSC4bitcrusherBufferSize(osc4bitcrusherBufferSize)
-    // }
-
-    updateOSC4moogFilterBypass() {
-      this.props.toggleOSC4moogFilterBypass(!this.props.osc4moogFilterBypass)
-      
-    }
-
-    updateOSC4moogFilterCutoff(square7distance4FromOsc4) {
-      let osc4moogFilterCutoff = (1000 - square7distance4FromOsc4) * .001
-      this.setState({osc4moogFilterCutoff: osc4moogFilterCutoff})
-      this.props.changeOSC4moogFilterCutoff(osc4moogFilterCutoff)
-    }
-
-    // updateOSC4moogFilterBufferSize(square7distance4FromOsc4) {
-    //   let osc4moogFilterBufferSize = square7distance4FromOsc4 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc4moogFilterBufferSize: osc4moogFilterBufferSize})
-    //   this.props.changeOSC4moogFilterBufferSize(osc4moogFilterBufferSize)
-    // }
-
-    updateOSC4moogFilterResonance(square7distance4FromOsc4) {
-      let osc4moogFilterResonance = Math.floor(square7distance4FromOsc4 * .004)
-      this.setState({osc4moogFilterResonance: osc4moogFilterResonance})
-      this.props.changeOSC4moogFilterResonance(osc4moogFilterResonance)
-    }
-
-    updateOSC4moogFilter2Bypass() {
-      this.props.toggleOSC4moogFilter2Bypass(!this.props.osc4moogFilter2Bypass)
-      
-    }
-
-    updateOSC4moogFilter2Cutoff(square8distance4FromOsc4) {
-      let osc4moogFilter2Cutoff = (1000 - square8distance4FromOsc4) * .001
-      this.setState({osc4moogFilter2Cutoff: osc4moogFilter2Cutoff})
-      this.props.changeOSC4moogFilter2Cutoff(osc4moogFilter2Cutoff)
-    }
-
-    // updateOSC4moogFilter2BufferSize(square8distance4FromOsc4) {
-    //   let osc4moogFilter2BufferSize = square8distance4FromOsc4 * Math.floor(Math.random() * (16) -1 + 1) + 256
-    //   this.setState({osc4moogFilter2BufferSize: osc4moogFilter2BufferSize})
-    //   this.props.changeOSC4moogFilter2BufferSize(osc4moogFilter2BufferSize)
-    // }
-
-    updateOSC4moogFilter2Resonance(square8distance4FromOsc4) {
-      let osc4moogFilter2Resonance = Math.floor(square8distance4FromOsc4 * .004)
-      this.setState({osc4moogFilter2Resonance: osc4moogFilter2Resonance})
-      this.props.changeOSC4moogFilter2Resonance(osc4moogFilter2Resonance)
     }
 
     updateOSC4reverbBypass() {
@@ -3653,25 +2481,20 @@ class XYPad extends React.Component {
       this.props.changeOSC4overdriveGain(osc4overdriveGain)
     }
 
-    
-
-    // updateOsc1Overdrive() {
-      // let Osc1Overdrive = this.state.
-    
 
     render() {
+        
         const { color, width, height} = this.props;
 
+        
+
         return (
+          
           <div>
-          {/* {this.props.oscFreq} */}
           <canvas ref="canvas" width={ width } height={ height }></canvas>   
-            
-
           </div>        
-        );
+        )
     }
-
 }
 
 function mapStateToProps(state){
@@ -3688,30 +2511,13 @@ function mapStateToProps(state){
 		osc1chorusRate: state.osc1chorusRate,
 
 		osc1filterBypass: state.osc1filterBypass,
-		// osc1filterRate: state.osc1filterRate,
 		osc1filterDepth: state.osc1filterDepth,
 
 		osc1filter2Bypass: state.osc1filter2Bypass,
-		// osc1filter2Rate: state.osc1filter2Rate,
 		osc1filter2Depth: state.osc1filter2Depth,
 
 		osc1tremoloBypass: state.osc1tremoloBypass,
-		// osc1tremoloIntensity: state.osc1tremoloIntensity,
 		osc1tremoloRate: state.osc1tremoloRate,
-
-		osc1bitcrusherBypass: state.osc1bitcrusherBypass,
-		osc1bitcrusherBits: state.osc1bitcrusherBits,
-		// osc1bitcrusherBufferSize: state.osc1bitcrusherBufferSize,
-
-		osc1moogFilterBypass: state.osc1moogFilterBypass,
-		// osc1moogFilterBufferSize: state.osc1moogFilterBufferSize,
-		osc1moogFilterCutoff: state.osc1moogFilterCutoff,
-		osc1moogFilterResonance: state.osc1moogFilterResonance,
-
-		osc1moogFilter2Bypass: state.osc1moogFilter2Bypass,
-		// osc1moogFilter2BufferSize: state.osc1moogFilter2BufferSize,
-		osc1moogFilter2Cutoff: state.osc1moogFilter2Cutoff,
-		osc1moogFilter2Resonance: state.osc1moogFilter2Resonance,
 
 		osc1reverbBypass: state.osc1reverbBypass,
 		osc1reverbLevel: state.osc1reverbLevel,
@@ -3728,9 +2534,6 @@ function mapStateToProps(state){
 		osc1overdriveDrive: state.osc1overdriveDrive,
 		osc1overdriveGain: state.osc1overdriveGain,
 
-
-
-
     osc2Freq: state.osc2Freq,
 
     isLFO2On: state.isLFO2On,
@@ -3742,30 +2545,13 @@ function mapStateToProps(state){
 		osc2chorusRate: state.osc2chorusRate,
 
 		osc2filterBypass: state.osc2filterBypass,
-		// osc2filterRate: state.osc2filterRate,
 		osc2filterDepth: state.osc2filterDepth,
 
 		osc2filter2Bypass: state.osc2filter2Bypass,
-		// osc2filter2Rate: state.osc2filter2Rate,
 		osc2filter2Depth: state.osc2filter2Depth,
 
 		osc2tremoloBypass: state.osc2tremoloBypass,
-		// osc2tremoloIntensity: state.osc2tremoloIntensity,
 		osc2tremoloRate: state.osc2tremoloRate,
-
-		osc2bitcrusherBypass: state.osc2bitcrusherBypass,
-		osc2bitcrusherBits: state.osc2bitcrusherBits,
-		// osc2bitcrusherBufferSize: state.osc2bitcrusherBufferSize,
-
-		osc2moogFilterBypass: state.osc2moogFilterBypass,
-		// osc2moogFilterBufferSize: state.osc2moogFilterBufferSize,
-		osc2moogFilterCutoff: state.osc2moogFilterCutoff,
-		osc2moogFilterResonance: state.osc2moogFilterResonance,
-
-		osc2moogFilter2Bypass: state.osc2moogFilter2Bypass,
-		// osc2moogFilter2BufferSize: state.osc2moogFilter2BufferSize,
-		osc2moogFilter2Cutoff: state.osc2moogFilter2Cutoff,
-		osc2moogFilter2Resonance: state.osc2moogFilter2Resonance,
 
 		osc2reverbBypass: state.osc2reverbBypass,
 		osc2reverbLevel: state.osc2reverbLevel,
@@ -3793,30 +2579,13 @@ function mapStateToProps(state){
 		osc3chorusRate: state.osc3chorusRate,
 
 		osc3filterBypass: state.osc3filterBypass,
-		// osc3filterRate: state.osc3filterRate,
 		osc3filterDepth: state.osc3filterDepth,
 
 		osc3filter2Bypass: state.osc3filter2Bypass,
-		// osc3filter2Rate: state.osc3filter2Rate,
 		osc3filter2Depth: state.osc3filter2Depth,
 
 		osc3tremoloBypass: state.osc3tremoloBypass,
-		// osc3tremoloIntensity: state.osc3tremoloIntensity,
 		osc3tremoloRate: state.osc3tremoloRate,
-
-		osc3bitcrusherBypass: state.osc3bitcrusherBypass,
-		osc3bitcrusherBits: state.osc3bitcrusherBits,
-		// osc3bitcrusherBufferSize: state.osc3bitcrusherBufferSize,
-
-		osc3moogFilterBypass: state.osc3moogFilterBypass,
-		// osc3moogFilterBufferSize: state.osc3moogFilterBufferSize,
-		osc3moogFilterCutoff: state.osc3moogFilterCutoff,
-		osc3moogFilterResonance: state.osc3moogFilterResonance,
-
-		osc3moogFilter2Bypass: state.osc3moogFilter2Bypass,
-		// osc3moogFilter2BufferSize: state.osc3moogFilter2BufferSize,
-		osc3moogFilter2Cutoff: state.osc3moogFilter2Cutoff,
-		osc3moogFilter2Resonance: state.osc3moogFilter2Resonance,
 
 		osc3reverbBypass: state.osc3reverbBypass,
 		osc3reverbLevel: state.osc3reverbLevel,
@@ -3844,30 +2613,13 @@ function mapStateToProps(state){
 		osc4chorusRate: state.osc4chorusRate,
 
 		osc4filterBypass: state.osc4filterBypass,
-		// osc4filterRate: state.osc4filterRate,
 		osc4filterDepth: state.osc4filterDepth,
 
 		osc4filter2Bypass: state.osc4filter2Bypass,
-		// osc4filter2Rate: state.osc4filter2Rate,
 		osc4filter2Depth: state.osc4filter2Depth,
 
 		osc4tremoloBypass: state.osc4tremoloBypass,
-		// osc4tremoloIntensity: state.osc4tremoloIntensity,
 		osc4tremoloRate: state.osc4tremoloRate,
-
-		osc4bitcrusherBypass: state.osc4bitcrusherBypass,
-		osc4bitcrusherBits: state.osc4bitcrusherBits,
-		// osc4bitcrusherBufferSize: state.osc4bitcrusherBufferSize,
-
-		osc4moogFilterBypass: state.osc4moogFilterBypass,
-		// osc4moogFilterBufferSize: state.osc4moogFilterBufferSize,
-		osc4moogFilterCutoff: state.osc4moogFilterCutoff,
-		osc4moogFilterResonance: state.osc4moogFilterResonance,
-
-		osc4moogFilter2Bypass: state.osc4moogFilter2Bypass,
-		// osc4moogFilter2BufferSize: state.osc4moogFilter2BufferSize,
-		osc4moogFilter2Cutoff: state.osc4moogFilter2Cutoff,
-		osc4moogFilter2Resonance: state.osc4moogFilter2Resonance,
 
 		osc4reverbBypass: state.osc4reverbBypass,
 		osc4reverbLevel: state.osc4reverbLevel,
@@ -3887,7 +2639,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  console.log(dispatch)
+  
   return {
     changeOSCFreq: (value) => dispatch(changeOSCFreq(value)),
 
@@ -3901,29 +2653,12 @@ function mapDispatchToProps(dispatch){
 
     toggleOSC1filterBypass: () => dispatch(toggleOSC1filterBypass()),
     changeOSC1filterDepth: (value) => dispatch(changeOSC1filterDepth(value)),
-    // changeOSC1filterRate: (value) => dispatch(changeOSC1filterRate(value)),
 
     toggleOSC1filter2Bypass: () => dispatch(toggleOSC1filter2Bypass()),
     changeOSC1filter2Depth: (value) => dispatch(changeOSC1filter2Depth(value)),
-    // changeOSC1filter2Rate: (value) => dispatch(changeOSC1filter2Rate(value)),
 
     toggleOSC1tremoloBypass: () => dispatch(toggleOSC1tremoloBypass()),
-    // changeOSC1tremoloIntensity: (value) => dispatch(changeOSC1tremoloIntensity(value)),
     changeOSC1tremoloRate: (value) => dispatch(changeOSC1tremoloRate(value)),
-
-    toggleOSC1bitcrusherBypass: () => dispatch(toggleOSC1bitcrusherBypass()),
-    changeOSC1bitcrusherBits: (value) => dispatch(changeOSC1bitcrusherBits(value)),
-    // changeOSC1bitcrusherBufferSize: (value) => dispatch(changeOSC1bitcrusherBufferSize(value)),
-
-    toggleOSC1moogFilterBypass: () => dispatch(toggleOSC1moogFilterBypass()),
-    changeOSC1moogFilterCutoff: (value) => dispatch(changeOSC1moogFilterCutoff(value)),
-    // changeOSC1moogFilterBufferSize: (value) => dispatch(changeOSC1moogFilterBufferSize(value)),
-    changeOSC1moogFilterResonance: (value) => dispatch(changeOSC1moogFilterResonance(value)),
-
-    toggleOSC1moogFilter2Bypass: () => dispatch(toggleOSC1moogFilter2Bypass()),
-    changeOSC1moogFilter2Cutoff: (value) => dispatch(changeOSC1moogFilter2Cutoff(value)),
-    // changeOSC1moogFilter2BufferSize: (value) => dispatch(changeOSC1moogFilter2BufferSize(value)),
-    changeOSC1moogFilter2Resonance: (value) => dispatch(changeOSC1moogFilter2Resonance(value)),
 
     toggleOSC1reverbBypass: () => dispatch(toggleOSC1reverbBypass()),
     changeOSC1reverbLevel: (value) => dispatch(changeOSC1reverbLevel(value)),
@@ -3940,9 +2675,6 @@ function mapDispatchToProps(dispatch){
     changeOSC1overdriveDrive: (value) => dispatch(changeOSC1overdriveDrive(value)),
     changeOSC1overdriveGain: (value) => dispatch(changeOSC1overdriveGain(value)),
 
-
-
-
     changeOSC2Freq: (value) => dispatch(changeOSC2Freq(value)),
 
     turnOnLFO2: () => dispatch(turnOnLFO2()),
@@ -3955,29 +2687,12 @@ function mapDispatchToProps(dispatch){
 
     toggleOSC2filterBypass: () => dispatch(toggleOSC2filterBypass()),
     changeOSC2filterDepth: (value) => dispatch(changeOSC2filterDepth(value)),
-    // changeOSC2filterRate: (value) => dispatch(changeOSC2filterRate(value)),
 
     toggleOSC2filter2Bypass: () => dispatch(toggleOSC2filter2Bypass()),
     changeOSC2filter2Depth: (value) => dispatch(changeOSC2filter2Depth(value)),
-    // changeOSC2filter2Rate: (value) => dispatch(changeOSC2filter2Rate(value)),
 
     toggleOSC2tremoloBypass: () => dispatch(toggleOSC2tremoloBypass()),
-    // changeOSC2tremoloIntensity: (value) => dispatch(changeOSC2tremoloIntensity(value)),
     changeOSC2tremoloRate: (value) => dispatch(changeOSC2tremoloRate(value)),
-
-    toggleOSC2bitcrusherBypass: () => dispatch(toggleOSC2bitcrusherBypass()),
-    changeOSC2bitcrusherBits: (value) => dispatch(changeOSC2bitcrusherBits(value)),
-    // changeOSC2bitcrusherBufferSize: (value) => dispatch(changeOSC2bitcrusherBufferSize(value)),
-
-    toggleOSC2moogFilterBypass: () => dispatch(toggleOSC2moogFilterBypass()),
-    changeOSC2moogFilterCutoff: (value) => dispatch(changeOSC2moogFilterCutoff(value)),
-    // changeOSC2moogFilterBufferSize: (value) => dispatch(changeOSC2moogFilterBufferSize(value)),
-    changeOSC2moogFilterResonance: (value) => dispatch(changeOSC2moogFilterResonance(value)),
-
-    toggleOSC2moogFilter2Bypass: () => dispatch(toggleOSC2moogFilter2Bypass()),
-    changeOSC2moogFilter2Cutoff: (value) => dispatch(changeOSC2moogFilter2Cutoff(value)),
-    // changeOSC2moogFilter2BufferSize: (value) => dispatch(changeOSC2moogFilter2BufferSize(value)),
-    changeOSC2moogFilter2Resonance: (value) => dispatch(changeOSC2moogFilter2Resonance(value)),
 
     toggleOSC2reverbBypass: () => dispatch(toggleOSC2reverbBypass()),
     changeOSC2reverbLevel: (value) => dispatch(changeOSC2reverbLevel(value)),
@@ -4008,29 +2723,12 @@ function mapDispatchToProps(dispatch){
 
     toggleOSC3filterBypass: () => dispatch(toggleOSC3filterBypass()),
     changeOSC3filterDepth: (value) => dispatch(changeOSC3filterDepth(value)),
-    // changeOSC3filterRate: (value) => dispatch(changeOSC3filterRate(value)),
 
     toggleOSC3filter2Bypass: () => dispatch(toggleOSC3filter2Bypass()),
     changeOSC3filter2Depth: (value) => dispatch(changeOSC3filter2Depth(value)),
-    // changeOSC3filter2Rate: (value) => dispatch(changeOSC3filter2Rate(value)),
 
     toggleOSC3tremoloBypass: () => dispatch(toggleOSC3tremoloBypass()),
-    // changeOSC3tremoloIntensity: (value) => dispatch(changeOSC3tremoloIntensity(value)),
     changeOSC3tremoloRate: (value) => dispatch(changeOSC3tremoloRate(value)),
-
-    toggleOSC3bitcrusherBypass: () => dispatch(toggleOSC3bitcrusherBypass()),
-    changeOSC3bitcrusherBits: (value) => dispatch(changeOSC3bitcrusherBits(value)),
-    // changeOSC3bitcrusherBufferSize: (value) => dispatch(changeOSC3bitcrusherBufferSize(value)),
-
-    toggleOSC3moogFilterBypass: () => dispatch(toggleOSC3moogFilterBypass()),
-    changeOSC3moogFilterCutoff: (value) => dispatch(changeOSC3moogFilterCutoff(value)),
-    // changeOSC3moogFilterBufferSize: (value) => dispatch(changeOSC3moogFilterBufferSize(value)),
-    changeOSC3moogFilterResonance: (value) => dispatch(changeOSC3moogFilterResonance(value)),
-
-    toggleOSC3moogFilter2Bypass: () => dispatch(toggleOSC3moogFilter2Bypass()),
-    changeOSC3moogFilter2Cutoff: (value) => dispatch(changeOSC3moogFilter2Cutoff(value)),
-    // changeOSC3moogFilter2BufferSize: (value) => dispatch(changeOSC3moogFilter2BufferSize(value)),
-    changeOSC3moogFilter2Resonance: (value) => dispatch(changeOSC3moogFilter2Resonance(value)),
 
     toggleOSC3reverbBypass: () => dispatch(toggleOSC3reverbBypass()),
     changeOSC3reverbLevel: (value) => dispatch(changeOSC3reverbLevel(value)),
@@ -4059,29 +2757,12 @@ function mapDispatchToProps(dispatch){
 
     toggleOSC4filterBypass: () => dispatch(toggleOSC4filterBypass()),
     changeOSC4filterDepth: (value) => dispatch(changeOSC4filterDepth(value)),
-    // changeOSC4filterRate: (value) => dispatch(changeOSC4filterRate(value)),
 
     toggleOSC4filter2Bypass: () => dispatch(toggleOSC4filter2Bypass()),
     changeOSC4filter2Depth: (value) => dispatch(changeOSC4filter2Depth(value)),
-    // changeOSC4filter2Rate: (value) => dispatch(changeOSC4filter2Rate(value)),
 
     toggleOSC4tremoloBypass: () => dispatch(toggleOSC4tremoloBypass()),
-    // changeOSC4tremoloIntensity: (value) => dispatch(changeOSC4tremoloIntensity(value)),
     changeOSC4tremoloRate: (value) => dispatch(changeOSC4tremoloRate(value)),
-
-    toggleOSC4bitcrusherBypass: () => dispatch(toggleOSC4bitcrusherBypass()),
-    changeOSC4bitcrusherBits: (value) => dispatch(changeOSC4bitcrusherBits(value)),
-    // changeOSC4bitcrusherBufferSize: (value) => dispatch(changeOSC4bitcrusherBufferSize(value)),
-
-    toggleOSC4moogFilterBypass: () => dispatch(toggleOSC4moogFilterBypass()),
-    changeOSC4moogFilterCutoff: (value) => dispatch(changeOSC4moogFilterCutoff(value)),
-    // changeOSC4moogFilterBufferSize: (value) => dispatch(changeOSC4moogFilterBufferSize(value)),
-    changeOSC4moogFilterResonance: (value) => dispatch(changeOSC4moogFilterResonance(value)),
-
-    toggleOSC4moogFilter2Bypass: () => dispatch(toggleOSC4moogFilter2Bypass()),
-    changeOSC4moogFilter2Cutoff: (value) => dispatch(changeOSC4moogFilter2Cutoff(value)),
-    // changeOSC4moogFilter2BufferSize: (value) => dispatch(changeOSC4moogFilter2BufferSize(value)),
-    changeOSC4moogFilter2Resonance: (value) => dispatch(changeOSC4moogFilter2Resonance(value)),
 
     toggleOSC4reverbBypass: () => dispatch(toggleOSC4reverbBypass()),
     changeOSC4reverbLevel: (value) => dispatch(changeOSC4reverbLevel(value)),

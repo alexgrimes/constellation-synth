@@ -48,7 +48,6 @@ class OSC2 extends React.Component {
 		this.panner = new tuna.Panner(this.state.context);
 		this.phaser = new tuna.Phaser(this.state.context);
 		this.overdrive = new tuna.Overdrive(this.state.context);
-		this.wah = new tuna.WahWah(this.state.context)
 		this.delay = new tuna.PingPongDelay(this.state.context)
 		
 
@@ -67,8 +66,7 @@ class OSC2 extends React.Component {
 		this.reverb.connect(this.panner);
 		this.panner.connect(this.filter2);
 		this.filter2.connect(this.phaser)
-		this.phaser.connect(this.wah);
-		this.wah.connect(this.delay)
+		this.phaser.connect(this.delay);
 		this.delay.connect(this.overdrive)
 		this.overdrive.connect(output)
 

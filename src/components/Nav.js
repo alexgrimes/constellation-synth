@@ -99,7 +99,6 @@ const Example = (props) => {
               </NavItem>
     
           </Nav>
-          <NavbarText>...a roll of the dice will never abolish chance</NavbarText>
         </Collapse>
         <hr/>
       </Navbar>

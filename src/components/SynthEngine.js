@@ -64,8 +64,7 @@ class SynthEngine extends React.Component {
 		this.panner.connect(this.filter2)
 		this.filter2.connect(this.phaser)
 		this.phaser.connect(this.delay);
-		this.delay.connect(this.wah);
-		this.wah.connect(this.overdrive)
+		this.delay.connect(this.overdrive);
 		this.overdrive.connect(output)
 		
 		output.connect(output.gain);

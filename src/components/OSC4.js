@@ -47,7 +47,6 @@ class OSC4 extends React.Component {
 		this.phaser = new tuna.Phaser(this.state.context);
 		this.overdrive = new tuna.Overdrive(this.state.context);
 		this.delay = new tuna.PingPongDelay(this.state.context)
-		this.wah = new tuna.WahWah(this.state.context)
 		var output = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
 
@@ -58,8 +57,7 @@ class OSC4 extends React.Component {
 		this.tremolo.connect(this.reverb);
 		this.reverb.connect(this.panner);
 		this.panner.connect(this.phaser);
-		this.phaser.connect(this.wah);
-		this.wah.connect(this.delay)
+		this.phaser.connect(this.delay);
 		this.delay.connect(this.overdrive)
 		this.overdrive.connect(output)
 		output.connect(output.gain);

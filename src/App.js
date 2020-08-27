@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PlaySynthButton from './components/PlaySynthButton';
-import WaveformLFO from './components/WaveformOSC2';
 import WaveformOSC from './components/WaveformOSC';
 import XYPad from './components/XYPad';
 import SynthEngine from './components/SynthEngine';
-import './index.css';
-import store from "./components/store";
 import OSC2onButton from './components/OSC2onButton'
 import OSC3onButton from './components/OSC3onButton'
 import OSC4onButton from './components/OSC4onButton'
@@ -13,13 +10,13 @@ import OSC2 from './components/OSC2.js'
 import OSC3 from './components/OSC3.js'
 import OSC4 from './components/OSC4.js'
 import { Container, Row, Col } from 'reactstrap';
-import Modal from 'react-modal'
-import "bootstrap/dist/css/bootstrap.css";
 import WaveformOSC2 from './components/WaveformOSC2';
 import WaveformOSC3 from './components/WaveformOSC3';
 import WaveformOSC4 from './components/WaveformOSC4';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import './index.css';
+
 
 
 class App extends React.Component {

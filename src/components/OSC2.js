@@ -1,4 +1,3 @@
-import store from './store'
 import React from 'react';
 import { connect } from 'react-redux';
 import Tuna from 'tunajs';
@@ -53,13 +52,17 @@ class OSC2 extends React.Component {
 
 
 		//
-
+		var oscGain = this.state.context.createGain();
+		var lfoGain = this.state.context.createGain();
 		var output = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
 		
 		//connecting
 
-		this.osc.connect(this.filter)
+		this.osc.connect(oscGain);
+		this.lfo.connect(lfoGain);
+		lfoGain.connect(oscGain.gain)
+		oscGain.connect(this.filter)
 		this.filter.connect(this.tremolo);
 		this.tremolo.connect(this.chorus);
 		this.chorus.connect(this.reverb);
@@ -77,7 +80,7 @@ class OSC2 extends React.Component {
 
         masterGain.connect(this.state.context.destination)
         this.osc.start(0);
-        // this.lfo.start(0);
+        this.lfo.start(0);
         this.state.isStarted = true;
 				this.setState({context: this.state.context})
       }
@@ -87,7 +90,7 @@ class OSC2 extends React.Component {
       if(typeof this.osc !== "undefined") {
         if (this.state.isStarted) {
           this.osc.stop(0);
-					// this.lfo.stop(0);
+					this.lfo.stop(0);
           this.state.isStarted = false;
         }
       }
@@ -107,6 +110,18 @@ class OSC2 extends React.Component {
 	  this.osc.frequency.setValueAtTime(value, this.state.context.currentTime);
   }
   }
+
+	lfo2TypeChanged(typeName) {
+	if (typeof this.osc !== "undefined") {
+	  this.lfo.type = typeName;
+	}
+  }
+
+  lfo2FrequencyChanged(value) {
+	if (typeof this.osc !== "undefined") {
+	  this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
+	}
+  }
   
 
   render() {
@@ -116,6 +131,10 @@ class OSC2 extends React.Component {
   			
   		}
   	}
+		console.log(this.props.lfo2Freq)
+		console.log(this.props.lfo2Type)
+		this.lfo2FrequencyChanged(this.props.lfo2Freq)
+		this.lfo2TypeChanged(this.props.lfo2Type)
     this.turnOnOSC2(this.props.isOSC2On);
     this.OSC2TypeChanged(this.props.osc2Type);
     this.OSC2FrequencyChanged(this.props.osc2Freq);
@@ -134,6 +153,8 @@ function mapStateToProps(state){
     isOSC2On: state.isOSC2On,
     osc2Freq: state.osc2Freq,
     osc2Type: state.osc2Type,
+		lfo2Freq: state.lfo2Freq,
+		lfo2Type: state.lfo2Type,
 		context: state.context,
     masterGainValue: state.masterGainValue,
   }

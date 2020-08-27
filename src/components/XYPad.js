@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../index.css';
 import * as d3 from 'd3-delaunay';
 import { 
   changeOSCFreq, 
-
   turnOnLFO,
   changeLFOType,
   changeLFOFreq,
@@ -153,7 +151,7 @@ class XYPad extends React.Component {
   constructor(props) {
   	super(props);
   
-
+    
     let circlePos1 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
     let circlePos2 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
     let circlePos3 = [Math.floor(Math.random() * (this.props.width - 5) - 1 + 1) + 1, Math.floor(Math.random() * (this.props.height - 5) - 1 + 1) + 10];
@@ -311,7 +309,7 @@ class XYPad extends React.Component {
 /////OSC 4 SETTINGS/////////////////////
     let osc4Freq = circlePos4[1] * Math.floor(Math.random() * (9.5) - 1 + 1) + 1
     
-    let lfo4Freq = Math.floor((square1distanceFromOsc4 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
+    let lfo4Freq = Math.floor((square1distanceFromOsc4 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
     let lfo4Type = lfoWaveTypes[randomType]
   
     
@@ -383,19 +381,15 @@ class XYPad extends React.Component {
 
       isLFOstarted: false,
       lfoType: lfoType,
-      lfoFreq: lfoFreq,
 
       isLFO2started: false,
       lfo2Type: lfo2Type,
-      lfo2Freq: lfo2Freq,
 
       isLFO3started: false,
       lfo3Type: lfo3Type,
-      lfo3Freq: lfo3Freq,
 
       isLFO4started: false,
       lfo4Type: lfo4Type,
-      lfo4Freq: lfo4Freq,
 
 /////EFFECT NODE 2//////////////////////      
       square2Pos: squarePos2,
@@ -1920,7 +1914,7 @@ class XYPad extends React.Component {
 /////////OSC1 FUNCTIONS///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
     updateFrequencyOSC(posY) {
-      let oscFreq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
+      let oscFreq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
       this.setState({oscFreq: oscFreq})
       this.props.changeOSCFreq(oscFreq);
      
@@ -1941,7 +1935,7 @@ class XYPad extends React.Component {
     }
 
     updateLFOFreq(square1distance1FromOsc1) {
-      let lfoFreq = Math.floor((square1distance1FromOsc1 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
+      let lfoFreq = Math.floor((square1distance1FromOsc1 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
       this.props.changeLFOFreq(lfoFreq)
       
     }
@@ -2057,7 +2051,7 @@ class XYPad extends React.Component {
 
 /////////OSC2 FUNCTIONS/////////////
     updateFrequencyOSC2(posY) {
-      let osc2Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
+      let osc2Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
       this.setState({osc2Freq: osc2Freq})
       this.props.changeOSC2Freq(osc2Freq);
       
@@ -2079,7 +2073,7 @@ class XYPad extends React.Component {
     }
 
     updateLFO2Freq(square1distance2FromOsc2) {
-      let lfo2Freq = Math.floor((square1distance2FromOsc2 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
+      let lfo2Freq = Math.floor((square1distance2FromOsc2 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
       this.props.changeLFO2Freq(lfo2Freq)
       
     }
@@ -2203,7 +2197,7 @@ class XYPad extends React.Component {
 
 /////////OSC3 FUNCTIONS///////////////////////////
     updateFrequencyOSC3(posY) {
-      let osc3Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
+      let osc3Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
       this.setState({osc3Freq: osc3Freq})
       this.props.changeOSC3Freq(osc3Freq);
     }
@@ -2222,7 +2216,7 @@ class XYPad extends React.Component {
     }
 
     updateLFO3Freq(square1distance3FromOsc3) {
-      let lfo3Freq = Math.floor((square1distance3FromOsc3 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
+      let lfo3Freq = Math.floor((square1distance3FromOsc3 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
       this.props.changeLFO3Freq(lfo3Freq)
       
     }
@@ -2344,7 +2338,7 @@ class XYPad extends React.Component {
 /////////OSC4 FUNCTIONS/////////////
     updateFrequencyOSC4(posY) {
     
-      let osc4Freq = this.state.circle4Pos[1] * Math.floor(Math.random() * (7) - 1 + 1) + 1
+      let osc4Freq = this.state.circle4Pos[1] * Math.floor(Math.random() * (7) - 1 + 1) + 20
       this.props.changeOSC4Freq(osc4Freq);
     }
 
@@ -2364,7 +2358,7 @@ class XYPad extends React.Component {
     }
 
     updateLFO4Freq(square1distance4FromOsc4) {
-      let lfo4Freq = Math.floor((square1distance4FromOsc4 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
+      let lfo4Freq = Math.floor((square1distance4FromOsc4 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
       this.props.changeLFO4Freq(lfo4Freq)
     }
 
@@ -2483,7 +2477,22 @@ class XYPad extends React.Component {
 
 
     render() {
-        
+        // console.log(this.props.lfoFreq)
+        // console.log(this.props.lfoType)
+        // console.log(this.state.lfoFreq)
+        // console.log(this.state.lfoType)
+        // console.log(this.props.lfo2Freq)
+        // console.log(this.props.lfo2Type)
+        // console.log(this.state.lfo2Freq)
+        // console.log(this.state.lfo2Type)
+        // console.log(this.props.lfo3Freq)
+        // console.log(this.props.lfo3Type)
+        // console.log(this.state.lfo3Freq)
+        // console.log(this.state.lfo3Type)
+        // console.log(this.props.lfo4Freq)
+        // console.log(this.props.lfo4Type)
+        // console.log(this.state.lfo4Freq)
+        // console.log(this.state.lfo4Type)
         const { color, width, height} = this.props;
 
         

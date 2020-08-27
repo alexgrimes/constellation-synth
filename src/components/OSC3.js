@@ -1,4 +1,3 @@
-import store from './store'
 import React from 'react';
 import { connect } from 'react-redux';
 import Tuna from 'tunajs';
@@ -55,8 +54,13 @@ class OSC3 extends React.Component {
 		//
 		var output = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
+		var oscGain = this.state.context.createGain();
+		var lfoGain = this.state.context.createGain();
 
-		this.osc.connect(this.filter)
+		this.osc.connect(oscGain);
+		this.lfo.connect(lfoGain);
+		lfoGain.connect(oscGain.gain)
+		oscGain.connect(this.filter)
 		this.filter.connect(this.tremolo);
 		this.tremolo.connect(this.reverb);
 		this.reverb.connect(this.filter2)
@@ -74,6 +78,7 @@ class OSC3 extends React.Component {
 				masterGain.gain.value = this.props.masterGainValue;
         masterGain.connect(this.state.context.destination)
         this.osc.start(0);
+				this.lfo.start(0);
         this.state.isStarted = true;
       }
      
@@ -82,6 +87,7 @@ class OSC3 extends React.Component {
       if(typeof this.osc !== "undefined") {
         if (this.state.isStarted) {
           this.osc.stop(0);
+					this.lfo.stop(0);
           this.state.isStarted = false;
         }
       }
@@ -101,6 +107,18 @@ class OSC3 extends React.Component {
 	  this.osc.frequency.setValueAtTime(value, this.state.context.currentTime);
   }
   }
+
+	lfo3TypeChanged(typeName) {
+	if (typeof this.osc !== "undefined") {
+	  this.lfo.type = typeName;
+	}
+  }
+
+  lfo3FrequencyChanged(value) {
+	if (typeof this.osc !== "undefined") {
+	  this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
+	}
+  }
   
 
   render() {
@@ -110,7 +128,10 @@ class OSC3 extends React.Component {
   		
   		}
   	}
-   
+    console.log(this.props.lfo3Freq)
+		console.log(this.props.lfo3Type)
+		this.lfo3FrequencyChanged(this.props.lfo3Freq)
+		this.lfo3TypeChanged(this.props.lfo3Type)
     this.turnOnOSC3(this.props.isOSC3On);
     this.OSC3TypeChanged(this.props.osc3Type);
     this.OSC3FrequencyChanged(this.props.osc3Freq);
@@ -127,6 +148,8 @@ function mapStateToProps(state){
     isOSC3On: state.isOSC3On,
     osc3Freq: state.osc3Freq,
     osc3Type: state.osc3Type,
+		lfo3Freq: state.lfo3Freq,
+		lfo3Type: state.lfo3Type,
     masterGainValue: state.masterGainValue,
   }
 }

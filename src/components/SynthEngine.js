@@ -1,4 +1,3 @@
-import store from './store';
 import React from 'react';
 import { connect } from 'react-redux';
 import Tuna from 'tunajs';
@@ -52,10 +51,16 @@ class SynthEngine extends React.Component {
 		this.overdrive = new tuna.Overdrive(this.state.context);
 		this.delay = new tuna.PingPongDelay(this.state.context)
 		var output = this.state.context.createGain();
+		var oscGain = this.state.context.createGain();
+		var lfoGain = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
 		this.wah = new tuna.WahWah(this.state.context)
 	 //connecting
-		this.osc.connect(this.filter)
+
+		this.osc.connect(oscGain);
+		this.lfo.connect(lfoGain);
+		lfoGain.connect(oscGain.gain)
+		oscGain.connect(this.filter)
 		this.filter.connect(this.tremolo);
 		this.tremolo.connect(this.chorus);
 		this.chorus.connect(this.reverb);
@@ -124,8 +129,10 @@ class SynthEngine extends React.Component {
   			
   		}
   	}
-		
-	
+		console.log(this.props.lfoFreq)
+		console.log(this.props.lfoType)
+		this.lfoFrequencyChanged(this.props.lfoFreq)
+		this.lfoTypeChanged(this.props.lfoType)
   	this.playSound(this.props.isSynthPlaying);
   	this.oscTypeChanged(this.props.oscType);
   	this.oscFrequencyChanged(this.props.oscFreq);
@@ -139,12 +146,14 @@ class SynthEngine extends React.Component {
 }
 
 function mapStateToProps(state){
-	
+
   return {
     isSynthPlaying: state.isSynthPlaying,
     oscFreq: state.oscFreq,
     masterGainValue: state.masterGainValue,
     oscType: state.oscType,
+		lfoFreq: state.lfoFreq,
+		lfoType: state.lfoType
   }
 }
 

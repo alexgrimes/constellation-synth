@@ -243,9 +243,9 @@ class XYPad extends React.Component {
     let osc1chorusDepth = (1000 - square2distanceFromOsc1) * .001
     let osc1chorusRate = Math.floor(square2distanceFromOsc1 * .008)
     
-    let osc1filterDepth = (1000 - square3distanceFromOsc1) * .001
-  
-    let osc1filter2Depth = Math.floor((1000 - square4distanceFromOsc1) * .008)
+    let osc1filterDepth = (1000 - square3distanceFromOsc1) * 4
+
+    let osc1filter2Depth = (1000 - square4distanceFromOsc1) * 4
 
     let osc1tremoloRate = square5distanceFromOsc1 * .011
 
@@ -316,8 +316,8 @@ class XYPad extends React.Component {
     let osc4chorusDepth = (1000 - square2distanceFromOsc4) * .001
     let osc4chorusRate = Math.floor(square2distanceFromOsc4 * .008)
     
-    let osc4filterDepth = (1000 - square3distanceFromOsc4) * .001
-    let osc4filter2Depth = Math.floor((1000 - square4distanceFromOsc4) * .008)
+    let osc4filterDepth = (1000 - square3distanceFromOsc4) * 4
+    let osc4filter2Depth = (1000 - square3distanceFromOsc4) * 4
     let osc4tremoloRate = (square5distanceFromOsc4 * .011)
 
     let osc4reverbLevel = (1000 - square9distanceFromOsc4) * .001
@@ -641,6 +641,11 @@ class XYPad extends React.Component {
         this.updateFrequencyOSC4(this.props.osc4Freq);
         
         this.updateCanvas();
+        
+        
+        console.log(this.state.osc4phaserRate)
+        console.log(Math.floor(46 - ((1000 - this.state.square12distanceFromOsc1) * .046)) * -1)
+        
     }
 
     updateCanvas() {
@@ -1935,8 +1940,9 @@ class XYPad extends React.Component {
     }
 
     updateLFOFreq(square1distance1FromOsc1) {
-      let lfoFreq = Math.floor((square1distance1FromOsc1 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
+      let lfoFreq = (1000 - square1distance1FromOsc1) * .015
       this.props.changeLFOFreq(lfoFreq)
+      //Math.floor((square1distanceFromOsc1 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
       
     }
 
@@ -1959,7 +1965,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC1filterDepth(square3distance1FromOsc1) {
-      let osc1filterDepth = (1000 - square3distance1FromOsc1) * .001
+      let osc1filterDepth = square3distance1FromOsc1 * Math.floor(Math.random() * (7) - 1 + 1) + 20
       this.setState({osc1filterDepth: osc1filterDepth})
       this.props.changeOSC1filterDepth(osc1filterDepth)
     }
@@ -1971,7 +1977,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC1filter2Depth(square4distance1FromOsc1) {
-      let osc1filter2Depth =  Math.floor((1000 - square4distance1FromOsc1) * .008)
+      let osc1filter2Depth =  (1000 - square4distance1FromOsc1) * 4
       this.setState({osc1filter2Depth: osc1filter2Depth})
       this.props.changeOSC1filter2Depth(osc1filter2Depth)
     }
@@ -1985,6 +1991,8 @@ class XYPad extends React.Component {
        let osc1tremoloRate = square5distance1FromOsc1 * .011
       this.setState({osc1tremoloRate: osc1tremoloRate})
       this.props.changeOSC1tremoloRate(osc1tremoloRate)
+      console.log(square5distance1FromOsc1 * .011)
+      console.log(osc1tremoloRate)
     }
 
     updateOSC1reverbBypass() {
@@ -2004,7 +2012,8 @@ class XYPad extends React.Component {
     }
 
     updateOSC1pannerPan(square10distance1FromOsc1) {
-      let osc1pannerPan = 1 - ((1000 - square10distance1FromOsc1) * .002)
+      let osc1pannerPan = 1 - (square10distance1FromOsc1 * .002)
+    
       this.setState({osc1pannerPan: osc1pannerPan})
       this.props.changeOSC1pannerPan(osc1pannerPan)
     }
@@ -2021,13 +2030,13 @@ class XYPad extends React.Component {
     }
 
     updateOSC1phaserDepth(square11distance1FromOsc1) {
-      let osc1phaserDepth = (1000 - square11distance1FromOsc1) * .001
+      let osc1phaserDepth = square11distance1FromOsc1 * .001
       this.setState({osc1phaserDepth: osc1phaserDepth})
       this.props.changeOSC1phaserDepth(osc1phaserDepth)
     }
 
     updateOSC1phaserFeedback(square11distance1FromOsc1) {
-       let osc1phaserFeedback = square11distance1FromOsc1 * .001
+       let osc1phaserFeedback = (1000 - square11distance1FromOsc1) * .001
        this.setState({osc1phaserFeedback: osc1phaserFeedback})
        this.props.changeOSC1phaserFeedback(osc1phaserFeedback)
     }
@@ -2073,7 +2082,7 @@ class XYPad extends React.Component {
     }
 
     updateLFO2Freq(square1distance2FromOsc2) {
-      let lfo2Freq = Math.floor((square1distance2FromOsc2 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
+      let lfo2Freq = (1000 - square1distance2FromOsc2) * .015
       this.props.changeLFO2Freq(lfo2Freq)
       
     }
@@ -2216,7 +2225,7 @@ class XYPad extends React.Component {
     }
 
     updateLFO3Freq(square1distance3FromOsc3) {
-      let lfo3Freq = Math.floor((square1distance3FromOsc3 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
+      let lfo3Freq = (1000 - square1distance3FromOsc3) * .015
       this.props.changeLFO3Freq(lfo3Freq)
       
     }
@@ -2358,7 +2367,7 @@ class XYPad extends React.Component {
     }
 
     updateLFO4Freq(square1distance4FromOsc4) {
-      let lfo4Freq = Math.floor((square1distance4FromOsc4 * .002) * Math.floor(Math.random() * (20) - 1 + 1) + 1)
+      let lfo4Freq = (1000 - square1distance4FromOsc4) * .015
       this.props.changeLFO4Freq(lfo4Freq)
     }
 
@@ -2386,7 +2395,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC4filterDepth(square3distance4FromOsc4) {
-      let osc4filterDepth = (1000 - square3distance4FromOsc4) * .001
+      let osc4filterDepth = square3distance4FromOsc4 * Math.floor(Math.random() * (7) - 1 + 1) + 20
       this.setState({osc4filterDepth: osc4filterDepth})
       this.props.changeOSC4filterDepth(osc4filterDepth)
     }
@@ -2396,7 +2405,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC4filter2Depth(square4distance4FromOsc4) {
-      let osc4filter2Depth =  Math.floor((1000 - square4distance4FromOsc4) * .008)
+      let osc4filter2Depth =  (1000 - square4distance4FromOsc4) * 4
       this.setState({osc4filter2Depth: osc4filter2Depth})
       this.props.changeOSC4filter2Depth(osc4filter2Depth)
       
@@ -2430,7 +2439,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC4pannerPan(square10distance4FromOsc4) {
-      let osc4pannerPan = 1 - ((1000 - square10distance4FromOsc4) * .002)
+      let osc4pannerPan = 1 - (square10distance4FromOsc4 * .002)
       this.setState({osc4pannerPan: osc4pannerPan})
       this.props.changeOSC4pannerPan(osc4pannerPan)
     }
@@ -2441,19 +2450,19 @@ class XYPad extends React.Component {
     }
 
     updateOSC4phaserRate(square11distance4FromOsc4) {
-      let osc4phaserRate = Math.floor(square11distance4FromOsc4 * .008)
+      let osc4phaserRate = Math.floor(square11distance4FromOsc4 * .008) + 1
       this.setState({osc4phaserRate: osc4phaserRate})
       this.props.changeOSC4phaserRate(osc4phaserRate)
     }
 
     updateOSC4phaserDepth(square11distance4FromOsc4) {
-      let osc4phaserDepth = (1000 - square11distance4FromOsc4) * .001
+      let osc4phaserDepth = square11distance4FromOsc4 * .001
       this.setState({osc4phaserDepth: osc4phaserDepth})
       this.props.changeOSC4phaserDepth(osc4phaserDepth)
     }
 
     updateOSC4phaserFeedback(square11distance4FromOsc4) {
-       let osc4phaserFeedback = square11distance4FromOsc4 * .001
+       let osc4phaserFeedback = (1000 - square11distance4FromOsc4) * .001
        this.setState({osc4phaserFeedback: osc4phaserFeedback})
        this.props.changeOSC4phaserFeedback(osc4phaserFeedback)
     }
@@ -2477,9 +2486,8 @@ class XYPad extends React.Component {
 
 
     render() {
-        // console.log(this.props.lfoFreq)
-        // console.log(this.props.lfoType)
-        // console.log(this.state.lfoFreq)
+        // console.log(this.props.osc4overdriveDrive)
+        // console.log(this.state.osc4overdriveDrive)
         // console.log(this.state.lfoType)
         // console.log(this.props.lfo2Freq)
         // console.log(this.props.lfo2Type)

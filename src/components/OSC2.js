@@ -48,7 +48,7 @@ class OSC2 extends React.Component {
 		this.phaser = new tuna.Phaser(this.state.context);
 		this.overdrive = new tuna.Overdrive(this.state.context);
 		this.delay = new tuna.PingPongDelay(this.state.context)
-		
+		this.filter2.filterType = "bandpass"
 
 
 		//
@@ -72,6 +72,7 @@ class OSC2 extends React.Component {
 		this.phaser.connect(this.delay);
 		this.delay.connect(this.overdrive)
 		this.overdrive.connect(output)
+		
 
 		output.connect(output.gain);
 		output.connect(masterGain);
@@ -122,6 +123,110 @@ class OSC2 extends React.Component {
 	  this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
 	}
   }
+
+	///filter FUNC/////////////
+  OSC2filterDepthChanged(value) {
+		if (typeof this.filter !== "undefined") {
+			this.filter.frequency.setTargetAtTime(value, this.state.context.currentTime, 12);
+		} 
+		console.log(this.filter)
+  }
+
+  // lfoFrequencyChanged(value) {
+	// if (typeof this.osc !== "undefined") {
+	//   this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
+	// }
+  // }
+
+	////TREMOLO FUNC/////
+	OSC2tremoloRateChanged(value) {
+		if (typeof this.tremolo !== "undefined") {
+			this.tremolo.rate = value;
+			console.log(this.tremolo.rate)
+		}
+		console.log(this.tremolo)
+	}
+
+
+/////////FILTER2 FUNC////////
+	OSC2filter2DepthChanged(value) {
+		if (typeof this.filter2 !== "undefined") {
+			this.filter2.frequency.setTargetAtTime(value, this.state.context.currentTime, 30);
+		} 
+		console.log(this.filter2)
+	}
+
+
+	//////////CHORUS FUNC////////
+	OSC2chorusDepthChanged(value) {
+		if (typeof this.chorus !== "undefined") {
+		this.chorus.depth = value;
+		console.log(this.chorus.depth)
+		} 
+		console.log(this.chorus)
+	}
+
+	/////REVERB///////
+	OSC2reverbLevelChanged(value) {
+		if (typeof this.reverb !== "undefined") {
+		this.reverb.level.setTargetAtTime(value, this.state.context.currentTime, 6)
+		console.log(this.reverb.level.value)
+		} 
+	}
+
+	/////PANNER////////
+	OSC2pannerPanChanged(value) {
+		if (typeof this.panner !== "undefined") {
+		this.panner.pan.setTargetAtTime(value, this.state.context.currentTime, 6)
+		console.log(this.panner.pan.value)
+		} 
+	}
+
+	///////PHASER///////
+	OSC2phaserFeedbackChanged(value) {
+		if (typeof this.phaser !== "undefined") {
+		this.phaser.feedback = value;
+		console.log(this.phaser.feedback)
+		} 
+		console.log(this.phaser)
+	}
+
+	OSC2phaserRateChanged(value) {
+		if (typeof this.phaser !== "undefined") {
+		this.phaser.rate = value;
+		console.log(this.phaser.rate)
+		} 
+		console.log(this.phaser)
+	}
+
+	OSC2phaserDepthChanged(value) {
+		if (typeof this.phaser !== "undefined") {
+		this.phaser.depth = value;
+		console.log(this.phaser.depth)
+		} 
+		console.log(this.phaser)
+	}
+
+// 	///OVERDRIVE////
+
+	OSC2overdriveDriveChanged(value) {
+		if (typeof this.overdrive !== "undefined") {
+		this.overdrive.drive.value = value;
+		console.log(this.overdrive.drive.value)
+		} 
+		console.log(this.overdrive)
+	}
+
+// 	OSC2overdriveGainChanged(value) {
+// 		if (typeof this.overdrive !== "undefined") {
+// 			console.log(value)
+// 		this.overdrive.gain = value;
+// 		console.log(this.overdrive.gain)
+// 		} 
+// 		console.log(this.overdrive)
+// 	}
+
+
   
 
   render() {
@@ -138,6 +243,33 @@ class OSC2 extends React.Component {
     this.turnOnOSC2(this.props.isOSC2On);
     this.OSC2TypeChanged(this.props.osc2Type);
     this.OSC2FrequencyChanged(this.props.osc2Freq);
+
+			// this.OSC1chorusBypassChanged(this.props.osc1chorusBypass);
+		this.OSC2chorusDepthChanged(this.props.osc2chorusDepth);
+
+		// // this.OSC2filterBypassChanged(this.props.OSC2filterBypass);
+		this.OSC2filterDepthChanged(this.props.osc2filterDepth);
+
+		// // this.OSC2filter2BypassChanged(this.props.OSC2filter2Bypass);
+		this.OSC2filter2DepthChanged(this.props.osc2filter2Depth);
+
+		// // this.OSC2tremoloBypassChanged(this.props.OSC2tremoloBypass);
+		this.OSC2tremoloRateChanged(this.props.osc2tremoloRate);
+
+		// // this.OSC2reverbBypassChanged(this.props.OSC2reverbBypass);
+		this.OSC2reverbLevelChanged(this.props.osc2reverbLevel)
+
+		// // this.OSC2pannerBypassChanged(this.props.OSC2pannerBypass);
+		this.OSC2pannerPanChanged(this.props.osc2pannerPan)
+
+		// // this.OSC2phaserBypassChanged(this.props.OSC2phaserBypass);
+		this.OSC2phaserDepthChanged(this.props.osc2phaserDepth)
+		this.OSC2phaserRateChanged(this.props.osc2phaserRate)
+		this.OSC2phaserFeedbackChanged(this.props.osc2phaserFeedback)
+
+		// // this.OSC2overdriveBypassChanged(this.props.OSC2overdriveBypass);
+		this.OSC2overdriveDriveChanged(this.props.osc2overdriveDrive)
+		// this.OSC1overdriveGainChanged(this.props.osc1overdriveGain)
 
     return (
 		<div>
@@ -157,6 +289,34 @@ function mapStateToProps(state){
 		lfo2Type: state.lfo2Type,
 		context: state.context,
     masterGainValue: state.masterGainValue,
+
+		osc2chorusBypass: state.osc2chorusBypass,
+		osc2chorusDepth: state.osc2chorusDepth,
+		osc2chorusRate: state.osc2chorusRate,
+
+		osc2filterBypass: state.osc2filterBypass,
+		osc2filterDepth: state.osc2filterDepth,
+
+		osc2filter2Bypass: state.osc2filter2Bypass,
+		osc2filter2Depth: state.osc2filter2Depth,
+
+		osc2tremoloBypass: state.osc2tremoloBypass,
+		osc2tremoloRate: state.osc2tremoloRate,
+
+		osc2reverbBypass: state.osc2reverbBypass,
+		osc2reverbLevel: state.osc2reverbLevel,
+
+		osc2pannerBypass: state.osc2pannerBypass,
+		osc2pannerPan: state.osc2pannerPan,
+
+		osc2phaserBypass: state.osc2phaserBypass,
+		osc2phaserRate: state.osc2phaserRate,
+		osc2phaserDepth: state.osc2phaserDepth,
+		osc2phaserFeedback: state.osc2phaserFeedback,
+
+		osc2overdriveBypass: state.osc2overdriveBypass,
+		osc2overdriveDrive: state.osc2overdriveDrive,
+		osc2overdriveGain: state.osc2overdriveGain,
   }
 	
 }

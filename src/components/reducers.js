@@ -292,7 +292,7 @@ const initialState = {
 
   osc1overdriveBypass: true,
   osc1overdriveDrive: 0.5,
-  osc1overdriveGain: -1,
+  osc1overdriveGain: -5,
 
   osc2overdriveBypass: true,
   osc2overdriveDrive: 0.5,
@@ -306,7 +306,7 @@ const initialState = {
   osc4overdriveDrive: 0.5,
   osc4overdriveGain: -23,
 
-  masterGainValue: 0.075,
+  masterGainValue: 0.066,
 };
 
 function rootReducer(state = initialState, action){

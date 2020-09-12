@@ -16,6 +16,7 @@ import WaveformOSC4 from './components/WaveformOSC4';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import './index.css';
+import './App.css'
 
 
 

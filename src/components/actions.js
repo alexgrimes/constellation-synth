@@ -82,6 +82,22 @@ export const CHANGE_OSC3TREMOLO_RATE = 'CHANGE_OSC3TREMOLO_RATE';
 export const TOGGLE_OSC4TREMOLO_BYPASS = 'TOGGLE_OSC4TREMOLO_BYPASS';
 export const CHANGE_OSC4TREMOLO_RATE = 'CHANGE_OSC4TREMOLO_RATE';
 
+export const TOGGLE_OSC1DELAY2_BYPASS = 'TOGGLE_OSC1DELAY2_BYPASS';
+export const CHANGE_OSC1DELAY2_WETLEVEL = 'CHANGE_OSC1DELAY2_WETLEVEL';
+export const CHANGE_OSC1DELAY2_TIME = 'CHANGE_OSC1DELAY2_TIME';
+
+export const TOGGLE_OSC2DELAY2_BYPASS = 'TOGGLE_OSC2DELAY2_BYPASS';
+export const CHANGE_OSC2DELAY2_WETLEVEL = 'CHANGE_OSC2DELAY2_WETLEVEL';
+export const CHANGE_OSC2DELAY2_TIME = 'CHANGE_OSC2DELAY2_TIME';
+
+export const TOGGLE_OSC3DELAY2_BYPASS = 'TOGGLE_OSC3DELAY2_BYPASS';
+export const CHANGE_OSC3DELAY2_WETLEVEL = 'CHANGE_OSC3DELAY2_WETLEVEL';
+export const CHANGE_OSC3DELAY2_TIME = 'CHANGE_OSC3DELAY2_TIME';
+
+export const TOGGLE_OSC4DELAY2_BYPASS = 'TOGGLE_OSC4DELAY2_BYPASS';
+export const CHANGE_OSC4DELAY2_WETLEVEL = 'CHANGE_OSC4DELAY2_WETLEVEL';
+export const CHANGE_OSC4DELAY2_TIME = 'CHANGE_OSC4DELAY2_TIME';
+
 export const TOGGLE_OSC1REVERB_BYPASS = 'TOGGLE_OSC1REVERB_BYPASS';
 export const CHANGE_OSC1REVERB_LEVEL = 'CHANGE_OSC1REVERB_LEVEL';
 
@@ -327,7 +343,7 @@ export function changeLFO4Freq(value){
 
 export function toggleOSC1chorusBypass(){
   return {	
-    type: 'OSC1CHORUS_BYPASS'
+    type: 'TOGGLE_OSC1CHORUS_BYPASS'
   }  
 };
 
@@ -579,6 +595,89 @@ export function changeOSC4tremoloRate(value){
     rate: value
   }  
 };
+
+//////////DELAY///////////
+
+export function toggleOSC1delay2Bypass(){
+  return {	
+    type: 'TOGGLE_OSC1DELAY_BYPASS'
+  }  
+};
+
+export function changeOSC1delay2WetLevel(value){
+  return {	
+    type: 'CHANGE_OSC1DELAY2_WETLEVEL',
+    wetLevel: value
+  }  
+};
+
+export function changeOSC1delay2Time(value){
+  return {	
+    type: 'CHANGE_OSC1DELAY2_TIME',
+    time: value
+  }  
+};
+
+export function toggleOSC2delay2Bypass(){
+  return {	
+    type: 'TOGGLE_OSC2DELAY_BYPASS'
+  }  
+};
+
+export function changeOSC2delay2WetLevel(value){
+  return {	
+    type: 'CHANGE_OSC2DELAY2_WETLEVEL',
+    wetLevel: value
+  }  
+};
+
+export function changeOSC2delay2Time(value){
+  return {	
+    type: 'CHANGE_OSC2DELAY2_TIME',
+    time: value
+  }  
+};
+
+export function toggleOSC3delay2Bypass(){
+  return {	
+    type: 'TOGGLE_OSC3DELAY_BYPASS'
+  }  
+};
+
+export function changeOSC3delay2WetLevel(value){
+  return {	
+    type: 'CHANGE_OSC3DELAY2_WETLEVEL',
+    wetLevel: value
+  }  
+};
+
+export function changeOSC3delay2Time(value){
+  return {	
+    type: 'CHANGE_OSC3DELAY2_TIME',
+    time: value
+  }  
+};
+
+export function toggleOSC4delay2Bypass(){
+  return {	
+    type: 'TOGGLE_OSC4DELAY_BYPASS'
+  }  
+};
+
+export function changeOSC4delay2WetLevel(value){
+  return {	
+    type: 'CHANGE_OSC4DELAY2_WETLEVEL',
+    wetLevel: value
+  }  
+};
+
+export function changeOSC4delay2Time(value){
+  return {	
+    type: 'CHANGE_OSC4DELAY2_TIME',
+    time: value
+  }  
+};
+
 
 /////////////REVERB////////
 

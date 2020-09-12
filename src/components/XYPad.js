@@ -20,6 +20,10 @@ import {
   toggleOSC1tremoloBypass,
   changeOSC1tremoloRate,
 
+  changeOSC1delay2WetLevel,
+  changeOSC1delay2Time,
+  toggleOSC1delay2Bypass,
+
   toggleOSC1reverbBypass,
   changeOSC1reverbLevel,
 
@@ -54,6 +58,9 @@ import {
 
   toggleOSC2tremoloBypass,
   changeOSC2tremoloRate,
+
+  changeOSC2delay2WetLevel,
+  changeOSC2delay2Time,
 
   toggleOSC2reverbBypass,
   changeOSC2reverbLevel,
@@ -91,6 +98,9 @@ import {
   toggleOSC3tremoloBypass,
   changeOSC3tremoloRate,
 
+  changeOSC3delay2WetLevel,
+  changeOSC3delay2Time,
+
   toggleOSC3reverbBypass,
   changeOSC3reverbLevel,
 
@@ -126,6 +136,9 @@ import {
 
   toggleOSC4tremoloBypass,
   changeOSC4tremoloRate,
+
+  changeOSC4delay2WetLevel,
+  changeOSC4delay2Time,
 
   toggleOSC4reverbBypass,
   changeOSC4reverbLevel,
@@ -249,6 +262,9 @@ class XYPad extends React.Component {
 
     let osc1tremoloRate = square5distanceFromOsc1 * .011
 
+    let osc1delay2WetLevel = (1000 - square6distanceFromOsc1) * .001
+    let osc1delay2Time = (1000 - square6distanceFromOsc1) * .001
+
     let osc1reverbLevel = (1000 - square9distanceFromOsc1) * .001
 
     let osc1pannerPan = 1 - ((1000 - square10distanceFromOsc1) * .002)
@@ -278,6 +294,8 @@ class XYPad extends React.Component {
     let osc2filterDepth = (1000 - square3distanceFromOsc2) * .001
     let osc2filter2Depth = Math.floor((1000 - square4distanceFromOsc2) * .008)
     let osc2tremoloRate = square5distanceFromOsc2 * .011
+    let osc2delay2Time = 1000 - square6distanceFromOsc2
+    let osc2delay2WetLevel = (1000 - square6distanceFromOsc2) * .001
     let osc2reverbLevel = (1000 - square9distanceFromOsc2) * .001
     let osc2pannerPan = 1 - ((1000 - square10distanceFromOsc2) * .002)
     let osc2phaserDepth = (1000 - square11distanceFromOsc2) * .001
@@ -298,6 +316,8 @@ class XYPad extends React.Component {
     let osc3filterDepth = (1000 - square3distanceFromOsc3) * .001
     let osc3filter2Depth = Math.floor((1000 - square4distanceFromOsc3) * .008)
     let osc3tremoloRate = square5distanceFromOsc3 * .011
+    let osc3delay2WetLevel = (1000 - square6distanceFromOsc3) * .001
+    let osc3delay2Time = square6distanceFromOsc3
     let osc3reverbLevel = (1000 - square9distanceFromOsc3) * .001
     let osc3pannerPan = 1 - ((1000 - square10distanceFromOsc3) * .002)
     let osc3phaserDepth = (1000 - square11distanceFromOsc3) * .001
@@ -320,6 +340,8 @@ class XYPad extends React.Component {
     let osc4filter2Depth = (1000 - square3distanceFromOsc4) * 4
     let osc4tremoloRate = (square5distanceFromOsc4 * .011)
 
+    let osc4delay2WetLevel = (1000 - square6distanceFromOsc4) * .001
+    let osc4delay2Time = 1000 - square6distanceFromOsc4
     let osc4reverbLevel = (1000 - square9distanceFromOsc4) * .001
 
     let osc4pannerPan = 1 - ((1000 - square10distanceFromOsc4) * .002)
@@ -493,6 +515,22 @@ class XYPad extends React.Component {
       square6distanceFromOsc3: square6distanceFromOsc3,
       square6distanceFromOsc4: square6distanceFromOsc4,
 
+      isOSC1delay2Started: false,
+      osc1delay2WetLevel: osc1delay2WetLevel,
+      osc1delay2Time: osc1delay2Time,
+
+      isOSC2delay2Started: false,
+      osc2delay2WetLevel: osc2delay2WetLevel,
+      osc2delay2Time: osc2delay2Time,
+
+      isOSC3delay2Started: false,
+      osc3delay2WetLevel: osc3delay2WetLevel,
+      osc3delay2Time: osc3delay2Time,
+
+      isOSC4delay2Started: false,
+      osc4delay2WetLevel: osc4delay2WetLevel,
+      osc4delay2Time: osc4delay2Time,
+
 
 /////EFFECT NODE 7////////////////////// 
       square7Pos: squarePos7,
@@ -502,25 +540,6 @@ class XYPad extends React.Component {
       square7distanceFromOsc2: square7distanceFromOsc2,
       square7distanceFromOsc3: square7distanceFromOsc3,
       square7distanceFromOsc4: square7distanceFromOsc4,
-
-
-/////EFFECT NODE 8////////////////////// 
-      square8Pos: squarePos8,
-      prevSquare8Pos: squarePos8,
-      start12Move: false,
-      square8distanceFromOsc1: square8distanceFromOsc1,
-      square8distanceFromOsc2: square8distanceFromOsc2,
-      square8distanceFromOsc3: square8distanceFromOsc3,
-      square8distanceFromOsc4: square8distanceFromOsc4,
-
-/////EFFECT NODE 9////////////////////// 
-      square9Pos: squarePos9,
-      prevSquare9Pos: squarePos9,
-      start13Move: false,
-      square9distanceFromOsc1: square9distanceFromOsc1,
-      square9distanceFromOsc2: square9distanceFromOsc2,
-      square9distanceFromOsc3: square9distanceFromOsc3,
-      square9distanceFromOsc4: square9distanceFromOsc4,
 
       isOSC1reverbStarted: false,
       osc1reverbLevel: osc1reverbLevel,
@@ -534,14 +553,15 @@ class XYPad extends React.Component {
       isOSC4reverbStarted: false,
       osc4reverbLevel: osc4reverbLevel,
 
-/////EFFECT NODE 10////////////////////// 
-      square10Pos: squarePos10,
-      prevSquare10Pos: squarePos10,
-      start14Move: false,
-      square10distanceFromOsc1: square10distanceFromOsc1,
-      square10distanceFromOsc2: square10distanceFromOsc2,
-      square10distanceFromOsc3: square10distanceFromOsc3,
-      square10distanceFromOsc4: square10distanceFromOsc4,
+
+/////EFFECT NODE 8////////////////////// 
+      square8Pos: squarePos8,
+      prevSquare8Pos: squarePos8,
+      start12Move: false,
+      square8distanceFromOsc1: square8distanceFromOsc1,
+      square8distanceFromOsc2: square8distanceFromOsc2,
+      square8distanceFromOsc3: square8distanceFromOsc3,
+      square8distanceFromOsc4: square8distanceFromOsc4,
 
       isOSC1pannerStarted: false,
       osc1pannerPan: osc1pannerPan,
@@ -555,17 +575,14 @@ class XYPad extends React.Component {
       isOSC4pannerStarted: false,
       osc4pannerPan: osc4pannerPan,
 
-
-
-  
-/////EFFECT NODE 11////////////////////// 
-      square11Pos: squarePos11,
-      prevSquare11Pos: squarePos11,
-      start15Move: false,
-      square11distanceFromOsc1: square11distanceFromOsc1,
-      square11distanceFromOsc2: square11distanceFromOsc2,
-      square11distanceFromOsc3: square11distanceFromOsc3,
-      square11distanceFromOsc4: square11distanceFromOsc4,
+/////EFFECT NODE 9////////////////////// 
+      square9Pos: squarePos9,
+      prevSquare9Pos: squarePos9,
+      start13Move: false,
+      square9distanceFromOsc1: square9distanceFromOsc1,
+      square9distanceFromOsc2: square9distanceFromOsc2,
+      square9distanceFromOsc3: square9distanceFromOsc3,
+      square9distanceFromOsc4: square9distanceFromOsc4,
 
       isOSC1phaserStarted: false,
       osc1phaserRate: osc1phaserRate,
@@ -587,15 +604,16 @@ class XYPad extends React.Component {
       osc4phaserDepth: osc4phaserDepth,
       osc4phaserFeedback: osc4phaserFeedback,
 
+      
 
-/////EFFECT NODE 12////////////////////// 
-      square12Pos: squarePos12,
-      prevSquare12Pos: squarePos12,
-      start16Move: false,
-      square12distanceFromOsc1: square12distanceFromOsc1,
-      square12distanceFromOsc2: square12distanceFromOsc2,
-      square12distanceFromOsc3: square12distanceFromOsc3,
-      square12distanceFromOsc4: square12distanceFromOsc4,
+/////EFFECT NODE 10////////////////////// 
+      square10Pos: squarePos10,
+      prevSquare10Pos: squarePos10,
+      start14Move: false,
+      square10distanceFromOsc1: square10distanceFromOsc1,
+      square10distanceFromOsc2: square10distanceFromOsc2,
+      square10distanceFromOsc3: square10distanceFromOsc3,
+      square10distanceFromOsc4: square10distanceFromOsc4,
 
       isOSC1overdriveStarted: false,
       osc1overdriveDrive: osc1overdriveDrive,
@@ -612,6 +630,34 @@ class XYPad extends React.Component {
       isOSC4overdriveStarted: false,
       osc4overdriveDrive: osc4overdriveDrive,
       osc4overdriveGain: osc4overdriveGain,
+
+      
+
+  
+/////EFFECT NODE 11////////////////////// 
+      square11Pos: squarePos11,
+      prevSquare11Pos: squarePos11,
+      start15Move: false,
+      square11distanceFromOsc1: square11distanceFromOsc1,
+      square11distanceFromOsc2: square11distanceFromOsc2,
+      square11distanceFromOsc3: square11distanceFromOsc3,
+      square11distanceFromOsc4: square11distanceFromOsc4,
+
+      
+
+      
+
+
+/////EFFECT NODE 12////////////////////// 
+      square12Pos: squarePos12,
+      prevSquare12Pos: squarePos12,
+      start16Move: false,
+      square12distanceFromOsc1: square12distanceFromOsc1,
+      square12distanceFromOsc2: square12distanceFromOsc2,
+      square12distanceFromOsc3: square12distanceFromOsc3,
+      square12distanceFromOsc4: square12distanceFromOsc4,
+
+      
 
     };
    
@@ -636,9 +682,43 @@ class XYPad extends React.Component {
         this.ctx.fillRect(0,0, this.props.width, this.props.height);
         
         this.updateFrequencyOSC(this.props.oscFreq);
+        this.updateLFOFreq(this.props.lfoFreq);
+
+        // this.updateOSC1chorusBypass();
+        // this.updateOSC1chorusDepth(this.props.osc1chorusDepth);
+
+        // this.updateOSC1filterBypass();
+        // this.updateOSC1filterDepth(this.props.osc1filterDepth);
+
+        // this.updateOSC1filter2Bypass();
+        // this.updateOSC1filter2Depth(this.props.osc1filter2Depth);
+
+        // this.updateOSC1tremoloBypass();
+        // this.updateOSC1tremoloRate(this.props.osc1tremoloRate);
+
+        // this.updateOSC1delay2Bypass();
+        // this.udpateOSC1delay2WetLevel(this.props.osc1delay2WetLevel);
+        // this.udpateOSC1delay2Time(this.props.osc1delay2Time);
+
+        // this.updateOSC1reverbBypass();
+        // this.updateOSC1reverbLevel(this.props.osc1reverbLevel);
+
+        // this.updateOSC1pannerBypass();
+        // this.updateOSC1pannerPan(this.props.osc1pannerPan);
+
+        // this.updateOSC1phaserBypass();
+        // this.updateOSC1phaserDepth(this.props.osc1phaserDepth);
+        // this.updateOSC1phaserRate(this.props.osc1phaserRate);
+        // this.updateOSC1phaserFeedback(this.props.osc1phaserFeedback);
+
+        // this.updateOSC1overdriveBypass();
+        // this.updateOSC1overdriveDrive(this.props.osc1overdriveDrive);
+        // this.updateOSC1overdriveGain(this.props.osc1overdriveGain);
+
         this.updateFrequencyOSC2(this.props.osc2Freq);
         this.updateFrequencyOSC3(this.props.osc3Freq);
         this.updateFrequencyOSC4(this.props.osc4Freq);
+        
         
         this.updateCanvas();
         
@@ -672,9 +752,7 @@ class XYPad extends React.Component {
         this.state.square7Pos,
         this.state.square8Pos,
         this.state.square9Pos,
-        this.state.square10Pos,
-        this.state.square11Pos,
-        this.state.square12Pos,
+        this.state.square10Pos
       ]
 
       // console.log(points)
@@ -699,67 +777,82 @@ class XYPad extends React.Component {
       this.ctx.closePath();
       this.ctx.beginPath();
       delaunay.renderPoints(this.ctx);
+      console.log(delaunay)
       this.ctx.fill();
 
       //turn effects on of neighboring oscillators with this
       const osc1Neighbors = [...delaunay.neighbors(0)]
-      this.state.osc1Neighbors = osc1Neighbors;
+      this.setState({osc1Neighbors: osc1Neighbors});
       const osc2Neighbors = [...delaunay.neighbors(1)]
-      this.state.osc2Neighbors = osc2Neighbors;
+      this.setState({osc2Neighbors: osc2Neighbors});
       const osc3Neighbors = [...delaunay.neighbors(2)]
-      this.state.osc3Neighbors = osc3Neighbors;
+      this.setState({osc3Neighbors: osc3Neighbors});
       const osc4Neighbors = [...delaunay.neighbors(3)]
-      this.state.osc4Neighbors = osc4Neighbors;
+      this.setState({osc4Neighbors: osc4Neighbors});
+
+      console.log(this.state.osc1Neighbors)
+      console.log(this.state.square9Pos)
       
-      if (this.state.osc1Neighbors.includes(5)) {
-        this.setState({isLFOstarted: true})
-        this.turnOnLFO();
-      }
-      if (this.state.osc1Neighbors.includes(6)) {
-        this.setState({isOSC1chorusStarted: true})
-        this.updateOSC1chorusBypass();
-      }
-      if (this.state.osc1Neighbors.includes(7)) {
-        this.setState({isOSC1filterStarted: true})
-        this.updateOSC1filterBypass();
-      }  
-      if (this.state.osc1Neighbors.includes(8)) {
-        this.setState({isOSC1filter2Started: true})
-        this.updateOSC1filter2Bypass();
-      } 
-      if (this.state.osc1Neighbors.includes(9)) {
-        this.setState({isOSC1tremoloStarted: true})
-        this.updateOSC1tremoloBypass();
-      }   
-      if (this.state.osc1Neighbors.includes(13)) {
-        this.setState({isOSC1reverbStarted: true})
-        this.updateOSC1reverbBypass();
-      } 
-      if (this.state.osc1Neighbors.includes(14)) {
-        this.setState({isOSC1pannerStarted: true})
-        this.updateOSC1pannerBypass();
-      }   
-      if (this.state.osc1Neighbors.includes(15)) {
-        this.setState({isOSC1phaserStarted: true})
-        this.updateOSC1phaserBypass();
-      }
-      if (this.state.osc1Neighbors.includes(16)) {
-        this.setState({isOSC1overdriveStarted: true})
-        this.updateOSC1overdriveBypass();
-      }
-      else {
-        this.setState({
-          isLFOstarted: false,
-          isOSC1chorusStarted: false,
-          isOSC1filterStarted: false,
-          isOSC1filter2Started: false,
-          isOSC1tremoloStarted: false,
-          isOSC1reverbStarted: false,
-          isOSC1pannerStarted: false,
-          isOSC1phaserStarted: false,
-          isOSC1overdriveStarted: false
-        })
-      }
+      // if (this.state.osc1Neighbors.includes(4)) {
+      //   this.setState({isLFOstarted: true})
+      //   this.turnOnLFO();
+      //   console.log('lfo')
+      // }
+      // if (this.state.osc1Neighbors.includes(5)) {
+      //   this.setState({isOSC1chorusStarted: true})
+      //   this.updateOSC1chorusBypass();
+      //   console.log(this.state.isOSC1chorusStarted)
+      //   console.log('chorus')
+      //   console.log(this.state.osc1Neighbors.includes(5))
+      // }
+      // if (this.state.osc1Neighbors.includes(6)) {
+      //   this.setState({isOSC1filterStarted: true})
+      //   this.updateOSC1filterBypass();
+      //   console.log('filter')
+      // }  
+      // if (this.state.osc1Neighbors.includes(7)) {
+      //   this.setState({isOSC1filter2Started: true})
+      //   this.updateOSC1filter2Bypass();
+      //   console.log('filter2')
+      // } 
+      // if (this.state.osc1Neighbors.includes(8)) {
+      //   this.setState({isOSC1tremoloStarted: true})
+      //   this.updateOSC1tremoloBypass();
+      //   console.log('tremolo')
+      // }   
+      // if (this.state.osc1Neighbors.includes(9)) {
+      //   this.setState({isOSC1reverbStarted: true})
+      //   this.updateOSC1reverbBypass();
+      //   console.log('reverb')
+      // } 
+      // if (this.state.osc1Neighbors.includes(10)) {
+      //   this.setState({isOSC1pannerStarted: true})
+      //   this.updateOSC1pannerBypass();
+      //   console.log('pan')
+      // }   
+      // if (this.state.osc1Neighbors.includes(11)) {
+      //   this.setState({isOSC1phaserStarted: true})
+      //   this.updateOSC1phaserBypass();
+      //   console.log('phase')
+      // }
+      // if (this.state.osc1Neighbors.includes(12)) {
+      //   this.setState({isOSC1overdriveStarted: true})
+      //   this.updateOSC1overdriveBypass();
+      //   console.log('ovd')
+      // }
+      // else {
+      //   this.setState({
+      //     isLFOstarted: false,
+      //     isOSC1chorusStarted: false,
+      //     isOSC1filterStarted: false,
+      //     isOSC1filter2Started: false,
+      //     isOSC1tremoloStarted: false,
+      //     isOSC1reverbStarted: false,
+      //     isOSC1pannerStarted: false,
+      //     isOSC1phaserStarted: false,
+      //     isOSC1overdriveStarted: false
+      //   })
+      // }
 
       if (this.state.osc2Neighbors.includes(5)) {
         this.setState({isLFO2started: true})
@@ -944,63 +1037,143 @@ class XYPad extends React.Component {
       this.ctx.beginPath();
       this.ctx.arc(this.state.square1Pos[0], this.state.square1Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.fillStyle = "#ffffff";
-      this.ctx.closePath();
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start5Move
+          )
+      {
+        this.ctx.fillText('LFO', this.state.square1Pos[0] + 5 , this.state.square1Pos[1] + 5 );
+      }
       
+      this.ctx.closePath();
       this.ctx.fill();
 
       this.ctx.arc(this.state.square2Pos[0], this.state.square2Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start6Move
+          )
+      {
+        this.ctx.fillText('Chorus', this.state.square2Pos[0] + 5 , this.state.square2Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square3Pos[0], this.state.square3Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start7Move
+          )
+      {
+        this.ctx.fillText('Low Pass Filter', this.state.square3Pos[0] + 5 , this.state.square3Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square4Pos[0], this.state.square4Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start8Move
+          )
+      {
+        this.ctx.fillText('Bandpass Filter', this.state.square4Pos[0] + 5 , this.state.square4Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square5Pos[0], this.state.square5Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start9Move
+          )
+      {
+        this.ctx.fillText('Tremolo', this.state.square5Pos[0] + 5 , this.state.square5Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square6Pos[0], this.state.square6Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start10Move
+          )
+      {
+        this.ctx.fillText('Delay', this.state.square6Pos[0] + 5 , this.state.square6Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square7Pos[0], this.state.square7Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start11Move
+          )
+      {
+        this.ctx.fillText('Reverb', this.state.square7Pos[0] + 5 , this.state.square7Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square8Pos[0], this.state.square8Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start12Move
+          )
+      {
+        this.ctx.fillText('Pan', this.state.square8Pos[0] + 5 , this.state.square8Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square9Pos[0], this.state.square9Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start13Move
+          )
+      {
+        this.ctx.fillText('Phaser', this.state.square9Pos[0] + 5 , this.state.square9Pos[1] + 5 );
+      }
       this.ctx.fill();
 
       this.ctx.arc(this.state.square10Pos[0], this.state.square10Pos[1], 3.33, false, Math.PI * 2, false);
       this.ctx.closePath();
       this.ctx.fillStyle = "#ffffff";
-      this.ctx.fill();
-
-      this.ctx.arc(this.state.square11Pos[0], this.state.square11Pos[1], 3.33, false, Math.PI * 2, false);
-      this.ctx.closePath();
-      this.ctx.fillStyle = "#ffffff";
-      this.ctx.fill();
-
-      this.ctx.arc(this.state.square12Pos[0], this.state.square12Pos[1], 3.33, false, Math.PI * 2, false);
-      this.ctx.closePath();
-      this.ctx.fillStyle = "#ffffff";
+      if (this.state.start1Move || 
+          this.state.start2Move ||
+          this.state.start3Move ||
+          this.state.start4Move ||
+          this.state.start14Move
+          )
+      {
+        this.ctx.fillText('Drive', this.state.square10Pos[0] + 5 , this.state.square10Pos[1] + 5 );
+      }
       this.ctx.fill();
 
     }
@@ -1247,19 +1420,85 @@ class XYPad extends React.Component {
         
         this.updateCanvas();
         this.updateFrequencyOSC(posY)
-        this.updateLFOType();
+        console.log(this.state.osc1Neighbors)
+        console.log(this.state.square1distanceFromOsc1)
         this.updateLFOFreq(square1distance1FromOsc1);
         this.updateOSC1chorusDepth(square2distance1FromOsc1);
         this.updateOSC1filterDepth(square3distance1FromOsc1);
         this.updateOSC1filter2Depth(square4distance1FromOsc1);
-        this.updateOSC1tremoloRate(square5distance1FromOsc1)
-        this.updateOSC1reverbLevel(square9distance1FromOsc1)
-        this.updateOSC1pannerPan(square10distance1FromOsc1)
-        this.updateOSC1phaserDepth(square11distance1FromOsc1)
-        this.updateOSC1phaserRate(square11distance1FromOsc1)
-        this.updateOSC1phaserFeedback(square11distance1FromOsc1)
-        this.updateOSC1overdriveDrive(square12distance1FromOsc1)
-        this.updateOSC1overdriveGain(square12distance1FromOsc1)
+        this.updateOSC1tremoloRate(square5distance1FromOsc1);
+        this.udpateOSC1delay2WetLevel(square6distance1FromOsc1);
+        this.udpateOSC1delay2Time(square6distance1FromOsc1);
+        this.updateOSC1reverbLevel(square7distance1FromOsc1);
+        this.updateOSC1pannerPan(square8distance1FromOsc1);
+        this.updateOSC1phaserDepth(square9distance1FromOsc1);
+        this.updateOSC1phaserRate(square9distance1FromOsc1);
+        this.updateOSC1phaserFeedback(square9distance1FromOsc1);
+        this.updateOSC1overdriveDrive(square10distance1FromOsc1);
+        this.updateOSC1overdriveGain(square10distance1FromOsc1);
+
+        if (this.state.osc1Neighbors.includes(4)) {
+          this.setState({isLFOstarted: true})
+          this.turnOnLFO();
+          this.updateLFOType();
+          console.log('lfo', this.state.isLFOstarted)
+        }
+        if (this.state.osc1Neighbors.includes(5)) {
+          this.setState({isOSC1chorusStarted: true})
+          this.updateOSC1chorusBypass();
+          
+          console.log(this.state.isOSC1chorusStarted)
+          console.log('chorus')
+          console.log(this.state.osc1Neighbors.includes(5))
+        }
+        if (this.state.osc1Neighbors.includes(6)) {
+          this.setState({isOSC1filterStarted: true})
+          this.updateOSC1filterBypass();
+          
+          console.log('filter')
+        }  
+        if (this.state.osc1Neighbors.includes(7)) {
+          this.setState({isOSC1filter2Started: true})
+          this.updateOSC1filter2Bypass();
+          
+          console.log('filter2')
+        } 
+        if (this.state.osc1Neighbors.includes(8)) {
+          this.setState({isOSC1tremoloStarted: true})
+          this.updateOSC1tremoloBypass();
+          
+          console.log('tremolo')
+        }
+        if (this.state.osc1Neighbors.includes(9)) {
+          this.setState({isOSC1delayStarted: true})
+          // this.updateOSC1delay2Bypass();
+          
+          console.log('delay')
+        }    
+        if (this.state.osc1Neighbors.includes(10)) {
+          this.setState({isOSC1reverbStarted: true})
+          this.updateOSC1reverbBypass();
+          
+          console.log('reverb')
+        } 
+        if (this.state.osc1Neighbors.includes(11)) {
+          this.setState({isOSC1pannerStarted: true})
+          this.updateOSC1pannerBypass();
+          
+          console.log('pan')
+        }   
+        if (this.state.osc1Neighbors.includes(12)) {
+          this.setState({isOSC1phaserStarted: true})
+          this.updateOSC1phaserBypass();
+          
+          console.log('phase')
+        }
+        if (this.state.osc1Neighbors.includes(13)) {
+          this.setState({isOSC1overdriveStarted: true})
+          this.updateOSC1overdriveBypass();
+          
+          console.log('ovd')
+        }
       }
 
       if (this.state.start2Move) {
@@ -1321,13 +1560,83 @@ class XYPad extends React.Component {
         this.updateOSC2filterDepth(square3distance2FromOsc2);
         this.updateOSC2filter2Depth(square4distance2FromOsc2);
         this.updateOSC2tremoloRate(square5distance2FromOsc2)
-        this.updateOSC2reverbLevel(square9distance2FromOsc2)
-        this.updateOSC2pannerPan(square10distance2FromOsc2)
-        this.updateOSC2phaserDepth(square11distance2FromOsc2)
-        this.updateOSC2phaserRate(square11distance2FromOsc2)
-        this.updateOSC2phaserFeedback(square11distance2FromOsc2)
-        this.updateOSC2overdriveDrive(square12distance2FromOsc2)
-        this.updateOSC2overdriveGain(square12distance2FromOsc2)
+        this.udpateOSC2delay2WetLevel(square6distance2FromOsc2);
+        this.udpateOSC2delay2Time(square6distance2FromOsc2);
+        this.updateOSC2reverbLevel(square7distance2FromOsc2)
+        this.updateOSC2pannerPan(square8distance2FromOsc2)
+        this.updateOSC2phaserDepth(square9distance2FromOsc2)
+        this.updateOSC2phaserRate(square9distance2FromOsc2)
+        this.updateOSC2phaserFeedback(square9distance2FromOsc2)
+        this.updateOSC2overdriveDrive(square10distance2FromOsc2)
+        this.updateOSC2overdriveGain(square10distance2FromOsc2)
+
+      //   if (this.state.osc2Neighbors.includes(5)) {
+      //     this.setState({isLFOstarted: true})
+      //     this.turnOnLFO();
+      //     this.updateLFOType();
+      //     this.updateLFOFreq(square1distance2FromOsc2);
+      //     console.log('lfo')
+      //   }
+      //   if (this.state.osc2Neighbors.includes(6)) {
+      //     this.setState({isOSC2chorusStarted: true})
+      //     this.updateOSC2chorusBypass();
+      //     this.updateOSC2chorusDepth(square2distance2FromOsc2);
+      //     console.log(this.state.isOSC2chorusStarted)
+      //     console.log('chorus')
+      //     console.log(this.state.osc2Neighbors.includes(5))
+      //   }
+      //   if (this.state.osc2Neighbors.includes(7)) {
+      //     this.setState({isOSC2filterStarted: true})
+      //     this.updateOSC2filterBypass();
+      //     this.updateOSC2filterDepth(square3distance2FromOsc2);
+      //     console.log('filter')
+      //   }  
+      //   if (this.state.osc2Neighbors.includes(8)) {
+      //     this.setState({isOSC2filter2Started: true})
+      //     this.updateOSC2filter2Bypass();
+      //     this.updateOSC2filter2Depth(square4distance2FromOsc2);
+      //     console.log('filter2')
+      //   } 
+      //   if (this.state.osc2Neighbors.includes(9)) {
+      //     this.setState({isOSC2tremoloStarted: true})
+      //     this.updateOSC2tremoloBypass();
+      //     this.updateOSC2tremoloRate(square5distance2FromOsc2);
+      //     console.log('tremolo')
+      //   }
+      //   if (this.state.osc2Neighbors.includes(10)) {
+      //     this.setState({isOSC2delayStarted: true})
+      //     this.updateOSC2delay2Bypass();
+      //     this.udpateOSC2delay2WetLevel(square6distance2FromOsc2);
+      //     this.udpateOSC2delay2Time(square6distance2FromOsc2);
+      //     console.log('delay')
+      //   }    
+      //   if (this.state.osc2Neighbors.includes(11)) {
+      //     this.setState({isOSC2reverbStarted: true})
+      //     this.updateOSC2reverbBypass();
+      //     this.updateOSC2reverbLevel(square7distance2FromOsc2)
+      //     console.log('reverb')
+      //   } 
+      //   if (this.state.osc2Neighbors.includes(12)) {
+      //     this.setState({isOSC2pannerStarted: true})
+      //     this.updateOSC2pannerBypass();
+      //     this.updateOSC2pannerPan(square8distance2FromOsc2)
+      //     console.log('pan')
+      //   }   
+      //   if (this.state.osc2Neighbors.includes(13)) {
+      //     this.setState({isOSC2phaserStarted: true})
+      //     this.updateOSC2phaserBypass();
+      //     this.updateOSC2phaserDepth(square9distance2FromOsc2)
+      //     this.updateOSC2phaserRate(square9distance2FromOsc2)
+      //     this.updateOSC2phaserFeedback(square9distance2FromOsc2)
+      //     console.log('phase')
+      //   }
+      //   if (this.state.osc2Neighbors.includes(13)) {
+      //     this.setState({isOSC2overdriveStarted: true})
+      //     this.updateOSC2overdriveBypass();
+      //     this.updateOSC2overdriveDrive(square10distance2FromOsc2)
+      //     this.updateOSC2overdriveGain(square10distance2FromOsc2)
+      //     console.log('ovd')
+      //   }
       }
 
       if (this.state.start3Move) {
@@ -1385,7 +1694,6 @@ class XYPad extends React.Component {
 
       
       
-      
 
         this.updateLFO3Type();
         this.updateLFO3Freq(square1distance3FromOsc3);
@@ -1397,6 +1705,9 @@ class XYPad extends React.Component {
         this.updateOSC3filter2Depth(square4distance3FromOsc3);
         this.updateOSC3tremoloRate(square5distance3FromOsc3)
 
+        this.udpateOSC3delay2WetLevel(square6distance3FromOsc3);
+        this.udpateOSC3delay2Time(square6distance3FromOsc3);
+
         this.updateOSC3reverbLevel(square9distance3FromOsc3)
 
         this.updateOSC3pannerPan(square10distance3FromOsc3)
@@ -1407,7 +1718,72 @@ class XYPad extends React.Component {
 
         this.updateOSC3overdriveDrive(square12distance3FromOsc3)
         this.updateOSC3overdriveGain(square12distance3FromOsc3)
-      }
+        }
+
+        if (this.state.osc3Neighbors.includes(4)) {
+          this.setState({isLFOstarted: true})
+          this.turnOnLFO3();
+          this.updateLFO3Type();
+          console.log('lfo', this.state.isLFOstarted)
+        }
+        if (this.state.osc3Neighbors.includes(5)) {
+          this.setState({isOSC3chorusStarted: true})
+          this.updateOSC3chorusBypass();
+          
+          console.log(this.state.isOSC3chorusStarted)
+          console.log('chorus')
+          console.log(this.state.osc3Neighbors.includes(5))
+        }
+        if (this.state.osc3Neighbors.includes(6)) {
+          this.setState({isOSC3filterStarted: true})
+          this.updateOSC3filterBypass();
+          
+          console.log('filter')
+        }  
+        if (this.state.osc3Neighbors.includes(7)) {
+          this.setState({isOSC3filter2Started: true})
+          this.updateOSC3filter2Bypass();
+          
+          console.log('filter2')
+        } 
+        if (this.state.osc3Neighbors.includes(8)) {
+          this.setState({isOSC3tremoloStarted: true})
+          this.updateOSC3tremoloBypass();
+          
+          console.log('tremolo')
+        }
+        if (this.state.osc3Neighbors.includes(9)) {
+          this.setState({isOSC3delayStarted: true})
+          // this.updateOSC3delay2Bypass();
+          
+          console.log('delay')
+        }    
+        if (this.state.osc3Neighbors.includes(10)) {
+          this.setState({isOSC3reverbStarted: true})
+          this.updateOSC3reverbBypass();
+          
+          console.log('reverb')
+        } 
+        if (this.state.osc3Neighbors.includes(11)) {
+          this.setState({isOSC3pannerStarted: true})
+          this.updateOSC3pannerBypass();
+          
+          console.log('pan')
+        }   
+        if (this.state.osc3Neighbors.includes(12)) {
+          this.setState({isOSC3phaserStarted: true})
+          this.updateOSC3phaserBypass();
+          
+          console.log('phase')
+        }
+        if (this.state.osc3Neighbors.includes(13)) {
+          this.setState({isOSC3overdriveStarted: true})
+          this.updateOSC3overdriveBypass();
+          
+          console.log('ovd')
+        }
+      
+      
 
       if (this.state.start4Move) {
         
@@ -1474,6 +1850,9 @@ class XYPad extends React.Component {
         this.updateOSC4filter2Depth(square4distance4FromOsc4);
   
         this.updateOSC4tremoloRate(square5distance4FromOsc4)
+
+        this.udpateOSC4delay2WetLevel(square6distance4FromOsc4);
+        this.udpateOSC4delay2Time(square6distance4FromOsc4);
 
         this.updateOSC4reverbLevel(square9distance4FromOsc4)
 
@@ -1919,14 +2298,18 @@ class XYPad extends React.Component {
 /////////OSC1 FUNCTIONS///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
     updateFrequencyOSC(posY) {
-      let oscFreq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let oscFreq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.setState({oscFreq: oscFreq})
       this.props.changeOSCFreq(oscFreq);
      
     }
 
     turnOnLFO() {
-      this.props.turnOnLFO(!this.props.isLFOOn);
+       if (this.state.isLFOstarted) {
+        this.props.turnOnLFO(!this.props.turnOnLFO)
+      }
+      
+      console.log(this.state.isLFOstarted)
 
     }
 
@@ -1940,16 +2323,24 @@ class XYPad extends React.Component {
     }
 
     updateLFOFreq(square1distance1FromOsc1) {
-      let lfoFreq = (1000 - square1distance1FromOsc1) * .015
+      
+      
+      let lfoFreq = (square1distance1FromOsc1 * 0.015) * Math.floor(Math.random() * (2) - 1 + 1) + 1
+      this.setState({lfoFreq: lfoFreq})
       this.props.changeLFOFreq(lfoFreq)
+
+  
+      console.log(this.props.lfoFreq, 'lfofreq')
       //Math.floor((square1distanceFromOsc1 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
       
     }
 
     updateOSC1chorusBypass(){
-      
-      this.props.toggleOSC1chorusBypass(!this.props.osc1chorusBypass)
-   
+      if (this.state.isOSC1chorusStarted) {
+        this.props.toggleOSC1chorusBypass(!this.props.osc1chorusBypass)
+      }
+      console.log(this.props.osc1chorusBypass)
+      console.log(this.state.isOSC1chorusStarted)
     }
 
     updateOSC1chorusDepth(square2distance1FromOsc1) {
@@ -1959,9 +2350,12 @@ class XYPad extends React.Component {
   
     }
 
-    updateOSC1filterBypass() {
-      this.props.toggleOSC1filterBypass(!this.props.osc1filterBypass)
-     
+    updateOSC1filterBypass(){
+      if (this.state.isOSC1filterStarted) {
+        this.props.toggleOSC1filterBypass(!this.props.osc1filterBypass)
+      }
+      console.log(this.props.osc1filterBypass)
+      console.log(this.state.isOSC1filterStarted)
     }
 
     updateOSC1filterDepth(square3distance1FromOsc1) {
@@ -1971,9 +2365,12 @@ class XYPad extends React.Component {
     }
 
 
-    updateOSC1filter2Bypass() {
-      this.props.toggleOSC1filter2Bypass(!this.props.osc1filter2Bypass)
-     
+    updateOSC1filter2Bypass(){
+      if (this.state.isOSC1filter2Started) {
+        this.props.toggleOSC1filter2Bypass(!this.props.osc1filter2Bypass)
+      }
+      console.log(this.props.osc1filter2Bypass)
+      console.log(this.state.isOSC1filter2Started)
     }
 
     updateOSC1filter2Depth(square4distance1FromOsc1) {
@@ -1982,9 +2379,12 @@ class XYPad extends React.Component {
       this.props.changeOSC1filter2Depth(osc1filter2Depth)
     }
 
-    updateOSC1tremoloBypass() {
-      this.props.toggleOSC1tremoloBypass(!this.props.osc1tremoloBypass)
-     
+    updateOSC1tremoloBypass(){
+      if (this.state.isOSC1tremoloStarted) {
+        this.props.toggleOSC1tremoloBypass(!this.props.osc1tremoloBypass)
+      }
+      console.log(this.props.osc1tremoloBypass)
+      console.log(this.state.isOSC1tremoloStarted)
     }
 
     updateOSC1tremoloRate(square5distance1FromOsc1) {
@@ -1995,72 +2395,111 @@ class XYPad extends React.Component {
       console.log(osc1tremoloRate)
     }
 
-    updateOSC1reverbBypass() {
-      this.props.toggleOSC1reverbBypass(!this.props.osc1reverbBypass)
-      
+    // updateOSC1delay2Bypass(){
+    //   if (this.state.isOSC1delay2Started) {
+    //     this.props.toggleOSC1delay2Bypass(!this.props.osc1delay2Bypass)
+    //   }
+    //   console.log(this.props.osc1delay2Bypass, 'delay')
+    //   console.log(this.state.isOSC1delay2Started, 'delay')
+    // }
+
+    udpateOSC1delay2WetLevel(square6distance1FromOsc1) {
+      let osc1delay2WetLevel = (1000 - square6distance1FromOsc1) * .001
+      this.setState({osc1delay2WetLevel: osc1delay2WetLevel})
+      this.props.changeOSC1delay2WetLevel(osc1delay2WetLevel)
     }
 
-    updateOSC1reverbLevel(square9distance1FromOsc1) {
-      let osc1reverbLevel = (1000 - square9distance1FromOsc1) * .001
+    udpateOSC1delay2Time(square6distance1FromOsc1) {
+      let osc1delay2Time = (1000 - square6distance1FromOsc1) * .001
+      this.setState({osc1delay2Time: osc1delay2Time})
+      this.props.changeOSC1delay2Time(osc1delay2Time)
+    }
+
+    // updateOSC1wahBaseFrequency(square7distance1FromOsc1) {
+    //   let osc1wahBaseFrequency = (1000 - square7distance1FromOsc1) * .001
+    //   console.log(osc1wahBaseFrequency)
+    //   this.setState({osc1wahBaseFrequency: osc1wahBaseFrequency})
+    //   this.props.changeOSC1wahBaseFrequency(osc1wahBaseFrequency)
+    // }
+
+    updateOSC1reverbBypass(){
+      if (this.state.isOSC1reverbStarted) {
+        this.props.toggleOSC1reverbBypass(!this.props.osc1reverbBypass)
+      }
+      console.log(this.props.osc1reverbBypass)
+      console.log(this.state.isOSC1reverbStarted)
+    }
+
+    updateOSC1reverbLevel(square7distance1FromOsc1) {
+      let osc1reverbLevel = (1000 - square7distance1FromOsc1) * .001
       this.setState({osc1reverbLevel: osc1reverbLevel})
       this.props.changeOSC1reverbLevel(osc1reverbLevel)
     }
 
-    updateOSC1pannerBypass() {
-      this.props.toggleOSC1pannerBypass(!this.props.osc1pannerBypass)
-     
+    updateOSC1pannerBypass(){
+      if (this.state.isOSC1pannerStarted) {
+        this.props.toggleOSC1pannerBypass(!this.props.osc1pannerBypass)
+      }
+      console.log(this.props.osc1pannerBypass)
+      console.log(this.state.isOSC1pannerStarted)
     }
 
-    updateOSC1pannerPan(square10distance1FromOsc1) {
-      let osc1pannerPan = 1 - (square10distance1FromOsc1 * .002)
+    updateOSC1pannerPan(square8distance1FromOsc1) {
+      let osc1pannerPan = (square8distance1FromOsc1 * .002) - 1
     
       this.setState({osc1pannerPan: osc1pannerPan})
       this.props.changeOSC1pannerPan(osc1pannerPan)
     }
 
     updateOSC1phaserBypass() {
-      this.props.toggleOSC1phaserBypass(!this.props.osc1phaserBypass)
-      
+      if (this.state.isOSC1phaserStarted) {
+        this.props.toggleOSC1phaserBypass(!this.props.osc1phaserBypass)
+      }
+      console.log(this.props.osc1phaserBypass)
+      console.log(this.state.isOSC1phaserStarted)
     }
 
-    updateOSC1phaserRate(square11distance1FromOsc1) {
-      let osc1phaserRate = Math.floor(square11distance1FromOsc1 * .008) + 1
+    updateOSC1phaserRate(square9distance1FromOsc1) {
+      let osc1phaserRate = Math.floor(square9distance1FromOsc1 * .008) + 1
       this.setState({osc1phaserRate: osc1phaserRate})
       this.props.changeOSC1phaserRate(osc1phaserRate)
     }
 
-    updateOSC1phaserDepth(square11distance1FromOsc1) {
-      let osc1phaserDepth = square11distance1FromOsc1 * .001
+    updateOSC1phaserDepth(square9distance1FromOsc1) {
+      let osc1phaserDepth = square9distance1FromOsc1 * .001
       this.setState({osc1phaserDepth: osc1phaserDepth})
       this.props.changeOSC1phaserDepth(osc1phaserDepth)
     }
 
-    updateOSC1phaserFeedback(square11distance1FromOsc1) {
-       let osc1phaserFeedback = (1000 - square11distance1FromOsc1) * .001
+    updateOSC1phaserFeedback(square9distance1FromOsc1) {
+       let osc1phaserFeedback = (1000 - square9distance1FromOsc1) * .001
        this.setState({osc1phaserFeedback: osc1phaserFeedback})
        this.props.changeOSC1phaserFeedback(osc1phaserFeedback)
     }
 
-    updateOSC1overdriveBypass() {
-      this.props.toggleOSC1overdriveBypass(!this.props.osc1overdriveBypass)
-      
+    updateOSC1overdriveBypass(){
+      if (this.state.isOSC1overdriveStarted) {
+        this.props.toggleOSC1overdriveBypass(!this.props.osc1overdriveBypass)
+      }
+      console.log(this.props.osc1overdriveBypass)
+      console.log(this.state.isOSC1overdriveStarted)
     }
 
-    updateOSC1overdriveDrive(square12distance1FromOsc1) {
-      let osc1overdriveDrive = (1000 - square12distance1FromOsc1) * .001
+    updateOSC1overdriveDrive(square10distance1FromOsc1) {
+      let osc1overdriveDrive = (1000 - square10distance1FromOsc1) * .001
       this.setState({osc1overdriveDrive: osc1overdriveDrive})
       this.props.changeOSC1overdriveDrive(osc1overdriveDrive)
     }
 
-    updateOSC1overdriveGain(square12distance1FromOsc1) {
-      let osc1overdriveGain = Math.floor(46 - ((1000 - square12distance1FromOsc1) * .046)) * -1
+    updateOSC1overdriveGain(square10distance1FromOsc1) {
+      let osc1overdriveGain = Math.floor(46 - ((1000 - square10distance1FromOsc1) * .046)) * -1
       this.setState({osc1overdriveGain: osc1overdriveGain})
       this.props.changeOSC1overdriveGain(osc1overdriveGain)
     }
 
 /////////OSC2 FUNCTIONS/////////////
     updateFrequencyOSC2(posY) {
-      let osc2Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let osc2Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.setState({osc2Freq: osc2Freq})
       this.props.changeOSC2Freq(osc2Freq);
       
@@ -2082,7 +2521,7 @@ class XYPad extends React.Component {
     }
 
     updateLFO2Freq(square1distance2FromOsc2) {
-      let lfo2Freq = (1000 - square1distance2FromOsc2) * .015
+      let lfo2Freq = (1000 - square1distance2FromOsc2) * .075
       this.props.changeLFO2Freq(lfo2Freq)
       
     }
@@ -2142,6 +2581,19 @@ class XYPad extends React.Component {
       this.setState({osc2tremoloRate: osc2tremoloRate})
       this.props.changeOSC2tremoloRate(osc2tremoloRate) 
     }
+
+    udpateOSC2delay2WetLevel(square6distance2FromOsc2) {
+      let osc2delay2WetLevel = (1000 - square6distance2FromOsc2) * .001
+      this.setState({osc2delay2WetLevel: osc2delay2WetLevel})
+      this.props.changeOSC2delay2WetLevel(osc2delay2WetLevel)
+    }
+
+    udpateOSC2delay2Time(square6distance2FromOsc2) {
+      let osc2delay2Time = (1000 - square6distance2FromOsc2)
+      this.setState({osc2delay2Time: osc2delay2Time})
+      this.props.changeOSC2delay2Time(osc2delay2Time)
+    }
+
     updateOSC2reverbBypass() {
       this.props.toggleOSC2reverbBypass(!this.props.osc2reverbBypass)
     }
@@ -2158,7 +2610,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC2pannerPan(square10distance2FromOsc2) {
-      let osc2pannerPan = 1 - (square10distance2FromOsc2 * .002)
+      let osc2pannerPan = (square10distance2FromOsc2 * .002) - 1 
       this.setState({osc2pannerPan: osc2pannerPan})
       this.props.changeOSC2pannerPan(osc2pannerPan)
     }
@@ -2206,14 +2658,17 @@ class XYPad extends React.Component {
 
 /////////OSC3 FUNCTIONS///////////////////////////
     updateFrequencyOSC3(posY) {
-      let osc3Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let osc3Freq = posY * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.setState({osc3Freq: osc3Freq})
       this.props.changeOSC3Freq(osc3Freq);
     }
 
 
     turnOnLFO3() {
-      this.props.turnOnLFO3(!this.props.isLFO3On);
+      if (this.state.isLFO3started) {
+        this.props.turnOnLFO3(!this.props.isLFO3On);
+      }
+      console.log(this.state.isLFO3started, 'lfo')
     }
 
     updateLFO3Type() {
@@ -2281,6 +2736,19 @@ class XYPad extends React.Component {
       this.props.changeOSC3tremoloRate(osc3tremoloRate)
     }
 
+    udpateOSC3delay2WetLevel(square6distance3FromOsc3) {
+      let osc3delay2WetLevel = (1000 - square6distance3FromOsc3) * .001
+      this.setState({osc3delay2WetLevel: osc3delay2WetLevel})
+      this.props.changeOSC3delay2WetLevel(osc3delay2WetLevel)
+    }
+
+    udpateOSC3delay2Time(square6distance3FromOsc3) {
+      let osc3delay2Time = (1000 - square6distance3FromOsc3)
+      this.setState({osc3delay2Time: osc3delay2Time})
+      this.props.changeOSC3delay2Time(osc3delay2Time)
+    }
+
+
     updateOSC3reverbBypass() {
       this.props.toggleOSC3reverbBypass(!this.props.osc3reverbBypass)
       
@@ -2298,7 +2766,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC3pannerPan(square10distance3FromOsc3) {
-      let osc3pannerPan = 1 - (1000 - square10distance3FromOsc3 * .002)
+      let osc3pannerPan = (square10distance3FromOsc3 * .002) - 1
       this.setState({osc3pannerPan: osc3pannerPan})
       this.props.changeOSC3pannerPan(osc3pannerPan)
     }
@@ -2347,7 +2815,7 @@ class XYPad extends React.Component {
 /////////OSC4 FUNCTIONS/////////////
     updateFrequencyOSC4(posY) {
     
-      let osc4Freq = this.state.circle4Pos[1] * Math.floor(Math.random() * (7) - 1 + 1) + 20
+      let osc4Freq = this.state.circle4Pos[1] * Math.floor(Math.random() * (7) - 1 + 1) + 1
       this.props.changeOSC4Freq(osc4Freq);
     }
 
@@ -2422,6 +2890,19 @@ class XYPad extends React.Component {
       this.props.changeOSC4tremoloRate(osc4tremoloRate)
     }
 
+    udpateOSC4delay2WetLevel(square6distance4FromOsc4) {
+      let osc4delay2WetLevel = (1000 - square6distance4FromOsc4) * .001
+      this.setState({osc4delay2WetLevel: osc4delay2WetLevel})
+      this.props.changeOSC4delay2WetLevel(osc4delay2WetLevel)
+    }
+
+    udpateOSC4delay2Time(square6distance4FromOsc4) {
+      let osc4delay2Time = (1000 - square6distance4FromOsc4)
+      this.setState({osc4delay2Time: osc4delay2Time})
+      this.props.changeOSC4delay2Time(osc4delay2Time)
+    }
+
+
     updateOSC4reverbBypass() {
       this.props.toggleOSC4reverbBypass(!this.props.osc4reverbBypass)
       
@@ -2439,7 +2920,7 @@ class XYPad extends React.Component {
     }
 
     updateOSC4pannerPan(square10distance4FromOsc4) {
-      let osc4pannerPan = 1 - (square10distance4FromOsc4 * .002)
+      let osc4pannerPan = (square10distance4FromOsc4 * .002) - 1 
       this.setState({osc4pannerPan: osc4pannerPan})
       this.props.changeOSC4pannerPan(osc4pannerPan)
     }
@@ -2486,13 +2967,14 @@ class XYPad extends React.Component {
 
 
     render() {
-        // console.log(this.props.osc4overdriveDrive)
-        // console.log(this.state.osc4overdriveDrive)
-        // console.log(this.state.lfoType)
-        console.log(this.props.lfo4Freq)
-        // console.log(this.props.lfo2Type)
-        // console.log(this.state.lfo2Freq)
-        // console.log(this.state.lfo2Type)
+        // console.log(this.props.osc1delay2Time, 'delay')
+        // console.log(this.state.osc1delay2Time, 'delay')
+        // // console.log(this.state.lfoType)
+        // // console.log(this.props.osc1wahBaseFrequency)
+        // // console.log(this.state.osc1wahBaseFrequency)
+        // console.log(this.props.lfo2Type, 'delay')
+        // // console.log(this.state.lfo2Freq)
+        // console.log(this.state.lfo2Type, 'delay')
         // console.log(this.props.lfo3Freq)
         // console.log(this.props.lfo3Type)
         // console.log(this.state.lfo3Freq)
@@ -2508,7 +2990,8 @@ class XYPad extends React.Component {
         return (
           
           <div>
-          <canvas ref="canvas" width={ width } height={ height }></canvas>   
+            <canvas ref="canvas" width={ width } height={ height }></canvas> 
+             
           </div>        
         )
     }
@@ -2535,6 +3018,10 @@ function mapStateToProps(state){
 
 		osc1tremoloBypass: state.osc1tremoloBypass,
 		osc1tremoloRate: state.osc1tremoloRate,
+
+    osc1delay2WetLevel: state.osc1delay2WetLevel,
+    osc1delay2Time: state.osc1delay2Time,
+    osc1delay2Bypass: state.osc1delay2Bypass,
 
 		osc1reverbBypass: state.osc1reverbBypass,
 		osc1reverbLevel: state.osc1reverbLevel,
@@ -2570,6 +3057,9 @@ function mapStateToProps(state){
 		osc2tremoloBypass: state.osc2tremoloBypass,
 		osc2tremoloRate: state.osc2tremoloRate,
 
+    osc2delay2WetLevel: state.osc2delay2WetLevel,
+    osc2delay2Time: state.osc2delay2Time,
+
 		osc2reverbBypass: state.osc2reverbBypass,
 		osc2reverbLevel: state.osc2reverbLevel,
 
@@ -2604,6 +3094,9 @@ function mapStateToProps(state){
 		osc3tremoloBypass: state.osc3tremoloBypass,
 		osc3tremoloRate: state.osc3tremoloRate,
 
+    osc3delay2WetLevel: state.osc3delay2WetLevel,
+    osc3delay2Time: state.osc3delay2Time,
+
 		osc3reverbBypass: state.osc3reverbBypass,
 		osc3reverbLevel: state.osc3reverbLevel,
 
@@ -2614,6 +3107,8 @@ function mapStateToProps(state){
 		osc3phaserRate: state.osc3phaserRate,
 		osc3phaserDepth: state.osc3phaserDepth,
 		osc3phaserFeedback: state.osc3phaserFeedback,
+
+
 
 		osc3overdriveBypass: state.osc3overdriveBypass,
 		osc3overdriveDrive: state.osc3overdriveDrive,
@@ -2637,6 +3132,9 @@ function mapStateToProps(state){
 
 		osc4tremoloBypass: state.osc4tremoloBypass,
 		osc4tremoloRate: state.osc4tremoloRate,
+
+    osc4delay2WetLevel: state.osc4delay2WetLevel,
+    osc4delay2Time: state.osc4delay2Time,
 
 		osc4reverbBypass: state.osc4reverbBypass,
 		osc4reverbLevel: state.osc4reverbLevel,
@@ -2677,6 +3175,10 @@ function mapDispatchToProps(dispatch){
     toggleOSC1tremoloBypass: () => dispatch(toggleOSC1tremoloBypass()),
     changeOSC1tremoloRate: (value) => dispatch(changeOSC1tremoloRate(value)),
 
+    changeOSC1delay2WetLevel: (value) => dispatch(changeOSC1delay2WetLevel(value)),
+    changeOSC1delay2Time: (value) => dispatch(changeOSC1delay2Time(value)),
+    toggleOSC1delay2Bypass: () => dispatch(toggleOSC1delay2Bypass()),
+
     toggleOSC1reverbBypass: () => dispatch(toggleOSC1reverbBypass()),
     changeOSC1reverbLevel: (value) => dispatch(changeOSC1reverbLevel(value)),
 
@@ -2710,6 +3212,9 @@ function mapDispatchToProps(dispatch){
 
     toggleOSC2tremoloBypass: () => dispatch(toggleOSC2tremoloBypass()),
     changeOSC2tremoloRate: (value) => dispatch(changeOSC2tremoloRate(value)),
+
+    changeOSC2delay2WetLevel: (value) => dispatch(changeOSC2delay2WetLevel(value)),
+    changeOSC2delay2Time: (value) => dispatch(changeOSC2delay2Time(value)),
 
     toggleOSC2reverbBypass: () => dispatch(toggleOSC2reverbBypass()),
     changeOSC2reverbLevel: (value) => dispatch(changeOSC2reverbLevel(value)),
@@ -2747,6 +3252,9 @@ function mapDispatchToProps(dispatch){
     toggleOSC3tremoloBypass: () => dispatch(toggleOSC3tremoloBypass()),
     changeOSC3tremoloRate: (value) => dispatch(changeOSC3tremoloRate(value)),
 
+    changeOSC3delay2WetLevel: (value) => dispatch(changeOSC3delay2WetLevel(value)),
+    changeOSC3delay2Time: (value) => dispatch(changeOSC3delay2Time(value)),
+
     toggleOSC3reverbBypass: () => dispatch(toggleOSC3reverbBypass()),
     changeOSC3reverbLevel: (value) => dispatch(changeOSC3reverbLevel(value)),
 
@@ -2780,6 +3288,9 @@ function mapDispatchToProps(dispatch){
 
     toggleOSC4tremoloBypass: () => dispatch(toggleOSC4tremoloBypass()),
     changeOSC4tremoloRate: (value) => dispatch(changeOSC4tremoloRate(value)),
+
+    changeOSC4delay2WetLevel: (value) => dispatch(changeOSC4delay2WetLevel(value)),
+    changeOSC4delay2Time: (value) => dispatch(changeOSC4delay2Time(value)),
 
     toggleOSC4reverbBypass: () => dispatch(toggleOSC4reverbBypass()),
     changeOSC4reverbLevel: (value) => dispatch(changeOSC4reverbLevel(value)),

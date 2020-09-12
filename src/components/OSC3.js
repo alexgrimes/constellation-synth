@@ -7,7 +7,7 @@ class OSC3 extends React.Component {
   	super(props);
     this.state = {
       context: [],
-      isStarted: false,
+      isStarted: false
     };
   }
 
@@ -34,7 +34,7 @@ class OSC3 extends React.Component {
 		// tuna context
 		var tuna = new Tuna(this.state.context);
 
-		// setting effects state
+		// initializing effects
 		this.osc = new OscillatorNode(this.state.context);
 		this.chorus = new tuna.Chorus(this.state.context)
 		this.lfo = new OscillatorNode(this.state.context);
@@ -42,37 +42,38 @@ class OSC3 extends React.Component {
 		this.filter2 = new tuna.Filter(this.state.context);
 		this.tremolo = new tuna.Tremolo(this.state.context);
 		this.reverb = new tuna.Convolver(this.state.context);
-		this.cabinet = new tuna.Cabinet(this.state.context);
 		this.panner = new tuna.Panner(this.state.context);
 		this.phaser = new tuna.Phaser(this.state.context);
-		this.chorus = new tuna.Chorus(this.state.context);
 		this.overdrive = new tuna.Overdrive(this.state.context);
-		this.overdrive2 = new tuna.Overdrive(this.state.context);
-		this.moogFilter = new tuna.MoogFilter(this.state.context);
-		this.delay = new tuna.PingPongDelay(this.state.context)
-		this.wah = new tuna.WahWah(this.state.context)
-		this.filter2.filterType = "bandpass"
-		//
+		this.delay2 = new tuna.Delay(this.state.context);
+
+		// tweaking
+		this.filter2.filterType = "bandpass";
+		this.filter.gain = 3;
+		this.delay2.feedback.value = 0.75;
+		this.phaser.gain = 0.666;
+
+		// gain vars
 		var output = this.state.context.createGain();
 		var masterGain = this.state.context.createGain();
 		var oscGain = this.state.context.createGain();
 		var lfoGain = this.state.context.createGain();
 
+
+		// connecting 
 		this.osc.connect(oscGain);
 		this.lfo.connect(lfoGain);
 		lfoGain.connect(oscGain.gain)
 		oscGain.connect(this.filter)
 		this.filter.connect(this.tremolo);
-		this.tremolo.connect(this.reverb);
-		this.reverb.connect(this.filter2)
-		this.filter2.connect(this.chorus)
-		this.chorus.connect(this.panner);
-		this.panner.connect(this.wah);
-		this.wah.connect(this.phaser);
-		this.phaser.connect(this.delay)
-		this.delay.connect(this.overdrive)
+		this.tremolo.connect(this.chorus);
+		this.chorus.connect(this.reverb);
+		this.reverb.connect(this.panner);
+		this.panner.connect(this.delay2)
+		this.delay2.connect(this.phaser)
+		this.phaser.connect(this.filter2)
+		this.filter2.connect(this.overdrive)
 		this.overdrive.connect(output)
-		
 	
 		output.connect(output.gain);
 		output.connect(masterGain);
@@ -96,31 +97,48 @@ class OSC3 extends React.Component {
     }
   }
 
+
+	///OSC FUNC/////////
+
   OSC3TypeChanged(typeName) {
-   
-	if (typeof this.osc !== "undefined") {
-	  this.osc.type = typeName;
-	}
+		if (typeof this.osc !== "undefined") {
+			this.osc.type = typeName;
+		}
   }
 
   OSC3FrequencyChanged(value) {
-   
     if (typeof this.osc !== "undefined") {
-	  this.osc.frequency.setValueAtTime(value, this.state.context.currentTime);
-  }
+	  	this.osc.frequency.setTargetAtTime(value, this.state.context.currentTime, 0.175);
+  	}
   }
 
+	///LFO FUNC/////////
+
 	lfo3TypeChanged(typeName) {
-	if (typeof this.osc !== "undefined") {
-	  this.lfo.type = typeName;
-	}
+		if (typeof this.lfo !== "undefined") {
+			this.lfo.type = typeName;
+			console.log(this.lfo.type, this.lfo.frequency, 'lfo')
+		}
+		
   }
 
   lfo3FrequencyChanged(value) {
-	if (typeof this.osc !== "undefined") {
-	  this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
-	}
+		if (typeof this.lfo !== "undefined") {
+			this.lfo.frequency.setTargetAtTime(value, this.state.context.currentTime, 12);
+		}
   }
+
+	OSC3lfoBypassChanged() {
+		if (typeof this.lfo !== "undefined") {
+		if (this.props.isLFOOn == false){
+			console.log('LFO SHOULD TURN OFF HERE !!!!!!!!!!!!!!')
+			this.lfo.stop(0);
+		}
+		console.log(this.lfo.frequency.value, this.lfo.bypass, 'this lfo 3 freq', 'bypass')
+		console.log(this.props.lfoFreq, 'props lfo 3 freq')
+		console.log(this.props.isLFOOn, this.lfo, 'LFO 3 BYPASS !!!!!!!!!!!!')
+		}	
+	}
 
 	///filter FUNC/////////////
   OSC3filterDepthChanged(value) {
@@ -129,12 +147,6 @@ class OSC3 extends React.Component {
 		} 
 		console.log(this.filter)
   }
-
-  // lfoFrequencyChanged(value) {
-	// if (typeof this.osc !== "undefined") {
-	//   this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
-	// }
-  // }
 
 	////TREMOLO FUNC/////
 	OSC3tremoloRateChanged(value) {
@@ -145,11 +157,23 @@ class OSC3 extends React.Component {
 		console.log(this.tremolo)
 	}
 
+	OSC3tremoloBypassChanged() {
+		if (typeof this.tremolo !== "undefined") {
+			if (this.props.osc3tremoloBypass) {
+				this.tremolo.bypass = true;
+			} else {
+				this.tremolo.bypass = false;
+			}
+			console.log(this.props.osc3tremoloBypass)
+			console.log(this.tremolo.bypass, 'tremolo BYPASS !!!!!!!!!!!')
+		}
+	}
+
 
 /////////FILTER2 FUNC////////
 	OSC3filter2DepthChanged(value) {
 		if (typeof this.filter2 !== "undefined") {
-			this.filter2.frequency.setTargetAtTime(value, this.state.context.currentTime, 30);
+			this.filter2.frequency.setTargetAtTime(value, this.state.context.currentTime, 12);
 		} 
 		console.log(this.filter2)
 	}
@@ -162,6 +186,34 @@ class OSC3 extends React.Component {
 		console.log(this.chorus.depth)
 		} 
 		console.log(this.chorus)
+	}
+
+	OSC3chorusBypassChanged() {
+		if (typeof this.chorus !== "undefined") {
+			if (this.props.osc3chorusBypass) {
+				this.chorus.bypass = true;
+			} else {
+				this.chorus.bypass = false;
+			}
+			console.log(this.props.osc3chorusBypass)
+			console.log(this.chorus.bypass, 'CHORUS BYPASS !!!!!!!!!!!')
+		}
+	}
+
+		///////DELAY///////
+	OSC3delay2WetLevelChanged(value) {
+		if (typeof this.delay2 !== "undefined") {
+		this.delay2.wetLevel.value = value;
+		console.log(this.delay2.wetLevel.value)
+		}
+	}
+
+	OSC3delay2TimeChanged(value) {
+		if (typeof this.delay2 !== "undefined") {
+		this.delay2.delayTime = value;
+		console.log(this.delay2)
+		console.log(this.props.osc3delay2Time)
+		}
 	}
 
 	/////REVERB///////
@@ -205,6 +257,18 @@ class OSC3 extends React.Component {
 		console.log(this.phaser)
 	}
 
+	OSC3phaserBypassChanged() {
+		if (typeof this.phaser !== "undefined") {
+			if (this.props.osc3phaserBypass) {
+				this.phaser.bypass = true;
+			} else {
+				this.phaser.bypass = false;
+			}
+			console.log(this.props.osc3phaserBypass)
+			console.log(this.phaser.bypass, 'PHASER BYPASS!!!!!!!!!!!!!!', this.phaser)
+		}
+	}
+
 	///OVERDRIVE////
 
 	OSC3overdriveDriveChanged(value) {
@@ -230,36 +294,36 @@ class OSC3 extends React.Component {
 		console.log(this.props.lfo3Type)
 		this.lfo3FrequencyChanged(this.props.lfo3Freq)
 		this.lfo3TypeChanged(this.props.lfo3Type)
+		// this.OSC3lfoBypassChanged();
+
     this.turnOnOSC3(this.props.isOSC3On);
     this.OSC3TypeChanged(this.props.osc3Type);
     this.OSC3FrequencyChanged(this.props.osc3Freq);
+		
 
-			// this.OSC1chorusBypassChanged(this.props.osc1chorusBypass);
+		this.OSC3chorusBypassChanged(this.props.osc3chorusBypass);
 		this.OSC3chorusDepthChanged(this.props.osc3chorusDepth);
 
-		// // this.OSC3filterBypassChanged(this.props.OSC3filterBypass);
 		this.OSC3filterDepthChanged(this.props.osc3filterDepth);
 
-		// // this.OSC3filter2BypassChanged(this.props.OSC3filter2Bypass);
 		this.OSC3filter2DepthChanged(this.props.osc3filter2Depth);
 
-		// // this.OSC3tremoloBypassChanged(this.props.OSC3tremoloBypass);
+		this.OSC3tremoloBypassChanged(this.props.OSC3tremoloBypass);
 		this.OSC3tremoloRateChanged(this.props.osc3tremoloRate);
 
-		// this.OSC3reverbBypassChanged(this.props.OSC3reverbBypass);
+		this.OSC3delay2WetLevelChanged(this.props.osc3delay2WetLevel);
+		this.OSC3delay2TimeChanged(this.props.osc3delay2Time)
+
 		this.OSC3reverbLevelChanged(this.props.osc3reverbLevel)
 
-		// this.OSC3pannerBypassChanged(this.props.OSC3pannerBypass);
 		this.OSC3pannerPanChanged(this.props.osc3pannerPan)
 
-		// this.OSC3phaserBypassChanged(this.props.OSC3phaserBypass);
+		this.OSC3phaserBypassChanged(this.props.OSC3phaserBypass);
 		this.OSC3phaserDepthChanged(this.props.osc3phaserDepth)
 		this.OSC3phaserRateChanged(this.props.osc3phaserRate)
 		this.OSC3phaserFeedbackChanged(this.props.osc3phaserFeedback)
 
-		// this.OSC3overdriveBypassChanged(this.props.OSC3overdriveBypass);
 		this.OSC3overdriveDriveChanged(this.props.osc3overdriveDrive)
-		// this.OSC1overdriveGainChanged(this.props.osc1overdriveGain)
 
     return (
 		<div> 
@@ -287,6 +351,9 @@ function mapStateToProps(state){
 
 		osc3tremoloBypass: state.osc3tremoloBypass,
 		osc3tremoloRate: state.osc3tremoloRate,
+
+		osc3delay2WetLevel: state.osc3delay2WetLevel,
+		osc3delay2Time: state.osc3delay2Time,
 
 		osc3reverbBypass: state.osc3reverbBypass,
 		osc3reverbLevel: state.osc3reverbLevel,

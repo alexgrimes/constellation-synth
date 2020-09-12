@@ -85,6 +85,22 @@ import {
 
   TOGGLE_OSC4TREMOLO_BYPASS,
   CHANGE_OSC4TREMOLO_RATE,
+  
+  TOGGLE_OSC1DELAY2_BYPASS,
+  CHANGE_OSC1DELAY2_WETLEVEL,
+  CHANGE_OSC1DELAY2_TIME,
+
+  TOGGLE_OSC2DELAY2_BYPASS,
+  CHANGE_OSC2DELAY2_WETLEVEL,
+  CHANGE_OSC2DELAY2_TIME,
+
+  TOGGLE_OSC3DELAY2_BYPASS,
+  CHANGE_OSC3DELAY2_WETLEVEL,
+  CHANGE_OSC3DELAY2_TIME,
+
+  TOGGLE_OSC4DELAY2_BYPASS,
+  CHANGE_OSC4DELAY2_WETLEVEL,
+  CHANGE_OSC4DELAY2_TIME,
 
   TOGGLE_OSC1REVERB_BYPASS,
   CHANGE_OSC1REVERB_LEVEL,
@@ -246,6 +262,22 @@ const initialState = {
   osc4tremoloIntensity: 0.5,
   osc4tremoloRate: 1,
 
+  osc1delay2Bypass: true,
+  osc1delay2WetLevel: 0.5,
+  osc1delay2Time: 0.1,
+
+  osc2delay2Bypass: true,
+  osc2delay2WetLevel: 0.5,
+  osc2delay2Time: 100,
+
+  osc3delay2Bypass: true,
+  osc3delay2WetLevel: 0.5,
+  osc3delay2Time: 100,
+
+  osc4delay2Bypass: true,
+  osc4delay2WetLevel: 0.5,
+  osc4delay2Time: 100,
+
   osc1reverbBypass: true,
   osc1reverbLevel: 0.5,
 
@@ -259,16 +291,16 @@ const initialState = {
   osc4reverbLevel: 0.5,
 
   osc1pannerBypass: true,
-  osc1pannerPan: -0.5,
+  osc1pannerPan: 0,
 
   osc2pannerBypass: true,
-  osc2pannerPan: -0.5,
+  osc2pannerPan: 0,
 
   osc3pannerBypass: true,
-  osc3pannerPan: -0.5,
+  osc3pannerPan: 0,
 
   osc4pannerBypass: true,
-  osc4pannerPan: -0.5,
+  osc4pannerPan: 0,
 
   osc1phaserBypass: true,
   osc1phaserRate: 4,
@@ -292,7 +324,7 @@ const initialState = {
 
   osc1overdriveBypass: true,
   osc1overdriveDrive: 0.5,
-  osc1overdriveGain: -5,
+  osc1overdriveGain: -23,
 
   osc2overdriveBypass: true,
   osc2overdriveDrive: 0.5,
@@ -306,7 +338,7 @@ const initialState = {
   osc4overdriveDrive: 0.5,
   osc4overdriveGain: -23,
 
-  masterGainValue: 0.066,
+  masterGainValue: 0.04,
 };
 
 function rootReducer(state = initialState, action){
@@ -612,6 +644,73 @@ function rootReducer(state = initialState, action){
       return Object.assign({}, state, {
         osc4tremoloRate: action.rate
       })
+
+    case TOGGLE_OSC1DELAY2_BYPASS:
+    
+    return Object.assign({}, state, {
+      osc1delay2Bypass: !state.osc1delay2Bypass
+    })
+
+    case CHANGE_OSC1DELAY2_WETLEVEL:
+      return Object.assign({}, state, {
+        osc1delay2WetLevel: action.wetLevel
+      }) 
+
+    case CHANGE_OSC1DELAY2_TIME:
+      return Object.assign({}, state, {
+        osc1delay2Time: action.time
+      })
+
+    case TOGGLE_OSC2DELAY2_BYPASS:
+    
+      return Object.assign({}, state, {
+        osc2delay2Bypass: !state.osc2delay2Bypass
+    })
+
+    case CHANGE_OSC2DELAY2_WETLEVEL:
+      return Object.assign({}, state, {
+        osc2delay2WetLevel: action.wetLevel
+      }) 
+
+    case CHANGE_OSC2DELAY2_TIME:
+      return Object.assign({}, state, {
+        osc2delay2Time: action.time
+      }) 
+
+    case TOGGLE_OSC3DELAY2_BYPASS:
+    
+      return Object.assign({}, state, {
+        osc3delay2Bypass: !state.osc3delay2Bypass
+    })
+
+    case CHANGE_OSC3DELAY2_WETLEVEL:
+      return Object.assign({}, state, {
+        osc3delay2WetLevel: action.wetLevel
+      }) 
+
+    case CHANGE_OSC3DELAY2_TIME:
+      return Object.assign({}, state, {
+        osc3delay2Time: action.time
+      })
+
+    case TOGGLE_OSC4DELAY2_BYPASS:
+    
+      return Object.assign({}, state, {
+        osc4delay2Bypass: !state.osc4delay2Bypass
+    })
+
+    case CHANGE_OSC4DELAY2_WETLEVEL:
+      return Object.assign({}, state, {
+        osc4delay2WetLevel: action.wetLevel
+      }) 
+
+    case CHANGE_OSC4DELAY2_TIME:
+      return Object.assign({}, state, {
+        osc4delay2Time: action.time
+      })
+
+
+
 
     case TOGGLE_OSC1REVERB_BYPASS:
       

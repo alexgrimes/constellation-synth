@@ -41,14 +41,20 @@ class OSC2 extends React.Component {
 		
 		this.filter = new tuna.Filter(this.state.context);
 		this.filter2 = new tuna.Filter(this.state.context);
+		this.filter3 = new tuna.Filter(this.state.context)
 		this.tremolo = new tuna.Tremolo(this.state.context);
 		this.reverb = new tuna.Convolver(this.state.context);
 		this.cabinet = new tuna.Cabinet(this.state.context);
 		this.panner = new tuna.Panner(this.state.context);
 		this.phaser = new tuna.Phaser(this.state.context);
 		this.overdrive = new tuna.Overdrive(this.state.context);
-		this.delay = new tuna.PingPongDelay(this.state.context)
+		this.delay = new tuna.PingPongDelay(this.state.context);
+		this.delay2 = new tuna.Delay(this.state.context)
+		this.wah = new tuna.WahWah
 		this.filter2.filterType = "bandpass"
+		this.filter.gain = 3;
+
+		this.delay2.feedback.value = 0.75;
 
 
 		//
@@ -67,10 +73,17 @@ class OSC2 extends React.Component {
 		this.tremolo.connect(this.chorus);
 		this.chorus.connect(this.reverb);
 		this.reverb.connect(this.panner);
-		this.panner.connect(this.filter2);
-		this.filter2.connect(this.phaser)
-		this.phaser.connect(this.delay);
-		this.delay.connect(this.overdrive)
+		this.panner.connect(this.delay2);
+		this.delay2.connect(this.phaser)
+		this.phaser.connect(this.overdrive);
+		// lfoGain.connect(this.phaser)
+		// lfoGain.connect(this.overdrive.drive)
+		// lfoGain.connect(this.filter.gain)
+		// lfoGain.connect(this.tremolo)
+		// lfoGain.connect(this.panner.pan)
+		// lfoGain.connect(this.filter2.gain)
+		// lfoGain.connect(this.chorus)
+		// lfoGain.connect(this.delay.wetLevel)
 		this.overdrive.connect(output)
 		
 
@@ -108,7 +121,7 @@ class OSC2 extends React.Component {
   OSC2FrequencyChanged(value) {
    
     if (typeof this.osc !== "undefined") {
-	  this.osc.frequency.setValueAtTime(value, this.state.context.currentTime);
+	  this.osc.frequency.setTargetAtTime(value, this.state.context.currentTime, 0.01);
   }
   }
 
@@ -120,7 +133,7 @@ class OSC2 extends React.Component {
 
   lfo2FrequencyChanged(value) {
 	if (typeof this.osc !== "undefined") {
-	  this.lfo.frequency.setValueAtTime(value, this.state.context.currentTime);
+	  this.lfo.frequency.setTargetAtTime(value, this.state.context.currentTime, 12);
 	}
   }
 
@@ -164,6 +177,22 @@ class OSC2 extends React.Component {
 		console.log(this.chorus.depth)
 		} 
 		console.log(this.chorus)
+	}
+
+	////////Delay////////
+	OSC2delay2WetLevelChanged(value) {
+		if (typeof this.delay2 !== "undefined") {
+		this.delay2.wetLevel.value = value;
+		console.log(this.delay2.wetLevel.value)
+		}
+	}
+
+	OSC2delay2TimeChanged(value) {
+		if (typeof this.delay2 !== "undefined") {
+		this.delay2.time = value;
+		console.log(this.delay2.time)
+		console.log(this.props.osc2delay2Time)
+		}
 	}
 
 	/////REVERB///////
@@ -256,6 +285,9 @@ class OSC2 extends React.Component {
 		// // this.OSC2tremoloBypassChanged(this.props.OSC2tremoloBypass);
 		this.OSC2tremoloRateChanged(this.props.osc2tremoloRate);
 
+		this.OSC2delay2WetLevelChanged(this.props.osc2delay2WetLevel);
+		this.OSC2delay2TimeChanged(this.props.osc2delay2Time)
+
 		// // this.OSC2reverbBypassChanged(this.props.OSC2reverbBypass);
 		this.OSC2reverbLevelChanged(this.props.osc2reverbLevel)
 
@@ -302,6 +334,11 @@ function mapStateToProps(state){
 
 		osc2tremoloBypass: state.osc2tremoloBypass,
 		osc2tremoloRate: state.osc2tremoloRate,
+
+		osc2delay2WetLevel: state.osc2delay2WetLevel,
+		osc2delay2Time: state.osc2delay2Time,
+
+		osc2wahBaseFrequency: state.osc2wahBaseFrequency,
 
 		osc2reverbBypass: state.osc2reverbBypass,
 		osc2reverbLevel: state.osc2reverbLevel,

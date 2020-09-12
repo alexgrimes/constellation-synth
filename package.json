@@ -54,7 +54,7 @@
     "webpack-merge": "^5.1.2"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.html",
+  "main": "/src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexgrimes/synth-builder.git"

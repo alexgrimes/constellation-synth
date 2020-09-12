@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/constellation-synth/static/css/main.64544bd7.chunk.css",
+    "main.js": "/constellation-synth/static/js/main.52e8b0a4.chunk.js",
+    "main.js.map": "/constellation-synth/static/js/main.52e8b0a4.chunk.js.map",
+    "runtime-main.js": "/constellation-synth/static/js/runtime-main.43c9add3.js",
+    "runtime-main.js.map": "/constellation-synth/static/js/runtime-main.43c9add3.js.map",
+    "static/css/2.f3cffc9e.chunk.css": "/constellation-synth/static/css/2.f3cffc9e.chunk.css",
+    "static/js/2.f58f921c.chunk.js": "/constellation-synth/static/js/2.f58f921c.chunk.js",
+    "static/js/2.f58f921c.chunk.js.map": "/constellation-synth/static/js/2.f58f921c.chunk.js.map",
+    "index.html": "/constellation-synth/index.html",
+    "precache-manifest.9eaed679a47318a3b669bb9486128962.js": "/constellation-synth/precache-manifest.9eaed679a47318a3b669bb9486128962.js",
+    "service-worker.js": "/constellation-synth/service-worker.js",
+    "static/css/2.f3cffc9e.chunk.css.map": "/constellation-synth/static/css/2.f3cffc9e.chunk.css.map",
+    "static/css/main.64544bd7.chunk.css.map": "/constellation-synth/static/css/main.64544bd7.chunk.css.map",
+    "static/js/2.f58f921c.chunk.js.LICENSE.txt": "/constellation-synth/static/js/2.f58f921c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.43c9add3.js",
+    "static/css/2.f3cffc9e.chunk.css",
+    "static/js/2.f58f921c.chunk.js",
+    "static/css/main.64544bd7.chunk.css",
+    "static/js/main.52e8b0a4.chunk.js"
+  ]
+}

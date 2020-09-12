@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changeOSC4Type } from './actions';
-// import '../index.css';
+import '../index.css';
 
 
 class WaveformOSC4 extends React.Component {

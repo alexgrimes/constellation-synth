@@ -1,8 +1,8 @@
 import React from 'react';
-import '../index.css';
 import store from './store'
 import { turnOnOSC2 } from './actions'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import '../index.css';
 
 class OSC2onButton extends React.Component {
 

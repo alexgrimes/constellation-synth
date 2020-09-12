@@ -157,7 +157,7 @@ import {
 
   
 } from './actions';
-
+import '../index.css'
 
 
 class XYPad extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changeOSCType } from './actions';
-// import '../index.css';
+import '../index.css';
 
 class WaveformOSC extends React.Component {
   constructor(props) {
@@ -11,7 +11,6 @@ class WaveformOSC extends React.Component {
     this.waveformClicked = this.waveformClicked.bind(this);
     this.state = {
       dropdownOpen: false,
-      // isStarted: false
     };
   }
 

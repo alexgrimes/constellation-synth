@@ -1,8 +1,8 @@
 import React from 'react';
+import store from './store';
+import { playSynth } from './actions';
+import { connect } from 'react-redux';
 import '../index.css';
-import store from './store'
-import { playSynth } from './actions'
-import { connect } from 'react-redux'
 
 class PlaySynthButton extends React.Component {
 

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b2b9cc36dede5bd3fc26d638cfd0d574",
+    "revision": "6ba1a28dbfdb3b69ec2e7afc34208dd4",
     "url": "/constellation-synth/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/constellation-synth/static/css/2.f3cffc9e.chunk.css"
   },
   {
-    "revision": "6698126f1a6522a72f33",
-    "url": "/constellation-synth/static/css/main.105fd01e.chunk.css"
+    "revision": "2c02c68b8ab680d5e38d",
+    "url": "/constellation-synth/static/css/main.efdb3710.chunk.css"
   },
   {
     "revision": "628bb7c77e676069e9a3",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/constellation-synth/static/js/2.1c63ce4b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6698126f1a6522a72f33",
+    "revision": "2c02c68b8ab680d5e38d",
     "url": "/constellation-synth/static/js/main.497c06ee.chunk.js"
   },
   {

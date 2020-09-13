@@ -295,7 +295,7 @@ class SynthEngine extends React.Component {
 	
 		this.lfoFrequencyChanged(this.props.lfoFreq)
 		this.lfoTypeChanged(this.props.lfoType)
-		this.OSC1lfoBypassChanged();
+		// this.OSC1lfoBypassChanged();
 
   	this.playSound(this.props.isSynthPlaying);
   	this.oscTypeChanged(this.props.oscType);

@@ -2325,7 +2325,7 @@ class XYPad extends React.Component {
     updateLFOFreq(square1distance1FromOsc1) {
       
       
-      let lfoFreq = (square1distance1FromOsc1 * 0.015) * Math.floor(Math.random() * (2) - 1 + 1) + 1
+      let lfoFreq = (1000 - square1distance1FromOsc1) * .015
       this.setState({lfoFreq: lfoFreq})
       this.props.changeLFOFreq(lfoFreq)
 

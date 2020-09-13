@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/constellation-synth/precache-manifest.4041156a0db9b8b33784fd9230c8a052.js"
+  "/constellation-synth/precache-manifest.f2ca6c9b3668e34c19ce9b01e43ef919.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -124,7 +124,7 @@ class OSC3 extends React.Component {
 
   lfo3FrequencyChanged(value) {
 		if (typeof this.lfo !== "undefined") {
-			this.lfo.frequency.setTargetAtTime(value, this.state.context.currentTime, 12);
+			this.lfo.frequency.value = value;
 		}
   }
 

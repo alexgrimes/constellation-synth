@@ -682,7 +682,7 @@ class XYPad extends React.Component {
         this.ctx.fillRect(0,0, this.props.width, this.props.height);
         
         this.updateFrequencyOSC(this.props.oscFreq);
-        this.updateLFOFreq(this.props.lfoFreq);
+        // this.updateLFOFreq(this.props.lfoFreq);
 
         // this.updateOSC1chorusBypass();
         // this.updateOSC1chorusDepth(this.props.osc1chorusDepth);
@@ -2330,7 +2330,7 @@ class XYPad extends React.Component {
       this.props.changeLFOFreq(lfoFreq)
 
   
-      console.log(this.props.lfoFreq, 'lfofreq')
+      console.log(this.props.lfoFreq, 'lfo freq')
       //Math.floor((square1distanceFromOsc1 * .002) * Math.floor(Math.random() * (12) - 1 + 1) + 1)
       
     }

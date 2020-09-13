@@ -131,17 +131,17 @@ class SynthEngine extends React.Component {
 	
   }
 
-	// OSC1lfoBypassChanged() {
-	// 	if (typeof this.lfo !== "undefined") {
-	// 	if (this.props.isLFOOn == false){
-	// 		console.log('LFO SHOULD TURN OFF HERE !!!!!!!!!!!!!!')
-	// 		this.lfo.stop(0);
-	// 	}
-	// 	console.log(this.lfo.frequency.value, 'this lfo freq', 'bypass')
-	// 	console.log(this.props.lfoFreq, 'props lfo freq')
-	// 	console.log(this.props.isLFOOn, this.lfo, 'LFO BYPASS !!!!!!!!!!!!')
-	// 	}	
-	// }
+	OSC1lfoBypassChanged() {
+		if (typeof this.lfo !== "undefined") {
+		if (this.props.isLFOOn == false){
+			console.log('LFO SHOULD TURN OFF HERE !!!!!!!!!!!!!!')
+			this.lfo.stop(0);
+		}
+		console.log(this.lfo.frequency.value, 'this lfo freq', 'bypass')
+		console.log(this.props.lfoFreq, 'props lfo freq')
+		console.log(this.props.isLFOOn, this.lfo, 'LFO BYPASS !!!!!!!!!!!!')
+		}	
+	}
 
 
 
@@ -295,7 +295,7 @@ class SynthEngine extends React.Component {
 	
 		this.lfoFrequencyChanged(this.props.lfoFreq)
 		this.lfoTypeChanged(this.props.lfoType)
-		// this.OSC1lfoBypassChanged();
+		this.OSC1lfoBypassChanged();
 
   	this.playSound(this.props.isSynthPlaying);
   	this.oscTypeChanged(this.props.oscType);
